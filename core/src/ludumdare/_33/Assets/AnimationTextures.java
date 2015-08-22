@@ -1,4 +1,4 @@
-package ludumdare._33;
+package ludumdare._33.Assets;
 
 import java.util.ArrayList;
 
@@ -9,13 +9,14 @@ public class AnimationTextures {
 
 	static int catWidth = 23;
 	static int catHeight = 16;
-
+	
+	static int humanWidth = 10;
+	static int humanHeight = 10;
+	
 	static Texture catSitting;
 	public static ArrayList<TextureRegion> catSittingArray = new ArrayList<TextureRegion>();
-	
 	static Texture catRunning;
 	public static ArrayList<TextureRegion> catRunningArray = new ArrayList<TextureRegion>();
-	
 	public static ArrayList<TextureRegion> catJumpingArray = new ArrayList<TextureRegion>();
 
 	static {
@@ -35,7 +36,7 @@ public class AnimationTextures {
 		for (int i = 0; i < 6; i++) {
 			catRunningArray.add(new TextureRegion(catRunning, i * catWidth, 0, catWidth, catHeight));
 		}
-		
+
 		for (int i = 0; i < 2; i++) {
 			catJumpingArray.add(new TextureRegion(catRunning, i * catWidth, 0, catWidth, catHeight));
 		}

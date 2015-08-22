@@ -8,12 +8,12 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 
-import ludumdare._33.AnimationTextures;
+import ludumdare._33.Assets.AnimationTextures;
 
 public class Cat {
 	
-	int height = 80;
-	int width = 115;
+	public int height = 80;
+	public int width = 115;
 
 	Animation sittingAnimation;
 	Animation runningAnimation;
@@ -21,7 +21,7 @@ public class Cat {
 	
 	Animation currentAnimation;
 	float currentAnimationTime;
-	Vector2 position;
+	public Vector2 position;
 	
 	CatState previousState = CatState.Sitting;
 	CatState currentState = CatState.Sitting;
