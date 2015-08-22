@@ -3,15 +3,17 @@ package ludumdare._33.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 
+import ludumdare._33.sounds.Jukebox;
 import ludumdare._33.world.World;
 
 public class GameScreen extends AbstractScreen {
 
-	
 	World world;
+	Jukebox jukebox;
 
 	public GameScreen() {
 		world = new World();
+		jukebox.play();
 	}
 	
 	@Override
