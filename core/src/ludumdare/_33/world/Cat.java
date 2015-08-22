@@ -26,7 +26,6 @@ public class Cat {
 	boolean changedAnimation;
 
 	boolean facingRight;
-	boolean jumping;
 	float velocityY;
 	boolean onFloor;
 
@@ -63,9 +62,6 @@ public class Cat {
 		} else if (Gdx.input.isKeyPressed(Keys.A)) {
 			moveRight(-5);
 		} else {
-			if (!isStill) {
-				changedAnimation = true;
-			}
 			currentAnimation = sittingAnimation;
 		}
 
@@ -73,7 +69,6 @@ public class Cat {
 
 	public void jump() {
 		if (onFloor) {
-			jumping = true;
 			velocityY = 700;
 		}
 		if (isStill) {
@@ -109,7 +104,7 @@ public class Cat {
 	}
 
 	void initialiseAnimations() {
-		sittingAnimation = new Animation(0.1f, Assets.catSittingArray.toArray(new TextureRegion[Assets.catSittingArray.size()]));
+		sittingAnimation = new Animation(0.5f, Assets.catSittingArray.toArray(new TextureRegion[Assets.catSittingArray.size()]));
 		sittingAnimation.setPlayMode(PlayMode.LOOP);
 		runningAnimation = new Animation(0.1f, Assets.catRunningArray.toArray(new TextureRegion[Assets.catRunningArray.size()]));
 		runningAnimation.setPlayMode(PlayMode.LOOP);

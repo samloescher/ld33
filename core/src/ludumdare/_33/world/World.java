@@ -2,12 +2,14 @@ package ludumdare._33.world;
 
 import java.util.ArrayList;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class World {
 	
 	Cat cat;
 	ArrayList<Human> humans = new ArrayList<Human>();
+	Texture backdrop;
 	
 	public World(){
 		cat = new Cat();
