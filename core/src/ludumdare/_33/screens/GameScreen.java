@@ -9,11 +9,13 @@ import ludumdare._33.world.World;
 public class GameScreen extends AbstractScreen {
 
 	World world;
-	Jukebox jukebox;
+	Jukebox jukeBox;
 
 	public GameScreen() {
 		world = new World();
-		jukebox.play();
+		jukeBox = new Jukebox();
+		
+		jukeBox.play();
 	}
 	
 	@Override
@@ -34,7 +36,7 @@ public class GameScreen extends AbstractScreen {
 	
 	@Override
 	public void dispose() {
-		
+		jukeBox.dispose();
 	}
 
 }
