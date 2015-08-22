@@ -1,25 +1,21 @@
 package ludumdare._33;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
+
+import ludumdare._33.screens.AbstractScreen;
+import ludumdare._33.screens.MainMenuScreen;
 
 public class MainGame extends Game {
-	SpriteBatch batch;
-	BitmapFont font;
+	public static MainGame instance;
 
 	@Override
 	public void create() {
-		batch = new SpriteBatch();
-		font = new BitmapFont(Gdx.files.internal("fonts/I-pixel-u.fnt"),false);
-
-		this.setScreen(new MainMenuScreen(this));
+		instance = this;
+		setScreen(new MainMenuScreen());
 	}
 	
-	@Override
-	public void dispose() {
-		batch.dispose();
-		font.dispose();
+	public void dispose(){
+		AbstractScreen.batch.dispose();
+		AbstractScreen.font.dispose();
 	}
 }
