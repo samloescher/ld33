@@ -9,8 +9,8 @@ import ludumdare._33.MainGame;
 
 public abstract class AbstractScreen implements Screen {
 	
-	public static SpriteBatch batch = MainGame.batch;
-	public static BitmapFont font = MainGame.font;
+	public static SpriteBatch batch = MainGame.instance.batch;
+	public static BitmapFont font = MainGame.instance.font;
 	public static OrthographicCamera camera = new OrthographicCamera(800, 480);
 
 	@Override

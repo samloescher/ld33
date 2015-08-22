@@ -10,11 +10,13 @@ import ludumdare._33.screens.MainMenuScreen;
 public class MainGame extends Game {
 	public static MainGame instance;
 	
-	public static SpriteBatch batch = new SpriteBatch();
-	public static BitmapFont font = new BitmapFont(Gdx.files.internal("fonts/I-pixel-u.fnt"),false);
+	public SpriteBatch batch;
+	public BitmapFont font ;
 
 	@Override
 	public void create() {
+		batch = new SpriteBatch();
+		font = new BitmapFont(Gdx.files.internal("fonts/I-pixel-u.fnt"),false);
 		instance = this;
 		setScreen(new MainMenuScreen());
 	}
