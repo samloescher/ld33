@@ -2,40 +2,37 @@ package ludumdare._33.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
+
+import ludumdare._33.world.World;
 
 public class GameScreen extends AbstractScreen {
 
-	Texture img;
+	
+	World world;
 
 	public GameScreen() {
-		img = new Texture("images/badlogic.jpg");
+		world = new World();
 	}
 	
 	@Override
 	void update(float delta) {
-		
+		world.update(delta);
 	}
 
 	@Override
 	void draw() {
-		
-		/* Clear the screen and add a white background */
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-		/* Begin a new batch */
 		batch.begin();
-		batch.draw(img, 400, 240);
+		world.draw(batch);
 		batch.end();
 		
 	}
 	
 	@Override
 	public void dispose() {
-		img.dispose();
+		
 	}
-
-	
 
 }

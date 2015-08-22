@@ -1,15 +1,16 @@
 package ludumdare._33.screens;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import ludumdare._33.MainGame;
+
 public abstract class AbstractScreen implements Screen {
 	
-	public static SpriteBatch batch = new SpriteBatch();
-	public static BitmapFont font = new BitmapFont(Gdx.files.internal("fonts/I-pixel-u.fnt"),false);
+	public static SpriteBatch batch = MainGame.batch;
+	public static BitmapFont font = MainGame.font;
 	public static OrthographicCamera camera = new OrthographicCamera(800, 480);
 
 	@Override
