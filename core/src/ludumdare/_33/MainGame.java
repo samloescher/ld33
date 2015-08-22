@@ -16,13 +16,7 @@ public class MainGame extends Game {
 
 		this.setScreen(new MainMenuScreen(this));
 	}
-
-	@Override
-	public void render() {
-		/* Render everything in create() */
-		super.render();
-	}
-
+	
 	@Override
 	public void dispose() {
 		batch.dispose();

@@ -22,13 +22,7 @@ public class GameScreen implements Screen {
 		camera.setToOrtho(false, 800, 480);
 
 		/* Clear the screen and add a white background */
-		Gdx.gl.glClearColor(0, 0, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-		/* Begin a new batch */
-		game.batch.begin();
-		game.batch.draw(img, 400, 240);
-		game.batch.end();
+		
 	}
 
 	@Override
@@ -37,6 +31,13 @@ public class GameScreen implements Screen {
 
 	@Override
 	public void render(float delta) {
+		Gdx.gl.glClearColor(0, 0, 0, 1);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+		/* Begin a new batch */
+		game.batch.begin();
+		game.batch.draw(img, 400, 240);
+		game.batch.end();
 	}
 
 	@Override
