@@ -6,11 +6,14 @@ import com.badlogic.gdx.audio.Music;
 public class Jukebox {
 
 	public Music backgroundMusic;
-
-	public void play() {
+	
+	public Jukebox () {
 		backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("sounds/happy-pixel-adventure.mp3"));
 		backgroundMusic.setVolume(0.1f);
 		backgroundMusic.setLooping(true);
+	}
+
+	public void play() {
 		backgroundMusic.play();
 	}
 	
