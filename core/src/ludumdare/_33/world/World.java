@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class World {
 	
 	Cat cat;
-	ArrayList<Human> humans;
+	ArrayList<Human> humans = new ArrayList<Human>();
 	
 	public World(){
 		cat = new Cat();
@@ -22,9 +22,9 @@ public class World {
 	}
 	
 	public void draw(SpriteBatch batch){
-		cat.draw(batch);
+		//cat.draw(batch);
 		for(Human h : humans){
-			h.draw(batch);
+			//h.draw(batch);
 		}
 	}
 
