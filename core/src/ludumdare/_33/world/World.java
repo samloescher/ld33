@@ -11,7 +11,7 @@ public class World {
 	
 	public World(){
 		cat = new Cat();
-		humans.add(new Human(50));
+		//humans.add(new Human(50));
 	}
 	
 	public void update(float delta){
@@ -22,9 +22,9 @@ public class World {
 	}
 	
 	public void draw(SpriteBatch batch){
-		//cat.draw(batch);
+		cat.draw(batch);
 		for(Human h : humans){
-			//h.draw(batch);
+			h.draw(batch);
 		}
 	}
 
