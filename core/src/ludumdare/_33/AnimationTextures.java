@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-public class Assets {
+public class AnimationTextures {
 
 	static int catWidth = 23;
 	static int catHeight = 16;
@@ -15,6 +15,8 @@ public class Assets {
 	
 	static Texture catRunning;
 	public static ArrayList<TextureRegion> catRunningArray = new ArrayList<TextureRegion>();
+	
+	public static ArrayList<TextureRegion> catJumpingArray = new ArrayList<TextureRegion>();
 
 	static {
 		loadAllTextures();
@@ -32,6 +34,10 @@ public class Assets {
 		}
 		for (int i = 0; i < 6; i++) {
 			catRunningArray.add(new TextureRegion(catRunning, i * catWidth, 0, catWidth, catHeight));
+		}
+		
+		for (int i = 0; i < 2; i++) {
+			catJumpingArray.add(new TextureRegion(catRunning, i * catWidth, 0, catWidth, catHeight));
 		}
 	}
 

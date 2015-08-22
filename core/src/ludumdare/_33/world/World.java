@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import ludumdare._33.world.cat.Cat;
+
 public class World {
 	
 	Cat cat;
