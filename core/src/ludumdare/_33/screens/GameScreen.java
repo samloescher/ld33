@@ -4,16 +4,19 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 
 import ludumdare._33.sounds.Jukebox;
+import ludumdare._33.sounds.SoundEffects;
 import ludumdare._33.world.World;
 
 public class GameScreen extends AbstractScreen {
 
 	World world;
 	Jukebox jukeBox;
+	SoundEffects soundEffects;
 
 	public GameScreen() {
 		world = new World();
 		jukeBox = new Jukebox();
+		soundEffects = new SoundEffects();
 		
 		jukeBox.play();
 	}
@@ -37,6 +40,7 @@ public class GameScreen extends AbstractScreen {
 	@Override
 	public void dispose() {
 		jukeBox.dispose();
+		soundEffects.dispose();
 	}
 
 }
