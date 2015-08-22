@@ -6,9 +6,11 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 
 import ludumdare._33.Assets.AnimationTextures;
+import ludumdare._33.world.World;
 
 public class Cat {
 	
@@ -42,7 +44,7 @@ public class Cat {
 		updateVelocityY(delta);
 		updateDisplacement();
 		updateState();
-
+		clampToWorldBounds();
 		displacement.x = 0;
 		displacement.y = 0;
 	}
@@ -59,9 +61,9 @@ public class Cat {
 		}
 
 		if (Gdx.input.isKeyPressed(Keys.D)) {
-			displacement.x += 5;
+			displacement.x += 7;
 		} else if (Gdx.input.isKeyPressed(Keys.A)) {
-			displacement.x -= 5;
+			displacement.x -= 7;
 		}
 		
 	}
@@ -80,10 +82,6 @@ public class Cat {
 		}
 		position.x += displacement.x;
 		position.y += displacement.y;
-				
-		if(position.y < 0){
-			position.y = 0;
-		}
 	}
 
 	public void updateState(){
@@ -111,6 +109,11 @@ public class Cat {
 		}
 	}
 	
+	void clampToWorldBounds(){
+		position.x = MathUtils.clamp(position.x, World.bounds.x, World.bounds.width - width);
+		position.y = MathUtils.clamp(position.y, World.bounds.y, World.bounds.height - height);
+	}
+	
 	public void jump() {
 		if (position.y == 0) {
 			velocityY = 700;
@@ -125,7 +128,7 @@ public class Cat {
 	void initialiseAnimations() {
 		sittingAnimation = new Animation(0.5f, AnimationTextures.catSittingArray.toArray(new TextureRegion[AnimationTextures.catSittingArray.size()]));
 		sittingAnimation.setPlayMode(PlayMode.LOOP);
-		runningAnimation = new Animation(0.1f, AnimationTextures.catRunningArray.toArray(new TextureRegion[AnimationTextures.catRunningArray.size()]));
+		runningAnimation = new Animation(0.05f, AnimationTextures.catRunningArray.toArray(new TextureRegion[AnimationTextures.catRunningArray.size()]));
 		runningAnimation.setPlayMode(PlayMode.LOOP);
 		jumpingAnimation = new Animation(0.4f, AnimationTextures.catJumpingArray.toArray(new TextureRegion[AnimationTextures.catJumpingArray.size()]));
 		jumpingAnimation.setPlayMode(PlayMode.LOOP);

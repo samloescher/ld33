@@ -3,7 +3,6 @@ package ludumdare._33.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 import ludumdare._33.sounds.Jukebox;
@@ -15,8 +14,6 @@ public class GameScreen extends AbstractScreen {
 	World world;
 	Jukebox jukeBox;
 	SoundEffects soundEffects;
-
-	Rectangle bounds = new Rectangle(0, 0, 800 * 5, 480f * 1.5f);
 
 	public GameScreen() {
 		world = new World();
@@ -53,49 +50,22 @@ public class GameScreen extends AbstractScreen {
 		Vector2 catPosition = world.getCatPosition();
 		float screenBuffer = 250;
 		float maxX = camera.position.x + screenBuffer;
-		if(catPosition.x > maxX){
+		if (catPosition.x > maxX) {
 			camera.position.x = catPosition.x - screenBuffer;
 		}
 		float minX = camera.position.x - screenBuffer;
-		if(catPosition.x < minX){
+		if (catPosition.x < minX) {
 			camera.position.x = catPosition.x + screenBuffer;
 		}
-		
+
 		clampCameraToBounds();
 		camera.update();
 	}
 
-	void clampCameraToBounds(){
-		camera.position.x = MathUtils.clamp(camera.position.x, camera.viewportWidth/2, bounds.width - camera.viewportWidth/2);
-		camera.position.y = MathUtils.clamp(camera.position.y, camera.viewportHeight/2, bounds.height - camera.viewportHeight/2);
+	void clampCameraToBounds() {
+		camera.position.x = MathUtils.clamp(camera.position.x, camera.viewportWidth / 2,
+				World.bounds.width - camera.viewportWidth / 2);
+		camera.position.y = MathUtils.clamp(camera.position.y, camera.viewportHeight / 2,
+				World.bounds.height - camera.viewportHeight / 2);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
