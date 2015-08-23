@@ -36,6 +36,13 @@ public class SoundEffects {
 		long soundID = pointsSound.play();
 		pointsSound.setVolume(soundID, 0.2f);
 	}
+	
+	public void stopAllSounds() {
+		catEatingSound.stop();
+		catGrowlingSound.stop();
+		catMeowingSound.stop();
+		pointsSound.stop();
+	}
 
 	public void dispose() {
 		catEatingSound.dispose();

@@ -23,11 +23,11 @@ public class SoundToggle extends UIOverlayItem {
 	public void toggle() {
 		if (isMute) {
 			super.changeTexture(unmuteTexture);
-			// TODO: un-pause sound effects
+			// TODO: resume sound effects
 			isMute = false;
 		} else {
 			super.changeTexture(muteTexture);
-			// TODO: pause sound effects active
+			soundEffects.stopAllSounds();
 			isMute = true;
 		}
 	}
