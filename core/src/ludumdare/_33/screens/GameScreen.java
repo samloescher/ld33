@@ -56,7 +56,8 @@ public class GameScreen extends AbstractScreen {
 
 	void focusCameraOnCat() {
 		Vector2 catPosition = world.getCatPosition();
-		float screenBuffer = 250;
+		float screenBuffer = 125;
+		
 		float maxX = camera.position.x + screenBuffer;
 		if (catPosition.x > maxX) {
 			camera.position.x = catPosition.x - screenBuffer;
@@ -65,7 +66,15 @@ public class GameScreen extends AbstractScreen {
 		if (catPosition.x < minX) {
 			camera.position.x = catPosition.x + screenBuffer;
 		}
-
+		
+		float maxY = camera.position.y + screenBuffer / 3;
+		if (catPosition.y > maxY) {
+			camera.position.y = catPosition.y - screenBuffer / 3;
+		}
+		float minY = camera.position.y + screenBuffer / 4;
+		if (catPosition.y < minY) {
+			camera.position.y = catPosition.y - screenBuffer / 4;
+		}
 		clampCameraToBounds();
 		camera.update();
 	}

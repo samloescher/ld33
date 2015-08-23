@@ -1,4 +1,4 @@
-package ludumdare._33.Assets;
+package ludumdare._33.assets;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
