@@ -9,21 +9,22 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 import ludumdare._33.world.cat.Cat;
-import ludumdare._33.world.environment.scenery.Foliage;
-import ludumdare._33.world.environment.scenery.HedgeGreen;
-import ludumdare._33.world.environment.scenery.SmallBushDarkGreen;
-import ludumdare._33.world.environment.scenery.SmallBushGreen;
-import ludumdare._33.world.environment.scenery.SmallBushFruitGreen;
-import ludumdare._33.world.environment.scenery.SmallTreeGreen;
-import ludumdare._33.world.environment.scenery.TreeBrown;
-import ludumdare._33.world.environment.scenery.TreeFruitGreen;
-import ludumdare._33.world.environment.scenery.TreeGreen;
+import ludumdare._33.world.human.Human;
 import ludumdare._33.world.environment.buildings.Building;
 import ludumdare._33.world.environment.buildings.Bungalow1;
 import ludumdare._33.world.environment.buildings.Bungalow2;
 import ludumdare._33.world.environment.buildings.Church;
 import ludumdare._33.world.environment.buildings.Home;
 import ludumdare._33.world.environment.buildings.Marketplace;
+import ludumdare._33.world.environment.hidables.Foliage;
+import ludumdare._33.world.environment.hidables.HedgeGreen;
+import ludumdare._33.world.environment.hidables.SmallBushDarkGreen;
+import ludumdare._33.world.environment.hidables.SmallBushFruitGreen;
+import ludumdare._33.world.environment.hidables.SmallBushGreen;
+import ludumdare._33.world.environment.hidables.SmallTreeGreen;
+import ludumdare._33.world.environment.hidables.TreeBrown;
+import ludumdare._33.world.environment.hidables.TreeFruitGreen;
+import ludumdare._33.world.environment.hidables.TreeGreen;
 
 public class World {
 

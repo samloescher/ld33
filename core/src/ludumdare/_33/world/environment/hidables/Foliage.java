@@ -1,4 +1,4 @@
-package ludumdare._33.world.environment.scenery;
+package ludumdare._33.world.environment.hidables;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
