@@ -6,11 +6,11 @@ import com.badlogic.gdx.InputProcessor;
 import ludumdare._33.ui.UIOverlay;
 import ludumdare._33.ui.UIOverlayItem;
 
-public class InputProcessing implements InputProcessor {
+public class InputManager implements InputProcessor {
 
 	private UIOverlay uiOverlay;
 
-	public InputProcessing(UIOverlay uiOverlay) {
+	public InputManager(UIOverlay uiOverlay) {
 		this.uiOverlay = uiOverlay;
 	}
 
@@ -36,6 +36,7 @@ public class InputProcessing implements InputProcessor {
 
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+		screenY = 480 - screenY;
 		if (button == Buttons.LEFT) {
 			for (UIOverlayItem item : uiOverlay.uiOverlayItems) {
 				if (item.bounds.contains(screenX, screenY)) {

@@ -23,7 +23,7 @@ public class Human {
 	
 	HumanState currentState = HumanState.Walking;
 	HumanState previousState = HumanState.Walking;
-	boolean facingRight = false;
+	boolean facingRight = true;
 	
 	DetectionTriangle detectionArea;
 	
@@ -41,7 +41,7 @@ public class Human {
 
 	public void draw(SpriteBatch batch) {
 		TextureRegion human = currentAnimation.getKeyFrame(currentAnimationTime);
-		batch.draw(human, position.x, position.y,width,height);
+		batch.draw(human, facingRight?position.x+width:position.x, position.y,facingRight?-width:width,height);
 	}
 	
 	public void drawDebug(ShapeRenderer shapeRenderer){
