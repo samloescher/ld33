@@ -7,9 +7,11 @@ import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 import ludumdare._33.Assets.AnimationTextures;
+import ludumdare._33.world.Platforms;
 import ludumdare._33.world.World;
 
 public class Cat {
@@ -24,22 +26,25 @@ public class Cat {
 	Animation currentAnimation;
 	float currentAnimationTime;
 	public Vector2 position;
+	Rectangle floorCheck = new Rectangle(0,0,width,2);
 	
 	CatState previousState = CatState.Sitting;
 	CatState currentState = CatState.Sitting;
-	boolean facingRight;
+	boolean facingRight = true;
+	boolean onFloorOrPlatform;
 	
 	Vector2 displacement = new Vector2();
 	float velocityY;
 	
 	public Cat() {
-		position = new Vector2(0, 0);
+		position = new Vector2(100, 0);
 		initialiseAnimations();
 		currentAnimation = sittingAnimation;
 	}
 
 	public void update(float delta) {
 		currentAnimationTime += delta;
+		onFloorOrPlatform = currentlyOnFloorOrPlatform();
 		manageInput();
 		updateVelocityY(delta);
 		updateDisplacement();
@@ -57,7 +62,17 @@ public class Cat {
 	public void manageInput() {
 
 		if (Gdx.input.isKeyPressed(Keys.W)) {
-			jump();
+			if(onFloorOrPlatform){
+				velocityY = 700;
+			}else{
+				displacement.y += 4;
+			}
+		}
+		
+		if (Gdx.input.isKeyPressed(Keys.S)) {
+			if(onFloorOrPlatform){
+				displacement.y -= 4;
+			}
 		}
 
 		if (Gdx.input.isKeyPressed(Keys.D)) {
@@ -69,7 +84,9 @@ public class Cat {
 	}
 	
 	void updateVelocityY(float delta) {
-		velocityY -= delta * 1000;
+		if(!onFloorOrPlatform){
+			velocityY -= delta * 1000;
+		}
 		displacement.y = velocityY * delta;
 		
 	}
@@ -85,7 +102,7 @@ public class Cat {
 	}
 
 	public void updateState(){
-		if(position.y > 0){
+		if(!onFloorOrPlatform){
 			changeState(CatState.Jumping);
 		}else if(displacement.x != 0){
 			changeState(CatState.Running);
@@ -114,10 +131,13 @@ public class Cat {
 		position.y = MathUtils.clamp(position.y, World.bounds.y, World.bounds.height - height);
 	}
 	
-	public void jump() {
-		if (position.y == 0) {
-			velocityY = 700;
+	public boolean currentlyOnFloorOrPlatform() {
+		floorCheck.x = position.x;
+		floorCheck.y = position.y;
+		if (position.y == 0 || Platforms.collidingWithPlatform(floorCheck)){
+			return true;
 		}
+		return false;
 	}
 
 	void changeState(CatState state){

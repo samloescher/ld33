@@ -1,12 +1,14 @@
 package ludumdare._33.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 
 import ludumdare._33.sounds.Jukebox;
 import ludumdare._33.sounds.SoundEffects;
+import ludumdare._33.world.Platforms;
 import ludumdare._33.world.World;
 
 public class GameScreen extends AbstractScreen {
@@ -37,6 +39,10 @@ public class GameScreen extends AbstractScreen {
 		batch.begin();
 		world.draw(batch);
 		batch.end();
+		
+		shapeRenderer.setColor(Color.RED);
+		shapeRenderer.setProjectionMatrix(camera.combined);
+		Platforms.draw(shapeRenderer);
 
 	}
 
@@ -63,9 +69,13 @@ public class GameScreen extends AbstractScreen {
 	}
 
 	void clampCameraToBounds() {
-		camera.position.x = MathUtils.clamp(camera.position.x, camera.viewportWidth / 2,
-				World.bounds.width - camera.viewportWidth / 2);
-		camera.position.y = MathUtils.clamp(camera.position.y, camera.viewportHeight / 2,
-				World.bounds.height - camera.viewportHeight / 2);
+		camera.position.x = MathUtils.clamp(
+				camera.position.x,
+				World.bounds.x + camera.viewportWidth / 2,
+				World.bounds.x + World.bounds.width - camera.viewportWidth / 2);
+		camera.position.y = MathUtils.clamp(
+				camera.position.y,
+				World.bounds.y + camera.viewportHeight / 2,
+				World.bounds.y + World.bounds.height - camera.viewportHeight / 2);
 	}
 }

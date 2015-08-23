@@ -11,6 +11,7 @@ import com.badlogic.gdx.math.Vector2;
 import ludumdare._33.world.cat.Cat;
 import ludumdare._33.world.environment.Building;
 import ludumdare._33.world.environment.Foliage;
+import ludumdare._33.world.environment.Home;
 
 public class World {
 	
@@ -20,11 +21,13 @@ public class World {
 	ArrayList<Foliage> foliage = new ArrayList<Foliage>();
 	TextureRegion backdrop;
 	
-	public static Rectangle bounds = new Rectangle(0, 0, 800 * 3, 480f * 1.5f);
+	public static Rectangle bounds = new Rectangle(0, 0, 800 * 2, 480f * 1.5f);
 	
 	public World(){
 		backdrop = new TextureRegion(new Texture("images/city-backgrounds/city_background_night.png"));
 		cat = new Cat();
+		
+		buildings.add(new Home(new Vector2(150,0)));
 		//humans.add(new Human(50));
 	}
 	
@@ -37,10 +40,16 @@ public class World {
 	
 	public void draw(SpriteBatch batch){
 		batch.draw(backdrop, 0, 0);
-		cat.draw(batch);
+		
+		for(Building b : buildings){
+			b.draw(batch);
+		}
+		
 		for(Human h : humans){
 			h.draw(batch);
 		}
+		
+		cat.draw(batch);
 	}
 	
 	public Vector2 getCatPosition(){
