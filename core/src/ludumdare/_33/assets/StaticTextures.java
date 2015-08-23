@@ -19,6 +19,9 @@ public class StaticTextures {
 	public static TextureRegion TreeBrown;
 	public static TextureRegion TreeGreen;
 	public static TextureRegion TreeFruitGreen;
+	
+	public static TextureRegion Clouds;
+	public static TextureRegion Hills;
 
 	static {
 		loadAllTextures();
@@ -41,5 +44,8 @@ public class StaticTextures {
 		TreeBrown = new TextureRegion(new Texture("images/buildings/scenery/tree-brown.png"));
 		TreeGreen = new TextureRegion(new Texture("images/buildings/scenery/tree-green.png"));
 		TreeFruitGreen = new TextureRegion(new Texture("images/buildings/scenery/tree-fruit-green.png"));
+		
+		Clouds = new TextureRegion(new Texture("images/background/clouds.png"));
+		Hills = new TextureRegion(new Texture("images/background/hills.png"));
 	}
 }

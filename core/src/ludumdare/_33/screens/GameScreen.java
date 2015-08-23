@@ -8,6 +8,7 @@ import com.badlogic.gdx.math.Vector2;
 
 import ludumdare._33.sounds.Jukebox;
 import ludumdare._33.sounds.SoundEffects;
+import ludumdare._33.world.Background;
 import ludumdare._33.world.World;
 import ludumdare._33.world.environment.HideableAreas;
 import ludumdare._33.world.environment.Platforms;
@@ -15,6 +16,8 @@ import ludumdare._33.world.environment.Platforms;
 public class GameScreen extends AbstractScreen {
 
 	World world;
+	Background background;
+	
 	Jukebox jukeBox;
 	SoundEffects soundEffects;
 
@@ -22,6 +25,7 @@ public class GameScreen extends AbstractScreen {
 		world = new World();
 		jukeBox = new Jukebox();
 		soundEffects = new SoundEffects();
+		background = new Background(camera);
 
 		jukeBox.play();
 	}
@@ -30,6 +34,7 @@ public class GameScreen extends AbstractScreen {
 	void update(float delta) {
 		world.update(delta);
 		focusCameraOnCat();
+		background.update();
 	}
 
 	@Override
@@ -38,6 +43,7 @@ public class GameScreen extends AbstractScreen {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
+		background.draw(batch);
 		world.draw(batch);
 		batch.end();
 		

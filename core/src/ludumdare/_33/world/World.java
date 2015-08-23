@@ -3,13 +3,11 @@ package ludumdare._33.world;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 import ludumdare._33.world.cat.Cat;
-import ludumdare._33.world.human.Human;
 import ludumdare._33.world.environment.buildings.Building;
 import ludumdare._33.world.environment.buildings.Bungalow1;
 import ludumdare._33.world.environment.buildings.Bungalow2;
@@ -25,6 +23,7 @@ import ludumdare._33.world.environment.hidables.SmallTreeGreen;
 import ludumdare._33.world.environment.hidables.TreeBrown;
 import ludumdare._33.world.environment.hidables.TreeFruitGreen;
 import ludumdare._33.world.environment.hidables.TreeGreen;
+import ludumdare._33.world.human.Human;
 
 public class World {
 
@@ -32,11 +31,11 @@ public class World {
 	ArrayList<Human> humans = new ArrayList<Human>();
 	ArrayList<Building> buildings = new ArrayList<Building>();
 	ArrayList<Foliage> foliage = new ArrayList<Foliage>();
-	TextureRegion backdrop;
 
 	public static Rectangle bounds = new Rectangle(0, 0, 800f * 5f, 480f * 3f);
 
 	public World() {
+		
 		cat = new Cat();
 
 		buildings.add(new Home(new Vector2(150, 0)));
