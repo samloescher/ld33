@@ -11,6 +11,13 @@ import com.badlogic.gdx.math.Vector2;
 import ludumdare._33.world.cat.Cat;
 import ludumdare._33.world.environment.scenery.Foliage;
 import ludumdare._33.world.environment.scenery.HedgeGreen;
+import ludumdare._33.world.environment.scenery.SmallBushDarkGreen;
+import ludumdare._33.world.environment.scenery.SmallBushGreen;
+import ludumdare._33.world.environment.scenery.SmallBushFruitGreen;
+import ludumdare._33.world.environment.scenery.SmallTreeGreen;
+import ludumdare._33.world.environment.scenery.TreeBrown;
+import ludumdare._33.world.environment.scenery.TreeFruitGreen;
+import ludumdare._33.world.environment.scenery.TreeGreen;
 import ludumdare._33.world.environment.buildings.Building;
 import ludumdare._33.world.environment.buildings.Bungalow1;
 import ludumdare._33.world.environment.buildings.Bungalow2;
@@ -38,7 +45,14 @@ public class World {
 		buildings.add(new Bungalow2(new Vector2(2500, 0)));
 		// humans.add(new Human(50));
 		
-		foliage.add(new HedgeGreen(new Vector2(150,0)));
+		foliage.add(new HedgeGreen(new Vector2(100,0)));
+		foliage.add(new SmallBushGreen(new Vector2(200,0)));
+		foliage.add(new SmallBushDarkGreen(new Vector2(300,0)));
+		foliage.add(new SmallBushFruitGreen(new Vector2(400,0)));
+		foliage.add(new SmallTreeGreen(new Vector2(500,0)));
+		foliage.add(new TreeBrown(new Vector2(600,0)));
+		foliage.add(new TreeFruitGreen(new Vector2(700,0)));
+		foliage.add(new TreeGreen(new Vector2(800,0)));
 	}
 
 	public void update(float delta) {
