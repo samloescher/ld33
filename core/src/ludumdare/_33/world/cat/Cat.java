@@ -84,11 +84,14 @@ public class Cat {
 	}
 	
 	void updateVelocityY(float delta) {
-		if(!onFloorOrPlatform){
+		if(onFloorOrPlatform && velocityY < 0){
+			velocityY = 0;
+		}else{
 			velocityY -= delta * 1000;
 		}
-		displacement.y = velocityY * delta;
-		
+		if(!onFloorOrPlatform || velocityY > 0){
+			displacement.y = velocityY * delta;
+		}
 	}
 	
 	void updateDisplacement(){
