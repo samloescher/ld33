@@ -21,7 +21,6 @@ public class GameScreen extends AbstractScreen {
 	World world;
 	Background background;
 	
-	SoundEffects soundEffects;
 	UIOverlay uiOverlay;
 	Matrix4 uiMatrix;
 	
@@ -29,7 +28,6 @@ public class GameScreen extends AbstractScreen {
 
 	public GameScreen() {
 		world = new World();
-		soundEffects = new SoundEffects();
 		background = new Background(camera);
 		uiOverlay = new UIOverlay();
 		uiMatrix = new Matrix4().setToOrtho2D(0, 0, 800, 480);
@@ -69,7 +67,6 @@ public class GameScreen extends AbstractScreen {
 
 	@Override
 	public void dispose() {
-		soundEffects.dispose();
 		AnimationTextures.dispose();
 	}
 

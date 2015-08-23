@@ -10,6 +10,7 @@ public class UIOverlay {
 
 	public UIOverlay() {
 		uiOverlayItems.add(new MusicToggle(new Vector2(20, 410)));
+		uiOverlayItems.add(new SoundToggle(new Vector2(90, 410)));
 	}
 
 	public void draw(SpriteBatch batch) {
