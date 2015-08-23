@@ -14,7 +14,7 @@ public class Home extends Building {
 
 	static {
 		platforms = new ArrayList<Rectangle>();
-		platforms.add(new Rectangle(size.x / 64f, size.y / 1.6f, size.x / 1.1f, size.y / 3f));
+		platforms.add(new Rectangle(size.x / 64f, size.y / 1.55f, size.x / 1.1f, size.y / 3f));
 	}
 
 	public Home(Vector2 position) {
