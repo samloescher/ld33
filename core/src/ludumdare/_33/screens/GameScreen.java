@@ -22,7 +22,6 @@ public class GameScreen extends AbstractScreen {
 	World world;
 	Background background;
 	
-	Jukebox jukeBox;
 	SoundEffects soundEffects;
 	UIOverlay uiOverlay;
 	Matrix4 uiMatrix;
@@ -31,15 +30,12 @@ public class GameScreen extends AbstractScreen {
 
 	public GameScreen() {
 		world = new World();
-		jukeBox = new Jukebox();
 		soundEffects = new SoundEffects();
 		background = new Background(camera);
 		uiOverlay = new UIOverlay();
 		uiMatrix = new Matrix4().setToOrtho2D(0, 0, 800, 480);
 		inputProcessing = new InputManager(uiOverlay);
 		Gdx.input.setInputProcessor(inputProcessing);
-		
-		jukeBox.play();
 	}
 
 	@Override
@@ -74,7 +70,6 @@ public class GameScreen extends AbstractScreen {
 
 	@Override
 	public void dispose() {
-		jukeBox.dispose();
 		soundEffects.dispose();
 	}
 

@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 
 import ludumdare._33.assets.StaticTextures;
+import ludumdare._33.sounds.Jukebox;
 
 public class MusicToggle extends UIOverlayItem {
 	private boolean isMute;
@@ -11,17 +12,23 @@ public class MusicToggle extends UIOverlayItem {
 	private static TextureRegion muteTexture = StaticTextures.musicMute;
 	private static TextureRegion unmuteTexture = StaticTextures.musicUnmute;
 
+	Jukebox jukeBox;
+
 	public MusicToggle(Vector2 position) {
 		super(unmuteTexture, position, size);
+		jukeBox = new Jukebox();
+		jukeBox.play();
 		isMute = false;
 	}
 
 	public void toggle() {
 		if (isMute) {
 			super.changeTexture(unmuteTexture);
+			jukeBox.play();
 			isMute = false;
 		} else {
 			super.changeTexture(muteTexture);
+			jukeBox.pause();
 			isMute = true;
 		}
 	}

@@ -17,6 +17,10 @@ public class Jukebox {
 		backgroundMusic.play();
 	}
 	
+	public void pause() {
+		backgroundMusic.pause();
+	}
+	
 	public void dispose() {
 		backgroundMusic.dispose();
 	}
