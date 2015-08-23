@@ -18,7 +18,7 @@ public class Home extends Building {
 	}
 
 	public Home(Vector2 position) {
-		super(StaticTextures.Home, position, size, platforms);
+		super(StaticTextures.home, position, size, platforms);
 	}
 
 }

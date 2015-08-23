@@ -19,7 +19,7 @@ public class Church extends Building {
 	}
 
 	public Church(Vector2 position) {
-		super(StaticTextures.Church, position, size, platforms);
+		super(StaticTextures.church, position, size, platforms);
 	}
 
 }

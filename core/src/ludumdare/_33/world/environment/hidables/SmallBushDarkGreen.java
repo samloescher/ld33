@@ -8,6 +8,6 @@ public class SmallBushDarkGreen extends Foliage {
 	private static Vector2 size = new Vector2(80, 60);
 
 	public SmallBushDarkGreen(Vector2 position) {
-		super(StaticTextures.SmallBushDarkGreen, position, size);
+		super(StaticTextures.smallBushDarkGreen, position, size);
 	}
 }

@@ -14,6 +14,8 @@ public class Background {
 	Sprite hillsLeft;
 	Sprite hillsRight;
 	
+	Sprite star;//TODO
+	
 	Rectangle cameraViewport = new Rectangle();
 	OrthographicCamera camera;
 	
@@ -54,14 +56,14 @@ public class Background {
 	}
 	
 	void assignSprites(){
-		cloudsLeft = new Sprite(StaticTextures.Clouds);
-		cloudsRight = new Sprite(StaticTextures.Clouds);
-		cloudsLeft.setColor(0.2f, 0.2f, 0.5f, 1f);
-		cloudsRight.setColor(0.2f, 0.2f, 0.5f, 1f);
-		hillsLeft = new Sprite(StaticTextures.Hills);
-		hillsRight = new Sprite(StaticTextures.Hills);
-		hillsLeft.setColor(0, 0.6f, 0, 1f);
-		hillsRight.setColor(0, 0.6f, 0, 1f);
+		cloudsLeft = new Sprite(StaticTextures.clouds);
+		cloudsRight = new Sprite(StaticTextures.clouds);
+		cloudsLeft.setColor(0.1f, 0.1f, 0.4f, 1f);
+		cloudsRight.setColor(0.1f, 0.1f, 0.4f, 1f);
+		hillsLeft = new Sprite(StaticTextures.hills);
+		hillsRight = new Sprite(StaticTextures.hills);
+		hillsLeft.setColor(0, 0.4f, 0, 1f);
+		hillsRight.setColor(0, 0.4f, 0, 1f);
 	}
 	
 }

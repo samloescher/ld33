@@ -9,7 +9,7 @@ public class UIOverlay {
 	ArrayList<UIOverlayItem> uiOverlayItems = new ArrayList<UIOverlayItem>();
 	
 	public UIOverlay() {
-		uiOverlayItems.add(new MusicToggle(new Vector2(150, 0)));
+		uiOverlayItems.add(new MusicToggle(new Vector2(20, 410)));
 	}
 	
 	public void draw(SpriteBatch batch) {

@@ -17,6 +17,6 @@ public class Bungalow2 extends Building {
 	}
 
 	public Bungalow2(Vector2 position) {
-		super(StaticTextures.Bungalow2, position, size, platforms);
+		super(StaticTextures.bungalow2, position, size, platforms);
 	}
 }

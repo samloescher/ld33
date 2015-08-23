@@ -24,6 +24,7 @@ public class GameScreen extends AbstractScreen {
 	Jukebox jukeBox;
 	SoundEffects soundEffects;
 	UIOverlay uiOverlay;
+	Matrix4 uiMatrix;
 
 	public GameScreen() {
 		world = new World();
@@ -31,7 +32,8 @@ public class GameScreen extends AbstractScreen {
 		soundEffects = new SoundEffects();
 		background = new Background(camera);
 		uiOverlay = new UIOverlay();
-
+		uiMatrix = new Matrix4().setToOrtho2D(0, 0, 800, 480);
+		
 		jukeBox.play();
 	}
 
@@ -54,12 +56,11 @@ public class GameScreen extends AbstractScreen {
 
 		shapeRenderer.setColor(Color.RED);
 		shapeRenderer.setProjectionMatrix(camera.combined);
-		Platforms.draw(shapeRenderer);
+		//Platforms.draw(shapeRenderer);
 		HideableAreas.draw(shapeRenderer);
-		world.drawDebug(shapeRenderer);
+		//world.drawDebug(shapeRenderer);
 		
-		Matrix4 uiMatrix = camera.combined.cpy();
-		uiMatrix.setToOrtho2D(0, 0, 800, 480);
+		
 		batch.setProjectionMatrix(uiMatrix);
 		batch.begin();
 		uiOverlay.draw(batch);

@@ -35,24 +35,25 @@ public class World {
 	public static Rectangle bounds = new Rectangle(0, 0, 800f * 5f, 480f * 3f);
 
 	public World() {
-		
+
 		cat = new Cat();
+
+		humans.add(new Human(50));
 
 		buildings.add(new Home(new Vector2(150, 0)));
 		buildings.add(new Church(new Vector2(600, 0)));
 		buildings.add(new Marketplace(new Vector2(1400, 0)));
 		buildings.add(new Bungalow1(new Vector2(2000, 0)));
 		buildings.add(new Bungalow2(new Vector2(2500, 0)));
-		// humans.add(new Human(50));
-		
-		foliage.add(new HedgeGreen(new Vector2(100,0)));
-		foliage.add(new SmallBushGreen(new Vector2(200,0)));
-		foliage.add(new SmallBushDarkGreen(new Vector2(300,0)));
-		foliage.add(new SmallBushFruitGreen(new Vector2(400,0)));
-		foliage.add(new SmallTreeGreen(new Vector2(500,0)));
-		foliage.add(new TreeBrown(new Vector2(600,0)));
-		foliage.add(new TreeFruitGreen(new Vector2(700,0)));
-		foliage.add(new TreeGreen(new Vector2(800,0)));
+
+		foliage.add(new HedgeGreen(new Vector2(100, 0)));
+		foliage.add(new SmallBushGreen(new Vector2(200, 0)));
+		foliage.add(new SmallBushDarkGreen(new Vector2(300, 0)));
+		foliage.add(new SmallBushFruitGreen(new Vector2(400, 0)));
+		foliage.add(new SmallTreeGreen(new Vector2(500, 0)));
+		foliage.add(new TreeBrown(new Vector2(600, 0)));
+		foliage.add(new TreeFruitGreen(new Vector2(700, 0)));
+		foliage.add(new TreeGreen(new Vector2(800, 0)));
 	}
 
 	public void update(float delta) {
@@ -63,7 +64,7 @@ public class World {
 	}
 
 	public void draw(SpriteBatch batch) {
-		
+
 		for (Building b : buildings) {
 			b.draw(batch);
 		}
@@ -73,12 +74,12 @@ public class World {
 		}
 
 		cat.draw(batch);
-		
-		for (Foliage f :foliage) {
+
+		for (Foliage f : foliage) {
 			f.draw(batch);
 		}
 	}
-	
+
 	public void drawDebug(ShapeRenderer shapeRenderer) {
 		cat.drawFloorCheck(shapeRenderer);
 	}

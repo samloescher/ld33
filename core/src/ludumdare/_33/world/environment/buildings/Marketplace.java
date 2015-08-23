@@ -17,6 +17,6 @@ public class Marketplace extends Building {
 	}
 
 	public Marketplace(Vector2 position) {
-		super(StaticTextures.Marketplace, position, size, platforms);
+		super(StaticTextures.marketplace, position, size, platforms);
 	}
 }

@@ -18,8 +18,8 @@ import ludumdare._33.world.environment.Platforms;
 
 public class Cat {
 	
-	public int height = 80;
-	public int width = 115;
+	public int height = 48;
+	public int width = 69;
 
 	Animation sittingAnimation;
 	Animation runningAnimation;
@@ -90,7 +90,7 @@ public class Cat {
 		if(onFloorOrPlatform && velocityY < 0){
 			velocityY = 0;
 		}else{
-			velocityY -= delta * 1000;
+			velocityY -= delta * 1200;
 		}
 		if(!onFloorOrPlatform || velocityY > 0){
 			displacement.y = velocityY * delta;
@@ -159,9 +159,9 @@ public class Cat {
 	}
 	
 	void updateFloorCheckBounds(){
-		floorCheck.x = position.x + 30;
+		floorCheck.x = position.x + width * 0.35f;
 		floorCheck.y = position.y;
-		floorCheck.width = width - 60;
+		floorCheck.width = width * 0.3f;
 		floorCheck.height = 2;
 	}
 	

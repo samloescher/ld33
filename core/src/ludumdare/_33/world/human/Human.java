@@ -1,76 +1,57 @@
 package ludumdare._33.world.human;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 
+import ludumdare._33.assets.AnimationTextures;
+
 public class Human {
+	
+	int width = 50;
+	int height = 100;
 
 	Animation standingAnimation;
 	Animation walkingAnimation;
-
-	Vector2 position;
+	
 	Animation currentAnimation;
 	float currentAnimationTime;
-
-	boolean isStill;
-	boolean changedAnimation;
-
+	Vector2 position;
+	
+	HumanState currentState = HumanState.Walking;
+	HumanState previousState = HumanState.Walking;
 	boolean facingRight;
-
+	
+	DetectionTriangle detectionArea;
+	
 	public Human(int x) {
 		position = new Vector2(x, 0);
 		initialiseAnimations();
-		currentAnimation = standingAnimation;
+		currentAnimation = walkingAnimation;
+		detectionArea = new DetectionTriangle();
 	}
 
 	public void update(float delta) {
 		currentAnimationTime += delta;
-		manageInput();
-		if (changedAnimation) {
-			currentAnimationTime = 0;
-		}
 	}
 
 	public void draw(SpriteBatch batch) {
 		TextureRegion human = currentAnimation.getKeyFrame(currentAnimationTime);
 		human.flip(facingRight, false);
-		batch.draw(human, position.x, position.y);
+		batch.draw(human, position.x, position.y,width,height);
 	}
-
-	public void manageInput() {
-
-		if (Gdx.input.isKeyPressed(Keys.N)) {
-			moveRight(50);
-		} else if (Gdx.input.isKeyPressed(Keys.M)) {
-			moveRight(-50);
-		} else {
-			if (!isStill) {
-				changedAnimation = true;
-			}
-			currentAnimation = standingAnimation;
-		}
-
-	}
-
-	public void moveRight(float displacement) {
-		if (displacement > 0) {
-			facingRight = true;
-		} else {
-			facingRight = false;
-		}
-
-		position.x += displacement;
-		if (isStill) {
-			changedAnimation = true;
-		}
-		currentAnimation = walkingAnimation;
+	
+	public void drawDebug(ShapeRenderer shapeRenderer){
+		detectionArea.draw(shapeRenderer);
 	}
 
 	void initialiseAnimations() {
-
+		standingAnimation = new Animation(0.02f, AnimationTextures.humanStandingArray.toArray(new TextureRegion[AnimationTextures.humanStandingArray.size()]));
+		standingAnimation.setPlayMode(PlayMode.LOOP);
+		walkingAnimation = new Animation(0.2f, AnimationTextures.humanWalkingArray.toArray(new TextureRegion[AnimationTextures.humanWalkingArray.size()]));
+		walkingAnimation.setPlayMode(PlayMode.LOOP);
 	}
 }

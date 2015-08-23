@@ -5,28 +5,28 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class StaticTextures {
 
-	public static TextureRegion Home;
-	public static TextureRegion Church;
-	public static TextureRegion Marketplace;
-	public static TextureRegion Bungalow1;
-	public static TextureRegion Bungalow2;
+	public static TextureRegion home;
+	public static TextureRegion church;
+	public static TextureRegion marketplace;
+	public static TextureRegion bungalow1;
+	public static TextureRegion bungalow2;
 
-	public static TextureRegion HedgeGreen;
-	public static TextureRegion SmallBushDarkGreen;
-	public static TextureRegion SmallBushGreen;
-	public static TextureRegion SmallBushFruitGreen;
-	public static TextureRegion SmallTreeGreen;
-	public static TextureRegion TreeBrown;
-	public static TextureRegion TreeGreen;
-	public static TextureRegion TreeFruitGreen;
+	public static TextureRegion hedgeGreen;
+	public static TextureRegion smallBushDarkGreen;
+	public static TextureRegion smallBushGreen;
+	public static TextureRegion smallBushFruitGreen;
+	public static TextureRegion smallTreeGreen;
+	public static TextureRegion treeBrown;
+	public static TextureRegion treeGreen;
+	public static TextureRegion treeFruitGreen;
 	
-	public static TextureRegion Clouds;
-	public static TextureRegion Hills;
+	public static TextureRegion clouds;
+	public static TextureRegion hills;
 	
-	public static TextureRegion SoundMute;
-	public static TextureRegion SoundUnmute;
-	public static TextureRegion MusicMute;
-	public static TextureRegion MusicUnmute;
+	public static TextureRegion soundMute;
+	public static TextureRegion soundUnmute;
+	public static TextureRegion musicMute;
+	public static TextureRegion musicUnmute;
 
 	static {
 		loadAllTextures();
@@ -34,29 +34,29 @@ public class StaticTextures {
 
 	public static void loadAllTextures() {
 		/* Buildings */
-		Home = new TextureRegion(new Texture("images/buildings/houses/home.png"));
-		Church = new TextureRegion(new Texture("images/buildings/houses/church.png"));
-		Marketplace = new TextureRegion(new Texture("images/buildings/houses/marketplace.png"));
-		Bungalow1 = new TextureRegion(new Texture("images/buildings/houses/bungalow-1.png"));
-		Bungalow2 = new TextureRegion(new Texture("images/buildings/houses/bungalow-2.png"));
+		home = new TextureRegion(new Texture("images/buildings/houses/home.png"));
+		church = new TextureRegion(new Texture("images/buildings/houses/church.png"));
+		marketplace = new TextureRegion(new Texture("images/buildings/houses/marketplace.png"));
+		bungalow1 = new TextureRegion(new Texture("images/buildings/houses/bungalow-1.png"));
+		bungalow2 = new TextureRegion(new Texture("images/buildings/houses/bungalow-2.png"));
 
 		/* Scenery */
-		HedgeGreen = new TextureRegion(new Texture("images/buildings/scenery/hedge-green.png"));
-		SmallBushDarkGreen = new TextureRegion(new Texture("images/buildings/scenery/small-bush-darkgreen.png"));
-		SmallBushGreen = new TextureRegion(new Texture("images/buildings/scenery/small-bush-green.png"));
-		SmallBushFruitGreen = new TextureRegion(new Texture("images/buildings/scenery/small-bush-fruit-green.png"));
-		SmallTreeGreen = new TextureRegion(new Texture("images/buildings/scenery/small-tree-green.png"));
-		TreeBrown = new TextureRegion(new Texture("images/buildings/scenery/tree-brown.png"));
-		TreeGreen = new TextureRegion(new Texture("images/buildings/scenery/tree-green.png"));
-		TreeFruitGreen = new TextureRegion(new Texture("images/buildings/scenery/tree-fruit-green.png"));
+		hedgeGreen = new TextureRegion(new Texture("images/buildings/scenery/hedge-green.png"));
+		smallBushDarkGreen = new TextureRegion(new Texture("images/buildings/scenery/small-bush-darkgreen.png"));
+		smallBushGreen = new TextureRegion(new Texture("images/buildings/scenery/small-bush-green.png"));
+		smallBushFruitGreen = new TextureRegion(new Texture("images/buildings/scenery/small-bush-fruit-green.png"));
+		smallTreeGreen = new TextureRegion(new Texture("images/buildings/scenery/small-tree-green.png"));
+		treeBrown = new TextureRegion(new Texture("images/buildings/scenery/tree-brown.png"));
+		treeGreen = new TextureRegion(new Texture("images/buildings/scenery/tree-green.png"));
+		treeFruitGreen = new TextureRegion(new Texture("images/buildings/scenery/tree-fruit-green.png"));
 		
-		Clouds = new TextureRegion(new Texture("images/background/clouds.png"));
-		Hills = new TextureRegion(new Texture("images/background/hills.png"));
+		clouds = new TextureRegion(new Texture("images/background/clouds.png"));
+		hills = new TextureRegion(new Texture("images/background/hills.png"));
 		
 		/* Sound */
-		SoundMute = new TextureRegion(new Texture("images/sound-toggle/sound-mute.png"));
-		SoundUnmute = new TextureRegion(new Texture("images/sound-toggle/sound-unmute.png"));
-		MusicMute = new TextureRegion(new Texture("images/sound-toggle/music-mute.png"));
-		MusicUnmute = new TextureRegion(new Texture("images/sound-toggle/music-unmute.png"));
+		soundMute = new TextureRegion(new Texture("images/sound-toggle/sound-mute.png"));
+		soundUnmute = new TextureRegion(new Texture("images/sound-toggle/sound-unmute.png"));
+		musicMute = new TextureRegion(new Texture("images/sound-toggle/music-mute.png"));
+		musicUnmute = new TextureRegion(new Texture("images/sound-toggle/music-unmute.png"));
 	}
 }
