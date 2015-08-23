@@ -9,11 +9,11 @@ import ludumdare._33.Assets.StaticTextures;
 
 public class Bungalow1 extends Building {
 	private static ArrayList<Rectangle> platforms;
-	private static Vector2 size = new Vector2(350, 250);
+	private static Vector2 size = new Vector2(280, 280);
 
 	static {
 		platforms = new ArrayList<Rectangle>();
-		platforms.add(new Rectangle(size.x / 64f, size.y / 2f, size.x / 1.06f, size.y / 2.8f));
+		platforms.add(new Rectangle(size.x / 200f, size.y / 2f, size.x / 1.01f, size.y / 2.8f));
 	}
 
 	public Bungalow1(Vector2 position) {
