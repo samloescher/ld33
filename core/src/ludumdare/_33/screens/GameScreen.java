@@ -10,9 +10,14 @@ import com.badlogic.gdx.math.Vector2;
 
 import ludumdare._33.sounds.Jukebox;
 import ludumdare._33.sounds.SoundEffects;
+<<<<<<< HEAD
 import ludumdare._33.ui.UIOverlay;
 import ludumdare._33.world.Platforms;
+=======
+>>>>>>> 0fc4dcce9ae2bb1ae926976b93b5508ad49d6034
 import ludumdare._33.world.World;
+import ludumdare._33.world.environment.HideableAreas;
+import ludumdare._33.world.environment.Platforms;
 
 public class GameScreen extends AbstractScreen {
 
@@ -48,6 +53,7 @@ public class GameScreen extends AbstractScreen {
 		shapeRenderer.setColor(Color.RED);
 		shapeRenderer.setProjectionMatrix(camera.combined);
 		Platforms.draw(shapeRenderer);
+		HideableAreas.draw(shapeRenderer);
 		world.drawDebug(shapeRenderer);
 		
 		Matrix4 uiMatrix = camera.combined.cpy();

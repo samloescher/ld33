@@ -1,4 +1,4 @@
-package ludumdare._33.world;
+package ludumdare._33.world.environment;
 
 import java.util.ArrayList;
 

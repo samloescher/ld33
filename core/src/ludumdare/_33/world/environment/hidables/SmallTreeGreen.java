@@ -1,4 +1,4 @@
-package ludumdare._33.world.environment.scenery;
+package ludumdare._33.world.environment.hidables;
 
 import com.badlogic.gdx.math.Vector2;
 
