@@ -1,4 +1,4 @@
-package ludumdare._33.Assets;
+package ludumdare._33.assets;
 
 import java.util.ArrayList;
 

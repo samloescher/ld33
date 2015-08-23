@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-import ludumdare._33.Assets.StaticTextures;
+import ludumdare._33.assets.StaticTextures;
 
 public class Church extends Building {
 

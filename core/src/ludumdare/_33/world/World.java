@@ -26,7 +26,7 @@ public class World {
 	ArrayList<Foliage> foliage = new ArrayList<Foliage>();
 	TextureRegion backdrop;
 
-	public static Rectangle bounds = new Rectangle(0, 0, 800 * 5, 480f * 1.5f);
+	public static Rectangle bounds = new Rectangle(0, 0, 800f * 5f, 480f * 3f);
 
 	public World() {
 		cat = new Cat();
