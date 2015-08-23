@@ -33,7 +33,7 @@ public class World {
 
 		buildings.add(new Home(new Vector2(150, 0)));
 		buildings.add(new Church(new Vector2(600, 0)));
-		buildings.add(new Marketplace(new Vector2(1200, 0)));
+		buildings.add(new Marketplace(new Vector2(1400, 0)));
 		buildings.add(new Bungalow1(new Vector2(2000, 0)));
 		buildings.add(new Bungalow2(new Vector2(2500, 0)));
 		// humans.add(new Human(50));

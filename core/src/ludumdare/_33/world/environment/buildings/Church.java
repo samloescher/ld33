@@ -10,7 +10,7 @@ import ludumdare._33.assets.StaticTextures;
 public class Church extends Building {
 
 	private static ArrayList<Rectangle> platforms;
-	private static Vector2 size = new Vector2(500, 420);
+	private static Vector2 size = new Vector2(620, 540);
 
 	static {
 		platforms = new ArrayList<Rectangle>();
