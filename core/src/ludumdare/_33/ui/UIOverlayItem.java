@@ -2,21 +2,31 @@ package ludumdare._33.ui;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-public class UIOverlayItem {
+public abstract class UIOverlayItem {
 
 	TextureRegion textureRegion;
-	Vector2 position;
-	Vector2 size;
-
+	public Rectangle bounds;
+	
 	public UIOverlayItem(TextureRegion textureRegion, Vector2 position, Vector2 size) {
 		this.textureRegion = textureRegion;
-		this.position = position;
-		this.size = size;
+		
+		bounds = new Rectangle(position.x, position.y, size.x, size.y);
 	}
 
 	public void draw(SpriteBatch batch) {
-		batch.draw(textureRegion, position.x, position.y, size.x, size.y);
+		batch.draw(textureRegion, bounds.x, bounds.y, bounds.width, bounds.height);
 	}
+	
+	public void changeTexture(TextureRegion textureRegion) {
+		this.textureRegion = textureRegion;
+	}
+	
+	public Rectangle getBounds() {
+		return bounds;
+	}
+	
+	public abstract void pressed();
 }

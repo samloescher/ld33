@@ -8,6 +8,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 
+import ludumdare._33.input.InputProcessing;
 import ludumdare._33.sounds.Jukebox;
 import ludumdare._33.sounds.SoundEffects;
 import ludumdare._33.ui.UIOverlay;
@@ -17,7 +18,7 @@ import ludumdare._33.world.environment.HideableAreas;
 import ludumdare._33.world.environment.Platforms;
 
 public class GameScreen extends AbstractScreen {
-
+	
 	World world;
 	Background background;
 	
@@ -25,6 +26,8 @@ public class GameScreen extends AbstractScreen {
 	SoundEffects soundEffects;
 	UIOverlay uiOverlay;
 	Matrix4 uiMatrix;
+	
+	InputProcessing inputProcessing;
 
 	public GameScreen() {
 		world = new World();
@@ -33,6 +36,8 @@ public class GameScreen extends AbstractScreen {
 		background = new Background(camera);
 		uiOverlay = new UIOverlay();
 		uiMatrix = new Matrix4().setToOrtho2D(0, 0, 800, 480);
+		inputProcessing = new InputProcessing(uiOverlay);
+		Gdx.input.setInputProcessor(inputProcessing);
 		
 		jukeBox.play();
 	}
