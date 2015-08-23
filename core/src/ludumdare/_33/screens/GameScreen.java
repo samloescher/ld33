@@ -1,14 +1,20 @@
 package ludumdare._33.screens;
 
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 
 import ludumdare._33.sounds.Jukebox;
 import ludumdare._33.sounds.SoundEffects;
+<<<<<<< HEAD
 import ludumdare._33.world.Background;
+=======
+import ludumdare._33.ui.UIOverlay;
+>>>>>>> 771de22536e5bd2f149fb5ca0cb92345cd8d54db
 import ludumdare._33.world.World;
 import ludumdare._33.world.environment.HideableAreas;
 import ludumdare._33.world.environment.Platforms;
@@ -20,12 +26,17 @@ public class GameScreen extends AbstractScreen {
 	
 	Jukebox jukeBox;
 	SoundEffects soundEffects;
+	UIOverlay uiOverlay;
 
 	public GameScreen() {
 		world = new World();
 		jukeBox = new Jukebox();
 		soundEffects = new SoundEffects();
+<<<<<<< HEAD
 		background = new Background(camera);
+=======
+		uiOverlay = new UIOverlay();
+>>>>>>> 771de22536e5bd2f149fb5ca0cb92345cd8d54db
 
 		jukeBox.play();
 	}
@@ -46,14 +57,19 @@ public class GameScreen extends AbstractScreen {
 		background.draw(batch);
 		world.draw(batch);
 		batch.end();
-		
 
 		shapeRenderer.setColor(Color.RED);
 		shapeRenderer.setProjectionMatrix(camera.combined);
 		Platforms.draw(shapeRenderer);
 		HideableAreas.draw(shapeRenderer);
 		world.drawDebug(shapeRenderer);
-
+		
+		Matrix4 uiMatrix = camera.combined.cpy();
+		uiMatrix.setToOrtho2D(0, 0, 800, 480);
+		batch.setProjectionMatrix(uiMatrix);
+		batch.begin();
+		uiOverlay.draw(batch);
+		batch.end();
 	}
 
 	@Override
