@@ -32,6 +32,7 @@ public class World {
 		addBuildings();
 		addFoliage();
 		addHumans();
+		addPrey();
 	}
 	
 	void addBuildings(){
@@ -46,6 +47,10 @@ public class World {
 	
 	void addHumans(){
 		humans.add(new Human(0));
+	}
+	
+	void addPrey(){
+		
 	}
 
 	public void update(float delta) {
