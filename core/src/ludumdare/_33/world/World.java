@@ -9,7 +9,8 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 import ludumdare._33.world.cat.Cat;
-import ludumdare._33.world.environment.Foliage;
+import ludumdare._33.world.environment.scenery.Foliage;
+import ludumdare._33.world.environment.scenery.HedgeGreen;
 import ludumdare._33.world.environment.buildings.Building;
 import ludumdare._33.world.environment.buildings.Bungalow1;
 import ludumdare._33.world.environment.buildings.Bungalow2;
@@ -36,6 +37,8 @@ public class World {
 		buildings.add(new Bungalow1(new Vector2(2000, 0)));
 		buildings.add(new Bungalow2(new Vector2(2500, 0)));
 		// humans.add(new Human(50));
+		
+		foliage.add(new HedgeGreen(new Vector2(150,0)));
 	}
 
 	public void update(float delta) {
@@ -56,6 +59,10 @@ public class World {
 		}
 
 		cat.draw(batch);
+		
+		for (Foliage f :foliage) {
+			f.draw(batch);
+		}
 	}
 	
 	public void drawDebug(ShapeRenderer shapeRenderer) {
