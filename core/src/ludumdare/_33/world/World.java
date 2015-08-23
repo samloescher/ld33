@@ -9,9 +9,9 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 import ludumdare._33.world.cat.Cat;
-import ludumdare._33.world.environment.Building;
 import ludumdare._33.world.environment.Foliage;
-import ludumdare._33.world.environment.Home;
+import ludumdare._33.world.environment.buildings.Building;
+import ludumdare._33.world.environment.buildings.Home;
 
 public class World {
 	
@@ -28,6 +28,7 @@ public class World {
 		cat = new Cat();
 		
 		buildings.add(new Home(new Vector2(150,0)));
+		//TODO : add a church to test : buildings.add(new Home(new Vector2(150,0)));
 		//humans.add(new Human(50));
 	}
 	

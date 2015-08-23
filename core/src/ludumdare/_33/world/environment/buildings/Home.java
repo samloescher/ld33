@@ -1,4 +1,4 @@
-package ludumdare._33.world.environment;
+package ludumdare._33.world.environment.buildings;
 
 import java.util.ArrayList;
 
@@ -10,14 +10,15 @@ import ludumdare._33.Assets.StaticTextures;
 public class Home extends Building{
 	
 	private static ArrayList<Rectangle> platforms;
+	private static Vector2 size = new Vector2(400,300); //320, 240
 	
 	static{
 		platforms = new ArrayList<Rectangle>();
-		platforms.add(new Rectangle(5,150,290,80));
+		platforms.add(new Rectangle(size.x/64f,size.y/1.6f,size.x/1.1f,size.y/3f));
 	}
 	
 	public Home(Vector2 position){
-		super(StaticTextures.Home, position, new Vector2(320,240), platforms);
+		super(StaticTextures.Home, position, size, platforms);
 	}
 	
 }

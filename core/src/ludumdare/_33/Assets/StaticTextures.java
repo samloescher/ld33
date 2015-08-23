@@ -13,6 +13,7 @@ public class StaticTextures {
 	
 	public static void loadAllTextures() {
 		Home = new TextureRegion(new Texture("images/buildings/houses/home.png"));
+		//TODO : new CHURCH TEXTURE
 	}
 	
 }
