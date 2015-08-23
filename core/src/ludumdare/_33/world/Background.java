@@ -42,8 +42,8 @@ public class Background {
 		cloudsRight.setPosition((textureWidths + 1) * cloudsRight.getWidth(), 40);
 		
 		textureWidths = (int) (cameraViewport.x / hillsLeft.getWidth());
-		hillsLeft.setPosition((textureWidths-1) * hillsLeft.getWidth(), 0);
-		hillsRight.setPosition(textureWidths * hillsRight.getWidth(), 0);
+		hillsLeft.setPosition((textureWidths) * hillsLeft.getWidth(), 0);
+		hillsRight.setPosition((textureWidths + 1) * hillsRight.getWidth(), 0);
 	}
 	
 	public void draw(SpriteBatch batch){
@@ -56,8 +56,8 @@ public class Background {
 	void assignSprites(){
 		cloudsLeft = new Sprite(StaticTextures.Clouds);
 		cloudsRight = new Sprite(StaticTextures.Clouds);
-		cloudsLeft.setColor(0.6f, 0.6f, 0.9f, 1f);
-		cloudsRight.setColor(0.6f, 0.6f, 0.9f, 1f);
+		cloudsLeft.setColor(0.2f, 0.2f, 0.5f, 1f);
+		cloudsRight.setColor(0.2f, 0.2f, 0.5f, 1f);
 		hillsLeft = new Sprite(StaticTextures.Hills);
 		hillsRight = new Sprite(StaticTextures.Hills);
 		hillsLeft.setColor(0, 0.6f, 0, 1f);
