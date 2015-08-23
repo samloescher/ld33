@@ -9,7 +9,7 @@ import com.badlogic.gdx.math.Vector2;
 import ludumdare._33.sounds.Jukebox;
 import ludumdare._33.sounds.SoundEffects;
 import ludumdare._33.world.World;
-import ludumdare._33.world.environment.Bushes;
+import ludumdare._33.world.environment.HideableAreas;
 import ludumdare._33.world.environment.Platforms;
 
 public class GameScreen extends AbstractScreen {
@@ -45,7 +45,7 @@ public class GameScreen extends AbstractScreen {
 		shapeRenderer.setColor(Color.RED);
 		shapeRenderer.setProjectionMatrix(camera.combined);
 		Platforms.draw(shapeRenderer);
-		Bushes.draw(shapeRenderer);
+		HideableAreas.draw(shapeRenderer);
 		world.drawDebug(shapeRenderer);
 
 	}

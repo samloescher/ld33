@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Rectangle;
 
-public class Bushes {
+public class HideableAreas {
 
 	public static ArrayList<Rectangle> bushes = new ArrayList<Rectangle>();
 	
