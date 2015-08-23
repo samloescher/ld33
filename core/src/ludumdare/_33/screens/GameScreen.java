@@ -39,7 +39,7 @@ public class GameScreen extends AbstractScreen {
 		batch.begin();
 		world.draw(batch);
 		batch.end();
-		
+
 		shapeRenderer.setColor(Color.RED);
 		shapeRenderer.setProjectionMatrix(camera.combined);
 		Platforms.draw(shapeRenderer);
@@ -69,13 +69,9 @@ public class GameScreen extends AbstractScreen {
 	}
 
 	void clampCameraToBounds() {
-		camera.position.x = MathUtils.clamp(
-				camera.position.x,
-				World.bounds.x + camera.viewportWidth / 2,
+		camera.position.x = MathUtils.clamp(camera.position.x, World.bounds.x + camera.viewportWidth / 2,
 				World.bounds.x + World.bounds.width - camera.viewportWidth / 2);
-		camera.position.y = MathUtils.clamp(
-				camera.position.y,
-				World.bounds.y + camera.viewportHeight / 2,
+		camera.position.y = MathUtils.clamp(camera.position.y, World.bounds.y + camera.viewportHeight / 2,
 				World.bounds.y + World.bounds.height - camera.viewportHeight / 2);
 	}
 }

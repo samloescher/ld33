@@ -4,16 +4,17 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class StaticTextures {
-	
+
 	public static TextureRegion Home;
-	
-	static{
+	public static TextureRegion Church;
+
+	static {
 		loadAllTextures();
 	}
-	
+
 	public static void loadAllTextures() {
 		Home = new TextureRegion(new Texture("images/buildings/houses/home.png"));
-		//TODO : new CHURCH TEXTURE
+		Church = new TextureRegion(new Texture("images/buildings/houses/church.png"));
 	}
-	
+
 }
