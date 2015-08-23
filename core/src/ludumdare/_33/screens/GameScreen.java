@@ -10,11 +10,7 @@ import com.badlogic.gdx.math.Vector2;
 
 import ludumdare._33.sounds.Jukebox;
 import ludumdare._33.sounds.SoundEffects;
-<<<<<<< HEAD
 import ludumdare._33.ui.UIOverlay;
-import ludumdare._33.world.Platforms;
-=======
->>>>>>> 0fc4dcce9ae2bb1ae926976b93b5508ad49d6034
 import ludumdare._33.world.World;
 import ludumdare._33.world.environment.HideableAreas;
 import ludumdare._33.world.environment.Platforms;
