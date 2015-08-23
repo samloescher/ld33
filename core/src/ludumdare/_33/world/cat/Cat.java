@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
@@ -26,7 +28,7 @@ public class Cat {
 	Animation currentAnimation;
 	float currentAnimationTime;
 	public Vector2 position;
-	Rectangle floorCheck = new Rectangle(0,0,width,2);
+	Rectangle floorCheck = new Rectangle();
 	
 	CatState previousState = CatState.Sitting;
 	CatState currentState = CatState.Sitting;
@@ -44,6 +46,7 @@ public class Cat {
 
 	public void update(float delta) {
 		currentAnimationTime += delta;
+		updateFloorCheckBounds();
 		onFloorOrPlatform = currentlyOnFloorOrPlatform();
 		manageInput();
 		updateVelocityY(delta);
@@ -135,8 +138,6 @@ public class Cat {
 	}
 	
 	public boolean currentlyOnFloorOrPlatform() {
-		floorCheck.x = position.x;
-		floorCheck.y = position.y;
 		if (position.y == 0 || Platforms.collidingWithPlatform(floorCheck)){
 			return true;
 		}
@@ -155,5 +156,18 @@ public class Cat {
 		runningAnimation.setPlayMode(PlayMode.LOOP);
 		jumpingAnimation = new Animation(0.4f, AnimationTextures.catJumpingArray.toArray(new TextureRegion[AnimationTextures.catJumpingArray.size()]));
 		jumpingAnimation.setPlayMode(PlayMode.LOOP);
+	}
+	
+	void updateFloorCheckBounds(){
+		floorCheck.x = position.x + 30;
+		floorCheck.y = position.y;
+		floorCheck.width = width - 60;
+		floorCheck.height = 2;
+	}
+	
+	public void drawFloorCheck(ShapeRenderer shapeRenderer){
+		shapeRenderer.begin(ShapeType.Line);
+		shapeRenderer.rect(floorCheck.x, floorCheck.y, floorCheck.width, floorCheck.height);
+		shapeRenderer.end();
 	}
 }

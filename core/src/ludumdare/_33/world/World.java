@@ -2,9 +2,9 @@ package ludumdare._33.world;
 
 import java.util.ArrayList;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
@@ -28,7 +28,6 @@ public class World {
 	public static Rectangle bounds = new Rectangle(0, 0, 800 * 5, 480f * 1.5f);
 
 	public World() {
-		backdrop = new TextureRegion(new Texture("images/city-backgrounds/city_background_night.png"));
 		cat = new Cat();
 
 		buildings.add(new Home(new Vector2(150, 0)));
@@ -47,8 +46,7 @@ public class World {
 	}
 
 	public void draw(SpriteBatch batch) {
-		batch.draw(backdrop, 0, 0);
-
+		
 		for (Building b : buildings) {
 			b.draw(batch);
 		}
@@ -58,6 +56,10 @@ public class World {
 		}
 
 		cat.draw(batch);
+	}
+	
+	public void drawDebug(ShapeRenderer shapeRenderer) {
+		cat.drawFloorCheck(shapeRenderer);
 	}
 
 	public Vector2 getCatPosition() {

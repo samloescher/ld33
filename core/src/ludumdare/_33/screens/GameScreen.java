@@ -39,10 +39,12 @@ public class GameScreen extends AbstractScreen {
 		batch.begin();
 		world.draw(batch);
 		batch.end();
+		
 
 		shapeRenderer.setColor(Color.RED);
 		shapeRenderer.setProjectionMatrix(camera.combined);
 		Platforms.draw(shapeRenderer);
+		world.drawDebug(shapeRenderer);
 
 	}
 
