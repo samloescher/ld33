@@ -10,11 +10,8 @@ import com.badlogic.gdx.math.Vector2;
 
 import ludumdare._33.sounds.Jukebox;
 import ludumdare._33.sounds.SoundEffects;
-<<<<<<< HEAD
-import ludumdare._33.world.Background;
-=======
 import ludumdare._33.ui.UIOverlay;
->>>>>>> 771de22536e5bd2f149fb5ca0cb92345cd8d54db
+import ludumdare._33.world.Background;
 import ludumdare._33.world.World;
 import ludumdare._33.world.environment.HideableAreas;
 import ludumdare._33.world.environment.Platforms;
@@ -32,11 +29,8 @@ public class GameScreen extends AbstractScreen {
 		world = new World();
 		jukeBox = new Jukebox();
 		soundEffects = new SoundEffects();
-<<<<<<< HEAD
 		background = new Background(camera);
-=======
 		uiOverlay = new UIOverlay();
->>>>>>> 771de22536e5bd2f149fb5ca0cb92345cd8d54db
 
 		jukeBox.play();
 	}

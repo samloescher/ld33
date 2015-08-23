@@ -20,15 +20,13 @@ public class StaticTextures {
 	public static TextureRegion TreeGreen;
 	public static TextureRegion TreeFruitGreen;
 	
-<<<<<<< HEAD
 	public static TextureRegion Clouds;
 	public static TextureRegion Hills;
-=======
+	
 	public static TextureRegion SoundMute;
 	public static TextureRegion SoundUnmute;
 	public static TextureRegion MusicMute;
 	public static TextureRegion MusicUnmute;
->>>>>>> 771de22536e5bd2f149fb5ca0cb92345cd8d54db
 
 	static {
 		loadAllTextures();
@@ -52,15 +50,13 @@ public class StaticTextures {
 		TreeGreen = new TextureRegion(new Texture("images/buildings/scenery/tree-green.png"));
 		TreeFruitGreen = new TextureRegion(new Texture("images/buildings/scenery/tree-fruit-green.png"));
 		
-<<<<<<< HEAD
 		Clouds = new TextureRegion(new Texture("images/background/clouds.png"));
 		Hills = new TextureRegion(new Texture("images/background/hills.png"));
-=======
+		
 		/* Sound */
 		SoundMute = new TextureRegion(new Texture("images/sound-toggle/sound-mute.png"));
 		SoundUnmute = new TextureRegion(new Texture("images/sound-toggle/sound-unmute.png"));
 		MusicMute = new TextureRegion(new Texture("images/sound-toggle/music-mute.png"));
 		MusicUnmute = new TextureRegion(new Texture("images/sound-toggle/music-unmute.png"));
->>>>>>> 771de22536e5bd2f149fb5ca0cb92345cd8d54db
 	}
 }

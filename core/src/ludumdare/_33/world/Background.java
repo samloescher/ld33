@@ -38,8 +38,8 @@ public class Background {
 		int textureWidths;
 		
 		textureWidths = (int) (cameraViewport.x  / cloudsLeft.getWidth());
-		cloudsLeft.setPosition((textureWidths) * cloudsLeft.getWidth(), 60);
-		cloudsRight.setPosition((textureWidths + 1) * cloudsRight.getWidth(), 60);
+		cloudsLeft.setPosition((textureWidths) * cloudsLeft.getWidth(), 40);
+		cloudsRight.setPosition((textureWidths + 1) * cloudsRight.getWidth(), 40);
 		
 		textureWidths = (int) (cameraViewport.x / hillsLeft.getWidth());
 		hillsLeft.setPosition((textureWidths-1) * hillsLeft.getWidth(), 0);
