@@ -39,7 +39,7 @@ public class DetectionTriangle {
 	}
 	
 	public void draw(ShapeRenderer shapeRenderer){
-		shapeRenderer.begin(ShapeType.Filled);
+		shapeRenderer.begin(ShapeType.Line);
 		shapeRenderer.triangle(t1.x, t1.y, t2.x, t2.y, t3.x, t3.y);
 		shapeRenderer.end();
 	}

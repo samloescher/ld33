@@ -58,7 +58,7 @@ public class GameScreen extends AbstractScreen {
 		shapeRenderer.setProjectionMatrix(camera.combined);
 		//Platforms.draw(shapeRenderer);
 		HideableAreas.draw(shapeRenderer);
-		//world.drawDebug(shapeRenderer);
+		world.drawDebug(shapeRenderer);
 		
 		
 		batch.setProjectionMatrix(uiMatrix);

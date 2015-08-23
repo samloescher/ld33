@@ -82,6 +82,9 @@ public class World {
 
 	public void drawDebug(ShapeRenderer shapeRenderer) {
 		cat.drawFloorCheck(shapeRenderer);
+		for (Human h : humans) {
+			h.drawDebug(shapeRenderer);
+		}
 	}
 
 	public Vector2 getCatPosition() {

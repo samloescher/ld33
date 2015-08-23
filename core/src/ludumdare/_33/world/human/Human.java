@@ -23,7 +23,7 @@ public class Human {
 	
 	HumanState currentState = HumanState.Walking;
 	HumanState previousState = HumanState.Walking;
-	boolean facingRight;
+	boolean facingRight = false;
 	
 	DetectionTriangle detectionArea;
 	
@@ -36,11 +36,11 @@ public class Human {
 
 	public void update(float delta) {
 		currentAnimationTime += delta;
+		detectionArea.update(new Vector2(position.x + 15,position.y + 80), facingRight);
 	}
 
 	public void draw(SpriteBatch batch) {
 		TextureRegion human = currentAnimation.getKeyFrame(currentAnimationTime);
-		human.flip(facingRight, false);
 		batch.draw(human, position.x, position.y,width,height);
 	}
 	
