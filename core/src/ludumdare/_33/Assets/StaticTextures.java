@@ -7,6 +7,7 @@ public class StaticTextures {
 
 	public static TextureRegion Home;
 	public static TextureRegion Church;
+	public static TextureRegion Marketplace;
 
 	static {
 		loadAllTextures();
@@ -15,6 +16,7 @@ public class StaticTextures {
 	public static void loadAllTextures() {
 		Home = new TextureRegion(new Texture("images/buildings/houses/home.png"));
 		Church = new TextureRegion(new Texture("images/buildings/houses/church.png"));
+		Marketplace = new TextureRegion(new Texture("images/buildings/houses/marketplace.png"));
 	}
 
 }

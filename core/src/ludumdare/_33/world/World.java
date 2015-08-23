@@ -13,6 +13,7 @@ import ludumdare._33.world.environment.Foliage;
 import ludumdare._33.world.environment.buildings.Building;
 import ludumdare._33.world.environment.buildings.Church;
 import ludumdare._33.world.environment.buildings.Home;
+import ludumdare._33.world.environment.buildings.Marketplace;
 
 public class World {
 
@@ -30,6 +31,7 @@ public class World {
 
 		buildings.add(new Home(new Vector2(150, 0)));
 		buildings.add(new Church(new Vector2(600, 0)));
+		buildings.add(new Marketplace(new Vector2(1200, 0)));
 		// humans.add(new Human(50));
 	}
 
