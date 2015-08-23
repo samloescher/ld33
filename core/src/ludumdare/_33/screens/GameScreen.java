@@ -1,13 +1,16 @@
 package ludumdare._33.screens;
 
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 
 import ludumdare._33.sounds.Jukebox;
 import ludumdare._33.sounds.SoundEffects;
+import ludumdare._33.ui.UIOverlay;
 import ludumdare._33.world.Platforms;
 import ludumdare._33.world.World;
 
@@ -16,11 +19,13 @@ public class GameScreen extends AbstractScreen {
 	World world;
 	Jukebox jukeBox;
 	SoundEffects soundEffects;
+	UIOverlay uiOverlay;
 
 	public GameScreen() {
 		world = new World();
 		jukeBox = new Jukebox();
 		soundEffects = new SoundEffects();
+		uiOverlay = new UIOverlay();
 
 		jukeBox.play();
 	}
@@ -39,13 +44,18 @@ public class GameScreen extends AbstractScreen {
 		batch.begin();
 		world.draw(batch);
 		batch.end();
-		
 
 		shapeRenderer.setColor(Color.RED);
 		shapeRenderer.setProjectionMatrix(camera.combined);
 		Platforms.draw(shapeRenderer);
 		world.drawDebug(shapeRenderer);
-
+		
+		Matrix4 uiMatrix = camera.combined.cpy();
+		uiMatrix.setToOrtho2D(0, 0, 800, 480);
+		batch.setProjectionMatrix(uiMatrix);
+		batch.begin();
+		uiOverlay.draw(batch);
+		batch.end();
 	}
 
 	@Override
