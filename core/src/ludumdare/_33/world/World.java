@@ -11,6 +11,8 @@ import com.badlogic.gdx.math.Vector2;
 import ludumdare._33.world.cat.Cat;
 import ludumdare._33.world.environment.Foliage;
 import ludumdare._33.world.environment.buildings.Building;
+import ludumdare._33.world.environment.buildings.Bungalow1;
+import ludumdare._33.world.environment.buildings.Bungalow2;
 import ludumdare._33.world.environment.buildings.Church;
 import ludumdare._33.world.environment.buildings.Home;
 import ludumdare._33.world.environment.buildings.Marketplace;
@@ -32,6 +34,8 @@ public class World {
 		buildings.add(new Home(new Vector2(150, 0)));
 		buildings.add(new Church(new Vector2(600, 0)));
 		buildings.add(new Marketplace(new Vector2(1200, 0)));
+		buildings.add(new Bungalow1(new Vector2(2000, 0)));
+		buildings.add(new Bungalow2(new Vector2(2500, 0)));
 		// humans.add(new Human(50));
 	}
 
