@@ -1,9 +1,11 @@
 package ludumdare._33.world.human;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 
@@ -11,8 +13,8 @@ import ludumdare._33.assets.AnimationTextures;
 
 public class Human {
 	
-	int width = 50;
-	int height = 100;
+	int width = 74;
+	int height = 108;
 
 	Animation standingAnimation;
 	Animation walkingAnimation;
@@ -36,7 +38,14 @@ public class Human {
 
 	public void update(float delta) {
 		currentAnimationTime += delta;
+		position.x += 0.5f;
 		detectionArea.update(new Vector2(position.x + 15,position.y + 80), facingRight);
+		if(Gdx.input.isKeyPressed(Keys.N)){
+			facingRight = false;
+		}
+		if(Gdx.input.isKeyPressed(Keys.M)){
+			facingRight = true;
+		}
 	}
 
 	public void draw(SpriteBatch batch) {
@@ -49,9 +58,9 @@ public class Human {
 	}
 
 	void initialiseAnimations() {
-		standingAnimation = new Animation(0.02f, AnimationTextures.humanStandingArray.toArray(new TextureRegion[AnimationTextures.humanStandingArray.size()]));
+		standingAnimation = new Animation(0.02f, AnimationTextures.maleStandingArray.toArray(new TextureRegion[AnimationTextures.maleStandingArray.size()]));
 		standingAnimation.setPlayMode(PlayMode.LOOP);
-		walkingAnimation = new Animation(0.2f, AnimationTextures.humanWalkingArray.toArray(new TextureRegion[AnimationTextures.humanWalkingArray.size()]));
+		walkingAnimation = new Animation(0.2f, AnimationTextures.maleWalkingArray.toArray(new TextureRegion[AnimationTextures.maleWalkingArray.size()]));
 		walkingAnimation.setPlayMode(PlayMode.LOOP);
 	}
 }

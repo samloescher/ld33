@@ -14,6 +14,7 @@ public class Background {
 	Sprite hillsLeft;
 	Sprite hillsRight;
 	
+	Sprite moon;//TODO
 	Sprite star;//TODO
 	
 	Rectangle cameraViewport = new Rectangle();

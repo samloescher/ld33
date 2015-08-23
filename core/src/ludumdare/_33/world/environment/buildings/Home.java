@@ -17,8 +17,8 @@ public class Home extends Building {
 		platforms.add(new Rectangle(size.x / 200f, size.y / 1.6f, size.x / 1.06f, size.y / 2.7f));
 	}
 
-	public Home(Vector2 position) {
-		super(StaticTextures.home, position, size, platforms);
+	public Home(float x) {
+		super(StaticTextures.home, new Vector2(x,0), size, platforms);
 	}
 
 }

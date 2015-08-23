@@ -24,17 +24,19 @@ public class DetectionTriangle {
 	void updateArea(Vector2 eyePosition){
 		t1 = eyePosition.cpy();
 		if(facingRight){
-			t2.x = t1.x + 50;
-			t2.y = t1.y - 50;
+			t1.x = t1.x + 20;
 			
-			t3.x = t2.x + 10;
-			t3.y = t2.y + 80;
+			t2.x = t1.x + 400;
+			t2.y = t1.y - 100;
+			
+			t3.x = t2.x ;
+			t3.y = t2.y + 300;
 		}else{
-			t2.x = t1.x - 50;
-			t2.y = t1.y - 50;
+			t2.x = t1.x - 400;
+			t2.y = t1.y - 100;
 			
-			t3.x = t2.x - 10;
-			t3.y = t2.y + 80;
+			t3.x = t2.x ;
+			t3.y = t2.y + 300;
 		}
 	}
 	

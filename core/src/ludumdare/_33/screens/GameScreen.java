@@ -8,14 +8,13 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 
+import ludumdare._33.assets.AnimationTextures;
 import ludumdare._33.input.InputManager;
-import ludumdare._33.sounds.Jukebox;
 import ludumdare._33.sounds.SoundEffects;
 import ludumdare._33.ui.UIOverlay;
 import ludumdare._33.world.Background;
 import ludumdare._33.world.World;
 import ludumdare._33.world.environment.HideableAreas;
-import ludumdare._33.world.environment.Platforms;
 
 public class GameScreen extends AbstractScreen {
 	
@@ -71,6 +70,7 @@ public class GameScreen extends AbstractScreen {
 	@Override
 	public void dispose() {
 		soundEffects.dispose();
+		AnimationTextures.dispose();
 	}
 
 	void focusCameraOnCat() {

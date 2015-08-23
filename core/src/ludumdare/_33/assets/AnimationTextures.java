@@ -10,8 +10,11 @@ public class AnimationTextures {
 	static int catWidth = 23;
 	static int catHeight = 16;
 	
-	static int humanWidth = 16;
-	static int humanHeight = 28;
+	static int femaleWidth = 37;
+	static int femaleHeight = 50;
+	
+	static int maleWidth = 37;
+	static int maleHeight = 54;
 	
 	static Texture catSitting;
 	static Texture catRunning;
@@ -20,10 +23,10 @@ public class AnimationTextures {
 	public static ArrayList<TextureRegion> catJumpingArray = new ArrayList<TextureRegion>();
 	
 	
-	static Texture humanStanding;
-	static Texture humanWalking;
-	public static ArrayList<TextureRegion> humanStandingArray = new ArrayList<TextureRegion>();
-	public static ArrayList<TextureRegion> humanWalkingArray = new ArrayList<TextureRegion>();
+	static Texture maleStanding;
+	static Texture maleWalking;
+	public static ArrayList<TextureRegion> maleStandingArray = new ArrayList<TextureRegion>();
+	public static ArrayList<TextureRegion> maleWalkingArray = new ArrayList<TextureRegion>();
 	
 	
 
@@ -36,8 +39,8 @@ public class AnimationTextures {
 		catSitting = new Texture("images/cat/cat-sitting.png");
 		catRunning = new Texture("images/cat/cat-running.png");
 		
-		humanStanding = new Texture("images/human/human-standing.png");
-		humanWalking = new Texture("images/human/human-walking.png");
+		maleStanding = new Texture("images/human/male-standing.png");
+		maleWalking = new Texture("images/human/male-walking.png");
 	}
 
 	public static void initialiseAnimationArrays() {
@@ -51,12 +54,19 @@ public class AnimationTextures {
 			catJumpingArray.add(new TextureRegion(catRunning, i * catWidth, 0, catWidth, catHeight));
 		}
 		
-		for (int i = 0; i < 2; i++) {
-			humanStandingArray.add(new TextureRegion(humanStanding, i * humanWidth, 0, humanWidth, humanHeight));
+		for (int i = 0; i < 4; i++) {
+			maleStandingArray.add(new TextureRegion(maleStanding, i * maleWidth, 0, maleWidth, maleHeight));
 		}
-		for (int i = 0; i < 3; i++) {
-			humanWalkingArray.add(new TextureRegion(humanWalking, i * humanWidth, 0, humanWidth, humanHeight));
+		for (int i = 0; i < 4; i++) {
+			maleWalkingArray.add(new TextureRegion(maleWalking, i * maleWidth, 0, maleWidth, maleHeight));
 		}
+	}
+	
+	public static void dispose(){
+		catSitting.dispose();
+		catRunning.dispose();
+		maleStanding.dispose();
+		maleWalking.dispose();		
 	}
 
 }
