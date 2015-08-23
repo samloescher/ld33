@@ -10,7 +10,6 @@ import com.badlogic.gdx.math.Vector2;
 
 import ludumdare._33.assets.AnimationTextures;
 import ludumdare._33.input.InputManager;
-import ludumdare._33.sounds.SoundEffects;
 import ludumdare._33.ui.UIOverlay;
 import ludumdare._33.world.Background;
 import ludumdare._33.world.World;
