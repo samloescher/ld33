@@ -24,6 +24,9 @@ public class AnimationTextures {
 	
 	static int chickenWidth = 12;
 	static int chickenHeight = 11;
+	
+	static int starWidth = 7;
+	static int starHeight = 7;
 
 	static Texture catSitting;
 	static Texture catRunning;
@@ -50,6 +53,9 @@ public class AnimationTextures {
 	
 	static Texture chickenWalking;
 	public static ArrayList<TextureRegion> chickenWalkingArray = new ArrayList<TextureRegion>();
+	
+	static Texture starBlinking;
+	public static ArrayList<TextureRegion> starBlinkingArray = new ArrayList<TextureRegion>();
 
 	static {
 		loadAllTextures();
@@ -71,6 +77,8 @@ public class AnimationTextures {
 		mouseWalking = new Texture("images/mouse/mouse-walking.png");
 		
 		chickenWalking = new Texture("images/chicken/chicken-walking.png");
+		
+		starBlinking = new Texture("images/background/star-default.png");
 	}
 
 	private static void initialiseAnimationArrays() {
@@ -112,6 +120,10 @@ public class AnimationTextures {
 		for (int i = 0; i < 4; i++) {
 			chickenWalkingArray.add(new TextureRegion(chickenWalking, i * chickenWidth, 0, chickenWidth, chickenHeight));
 		}
+		
+		for (int i = 0; i < 10; i++) {
+			starBlinkingArray.add(new TextureRegion(starBlinking, i * starWidth, 0, starWidth, starHeight));
+		}
 	}
 
 	public static void dispose() {
@@ -122,6 +134,7 @@ public class AnimationTextures {
 		birdFlying.dispose();
 		mouseWalking.dispose();
 		chickenWalking.dispose();
+		starBlinking.dispose();
 	}
 
 }

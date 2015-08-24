@@ -40,7 +40,7 @@ class GameScreen extends AbstractScreen {
 		world.update(delta);
 		uiOverlay.setDetectionLevel(world.losePercent);
 		focusCameraOnCat(world.cat);
-		background.update();
+		background.update(delta);
 	}
 
 	@Override

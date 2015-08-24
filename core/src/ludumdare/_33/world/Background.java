@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 
 import ludumdare._33.assets.StaticTextures;
+import ludumdare._33.world.environment.Star;
 
 public class Background {
 	Sprite cloudsLeft;
@@ -16,8 +17,7 @@ public class Background {
 	Sprite hillsCenter;
 	Sprite hillsRight;
 	
-	Sprite moon;//TODO
-	Sprite star;//TODO
+	Star star;
 	
 	Rectangle cameraViewport = new Rectangle();
 	OrthographicCamera camera;
@@ -27,9 +27,11 @@ public class Background {
 		assignSprites();
 	}
 	
-	public void update(){
+	public void update(float delta){
 		updateCameraViewportBounds();
 		adjustTexturePositionsToCoverScreen();
+		
+		star.update(delta);
 	}
 	
 	private void updateCameraViewportBounds(){
@@ -68,6 +70,7 @@ public class Background {
 		hillsLeft.draw(batch);
 		hillsCenter.draw(batch);
 		hillsRight.draw(batch);
+		star.draw(batch);
 	}
 	
 	private void assignSprites(){
@@ -83,6 +86,8 @@ public class Background {
 		hillsLeft.setColor(0, 0.4f, 0, 1f);
 		hillsCenter.setColor(0, 0.4f, 0, 1f);
 		hillsRight.setColor(0, 0.4f, 0, 1f);
+		
+		star = new Star(10,400);
 	}
 	
 }
