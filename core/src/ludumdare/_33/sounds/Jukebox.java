@@ -7,16 +7,7 @@ public class Jukebox {
 
 	static Music backgroundMusic;
 	
-	static Jukebox instance;
-	
-	public static Jukebox getInstance(){
-		if(instance == null){
-			instance = new Jukebox();
-		}
-		return instance;
-	}
-	
-	private Jukebox () {
+	static{
 		backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("sounds/happy-pixel-adventure.mp3"));
 		backgroundMusic.setVolume(0.1f);
 		backgroundMusic.setLooping(true);
@@ -28,6 +19,14 @@ public class Jukebox {
 	
 	public static void pause() {
 		backgroundMusic.pause();
+	}
+	
+	public static void setVolume(float volume){
+		backgroundMusic.setVolume(0.1f * volume);
+	}
+	
+	public static float getVolume(){
+		return backgroundMusic.getVolume();
 	}
 	
 	public static void dispose() {
