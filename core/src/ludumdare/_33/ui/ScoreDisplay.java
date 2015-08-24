@@ -18,7 +18,7 @@ public class ScoreDisplay {
 	}
 
 	public void draw(SpriteBatch batch) {
-		AbstractScreen.font.draw(batch, "SCORE: "+ score, 340, 440);
+		AbstractScreen.font.draw(batch, "SCORE: "+ score, 320, 440);
 	}
 
 }
