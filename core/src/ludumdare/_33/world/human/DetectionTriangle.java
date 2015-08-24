@@ -27,16 +27,16 @@ class DetectionTriangle {
 			t1.x = t1.x + 20;
 			
 			t2.x = t1.x + 350;
-			t2.y = t1.y - 100;
+			t2.y = t1.y - 200;
 			
 			t3.x = t2.x ;
-			t3.y = t2.y + 300;
+			t3.y = t2.y + 400;
 		}else{
 			t2.x = t1.x - 350;
-			t2.y = t1.y - 100;
+			t2.y = t1.y - 200;
 			
 			t3.x = t2.x ;
-			t3.y = t2.y + 300;
+			t3.y = t2.y + 400;
 		}
 	}
 	

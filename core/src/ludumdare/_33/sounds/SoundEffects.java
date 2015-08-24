@@ -4,7 +4,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
 
 public class SoundEffects {
-
+	
+	public float volume = 1f;
+	
 	Sound catEatingSound;
 	Sound catGrowlingSound;
 	Sound catMeowingSound;
@@ -19,22 +21,22 @@ public class SoundEffects {
 
 	public void playEatingSound() {
 		long soundID = catEatingSound.play();
-		catEatingSound.setVolume(soundID, 0.5f);
+		catEatingSound.setVolume(soundID, 0.5f * volume);
 	}
 
 	public void playGrowlingSound() {
 		long soundID = catGrowlingSound.play();
-		catGrowlingSound.setVolume(soundID, 0.5f);
+		catGrowlingSound.setVolume(soundID, 0.5f * volume);
 	}
 
 	public void playMeowSound() {
 		long soundID = catMeowingSound.play();
-		catMeowingSound.setVolume(soundID, 0.5f);
+		catMeowingSound.setVolume(soundID, 0.5f * volume);
 	}
 
 	public void playPointsSound() {
 		long soundID = pointsSound.play();
-		pointsSound.setVolume(soundID, 0.2f);
+		pointsSound.setVolume(soundID, 0.2f * volume);
 	}
 	
 	public void stopAllSounds() {

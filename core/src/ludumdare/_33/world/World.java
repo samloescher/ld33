@@ -10,6 +10,7 @@ import com.badlogic.gdx.math.Vector2;
 import ludumdare._33.MainGame;
 import ludumdare._33.Player;
 import ludumdare._33.particles.BloodSplatterParticles;
+import ludumdare._33.screens.GameScreen;
 import ludumdare._33.world.cat.Cat;
 import ludumdare._33.world.environment.buildings.Building;
 import ludumdare._33.world.environment.buildings.Bungalow1;
@@ -139,6 +140,7 @@ public class World {
 			if(cat.hasFood){
 				cat.hasFood = false;
 				player.score += player.currentCatchValue;
+				GameScreen.soundEffects.playPointsSound();
 			}
 		}
 		bloodSplatterParticles.update(delta);
@@ -160,6 +162,7 @@ public class World {
 			if (loseTimer > 0.4f) {
 				int score = player.score;
 				player.score = 0;
+				GameScreen.soundEffects.playMeowSound();
 				MainGame.instance.endGame(score);
 			}
 		} else {
@@ -184,7 +187,7 @@ public class World {
 		for(Prey p : preys){
 			if(p.bounds.overlaps(cat.bounds)){
 				player.currentCatchValue = p.value;
-				player.score+=p.value/2;
+				player.score += p.value/2;
 				preys.remove(p);
 				cat.hasFood = true;
 				return ;

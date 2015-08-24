@@ -11,6 +11,7 @@ import com.badlogic.gdx.math.Vector2;
 import ludumdare._33.Player;
 import ludumdare._33.assets.AnimationTextures;
 import ludumdare._33.input.InputManager;
+import ludumdare._33.sounds.SoundEffects;
 import ludumdare._33.ui.UIOverlay;
 import ludumdare._33.world.Background;
 import ludumdare._33.world.World;
@@ -18,7 +19,7 @@ import ludumdare._33.world.cat.Cat;
 import ludumdare._33.world.environment.HideableAreas;
 import ludumdare._33.world.environment.Platforms;
 
-class GameScreen extends AbstractScreen {
+public class GameScreen extends AbstractScreen {
 	
 	World world;
 	Background background;
@@ -29,6 +30,8 @@ class GameScreen extends AbstractScreen {
 	Player player;
 	
 	InputManager inputManager;
+	
+	public static SoundEffects soundEffects = new SoundEffects();
 
 	public GameScreen() {
 		player = new Player();
