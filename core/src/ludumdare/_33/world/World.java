@@ -97,8 +97,16 @@ public class World {
 	}
 
 	private void addHumans() {
-		// humans.add(new Male(500, 1000));
-		// humans.add(new Female(500, 1000));
+		humans.add(new Male(500, 1000));
+		humans.add(new Female(1200, 1700));
+		humans.add(new Male(2000, 2700));
+		humans.add(new Female(3000, 3500));
+		humans.add(new Male(3800, 4500));
+		humans.add(new Female(4500, 5000));
+		humans.add(new Male(5000, 5700));
+		humans.add(new Male(5800, 6200));
+		humans.add(new Female(6500, 6900));
+		humans.add(new Male(7200, 7800));
 	}
 
 	private void addPrey() {
