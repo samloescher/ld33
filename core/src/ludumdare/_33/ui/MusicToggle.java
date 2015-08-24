@@ -8,7 +8,7 @@ import ludumdare._33.sounds.Jukebox;
 
 public class MusicToggle extends UIOverlayItem {
 	private boolean isMute;
-	private static Vector2 size = new Vector2(52, 52);
+	private static Vector2 size = new Vector2(17, 17);
 	private static TextureRegion muteTexture = StaticTextures.musicMute;
 	private static TextureRegion unmuteTexture = StaticTextures.musicUnmute;
 

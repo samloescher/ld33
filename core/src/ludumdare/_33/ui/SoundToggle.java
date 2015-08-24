@@ -8,7 +8,7 @@ import ludumdare._33.sounds.SoundEffects;
 
 public class SoundToggle extends UIOverlayItem {
 	private boolean isMute;
-	private static Vector2 size = new Vector2(52, 52);
+	private static Vector2 size = new Vector2(17, 17);
 	private static TextureRegion muteTexture = StaticTextures.soundMute;
 	private static TextureRegion unmuteTexture = StaticTextures.soundUnmute;
 
