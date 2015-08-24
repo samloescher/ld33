@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 
 import ludumdare._33.MainGame;
-import ludumdare._33.assets.AnimationTextures;
 
 public class MainMenuScreen extends AbstractScreen {
 
