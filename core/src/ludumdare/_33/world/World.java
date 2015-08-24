@@ -13,6 +13,7 @@ import ludumdare._33.world.environment.buildings.Building;
 import ludumdare._33.world.environment.buildings.Home;
 import ludumdare._33.world.environment.hidables.Foliage;
 import ludumdare._33.world.human.Human;
+import ludumdare._33.world.human.Man;
 import ludumdare._33.world.prey.Bird;
 import ludumdare._33.world.prey.Chicken;
 import ludumdare._33.world.prey.Mouse;
@@ -56,7 +57,7 @@ public class World {
 	}
 	
 	private void addHumans(){
-		
+		humans.add(new Man(500,1000));
 	}
 	
 	private void addPrey(){

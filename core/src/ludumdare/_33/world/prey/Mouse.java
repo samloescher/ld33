@@ -38,7 +38,7 @@ public class Mouse {
 	}
 	
 	private void initialiseAnimations() {
-		walkingAnimation = new Animation(0.2f, AnimationTextures.mouseWalkingArray.toArray(new TextureRegion[AnimationTextures.mouseWalkingArray.size()]));
+		walkingAnimation = new Animation(0.2f, AnimationTextures.mouseWalkingArray);
 		walkingAnimation.setPlayMode(PlayMode.LOOP);
 	}
 }

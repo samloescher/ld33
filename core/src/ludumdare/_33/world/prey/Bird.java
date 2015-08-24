@@ -40,7 +40,7 @@ public class Bird extends Prey{
 	}
 	
 	private void initialiseAnimations() {
-		flyingAnimation = new Animation(0.4f, AnimationTextures.birdFlyingArray.toArray(new TextureRegion[AnimationTextures.birdFlyingArray.size()]));
+		flyingAnimation = new Animation(0.4f, AnimationTextures.birdFlyingArray);
 		flyingAnimation.setPlayMode(PlayMode.LOOP);
 	}
 }

@@ -189,18 +189,18 @@ public class Cat {
 	}
 
 	private void initialiseAnimations() {
-		sittingAnimation = new Animation(0.5f, AnimationTextures.catSittingArray.toArray(new TextureRegion[AnimationTextures.catSittingArray.size()]));
+		sittingAnimation = new Animation(0.5f, AnimationTextures.catSittingArray);
 		sittingAnimation.setPlayMode(PlayMode.LOOP);
-		runningAnimation = new Animation(0.05f, AnimationTextures.catRunningArray.toArray(new TextureRegion[AnimationTextures.catRunningArray.size()]));
+		runningAnimation = new Animation(0.05f, AnimationTextures.catRunningArray);
 		runningAnimation.setPlayMode(PlayMode.LOOP);
-		jumpingAnimation = new Animation(0.4f, AnimationTextures.catJumpingArray.toArray(new TextureRegion[AnimationTextures.catJumpingArray.size()]));
+		jumpingAnimation = new Animation(0.4f, AnimationTextures.catJumpingArray);
 		jumpingAnimation.setPlayMode(PlayMode.LOOP);
 		
-		sittingFoodAnimation = new Animation(0.5f, AnimationTextures.catSittingFoodArray.toArray(new TextureRegion[AnimationTextures.catSittingFoodArray.size()]));
+		sittingFoodAnimation = new Animation(0.5f, AnimationTextures.catSittingFoodArray);
 		sittingFoodAnimation.setPlayMode(PlayMode.LOOP);
-		runningFoodAnimation = new Animation(0.05f, AnimationTextures.catRunningFoodArray.toArray(new TextureRegion[AnimationTextures.catRunningFoodArray.size()]));
+		runningFoodAnimation = new Animation(0.05f, AnimationTextures.catRunningFoodArray);
 		runningFoodAnimation.setPlayMode(PlayMode.LOOP);
-		jumpingFoodAnimation = new Animation(0.4f, AnimationTextures.catJumpingFoodArray.toArray(new TextureRegion[AnimationTextures.catJumpingFoodArray.size()]));
+		jumpingFoodAnimation = new Animation(0.4f, AnimationTextures.catJumpingFoodArray);
 		jumpingFoodAnimation.setPlayMode(PlayMode.LOOP);
 	}
 	
