@@ -95,7 +95,7 @@ public class AnimationTextures {
 		
 		mouseWalkingArray = getAnimationTextureRegionArray(mouseWalking, 6);
 		
-		chickenWalkingArray = getAnimationTextureRegionArray(chickenWalking, 4);
+		chickenWalkingArray = getAnimationTextureRegionArray(chickenWalking, 4, chickenWidth);
 		
 		starBlinkingArray = getAnimationTextureRegionArray(starBlinking, 10);
 	}
