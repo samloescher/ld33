@@ -11,7 +11,7 @@ public class MainMenuScreen extends AbstractScreen {
 	Texture catImage;
 
 	public MainMenuScreen() {
-		catImage = new Texture(Gdx.files.internal("images/cat/cat-background.png"));
+		catImage = new Texture(Gdx.files.internal("images/cat/cat-intro.png"));
 	}
 
 	@Override
