@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
@@ -15,9 +14,7 @@ import ludumdare._33.world.environment.buildings.Building;
 import ludumdare._33.world.environment.buildings.Church;
 import ludumdare._33.world.environment.buildings.Home;
 import ludumdare._33.world.environment.hidables.Foliage;
-import ludumdare._33.world.human.Female;
 import ludumdare._33.world.human.Human;
-import ludumdare._33.world.human.Male;
 import ludumdare._33.world.prey.Bird;
 import ludumdare._33.world.prey.Chicken;
 import ludumdare._33.world.prey.Mouse;
@@ -28,6 +25,7 @@ public class World {
 	public Bird bird;
 	public Mouse mouse;
 	public Chicken chicken;
+	Home home;
 	ArrayList<Human> humans = new ArrayList<Human>();
 	ArrayList<Building> buildings = new ArrayList<Building>();
 	ArrayList<Foliage> foliage = new ArrayList<Foliage>();
@@ -76,34 +74,48 @@ public class World {
 		cat.update(delta);
 		updateHumans(delta);
 		updatePrey(delta);
+		boolean isKilling = isCatOverlappingPrey();
+		boolean isHome = isCatHome();
 		bloodSplatterParticles.update(delta);
 		bird.update(delta);
 	}
 
 	float loseTimer = 0f;
-
 	private void updateHumans(float delta) {
+		boolean visible = false;
 		for (Human h : humans) {
 			h.update(delta);
 			if (h.canSeeCat(cat) && cat.hasFood) {
-				loseTimer += delta;
-				if (loseTimer > 0.6f) {
-					MainGame.instance.endGame();
-				}
-			} else {
-				loseTimer -= 0.25f * delta;
-				if (loseTimer < 0) {
-					loseTimer = 0;
-				}
+				visible = true;
 			}
-			losePercent = loseTimer / 0.6f;
 		}
+		if(visible == true){
+			loseTimer += delta;
+			if (loseTimer > 0.6f) {
+				MainGame.instance.endGame();
+			}
+		} else {
+			loseTimer -= 0.25f * delta;
+			if (loseTimer < 0) {
+				loseTimer = 0;
+			}
+		}
+		losePercent = loseTimer / 0.6f;
 	}
 
 	private void updatePrey(float delta) {
 		bird.update(delta);
 		mouse.update(delta);
 		chicken.update(delta);
+	}
+	
+	boolean isCatOverlappingPrey(){
+		return false;
+	}
+	
+	boolean isCatHome(){
+		return false;
+		//return home.getDoorArea.overlaps(cat.bounds));
 	}
 
 	public void draw(SpriteBatch batch) {
