@@ -8,10 +8,12 @@ import ludumdare._33.MainGame;
 
 public class EndGameScreen extends AbstractScreen {
 
+	int score = 0;
 	Texture catImage;
 
-	public EndGameScreen() {
+	public EndGameScreen(int score) {
 		catImage = new Texture(Gdx.files.internal("images/cat/cat-end.png"));
+		this.score = score;
 	}
 
 	@Override
@@ -29,7 +31,10 @@ public class EndGameScreen extends AbstractScreen {
 		batch.begin();
 		batch.draw(catImage, 200, 0);
 		font.draw(batch, "YOU HAVE FAILED...", 20, 440);
-		font.draw(batch, "Tap anywhere to restart....", 20, 400);
+		font.draw(batch, "SCORE IS:", 20, 400);
+		//TODO: Add score here...
+		font.draw(batch, "10", 230, 400);
+		font.draw(batch, "Tap anywhere\n to restart....", 20, 360);
 		batch.end();
 
 		if (Gdx.input.isTouched()) {
