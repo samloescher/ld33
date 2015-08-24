@@ -15,7 +15,9 @@ import ludumdare._33.world.environment.buildings.Building;
 import ludumdare._33.world.environment.buildings.Bungalow1;
 import ludumdare._33.world.environment.buildings.Home;
 import ludumdare._33.world.environment.hidables.Foliage;
+import ludumdare._33.world.human.Female;
 import ludumdare._33.world.human.Human;
+import ludumdare._33.world.human.Male;
 import ludumdare._33.world.prey.Bird;
 import ludumdare._33.world.prey.Chicken;
 import ludumdare._33.world.prey.Mouse;
@@ -51,23 +53,25 @@ public class World {
 	private void addBuildings() {
 		buildings.add(new Home(10));
 		Building attemptedBuilding;
-		for(int i = 0; i < 10; i++){
-			attemptedBuilding = new Bungalow1(new Vector2(MathUtils.random(100, 1000),0));
-			for(Building b : buildings){
-				if(Building.overlaps(attemptedBuilding, b));
+		for (int i = 0; i < 10; i++) {
+			attemptedBuilding = new Bungalow1(new Vector2(MathUtils.random(100, 1000), 0));
+			for (Building b : buildings) {
+				if (Building.overlaps(attemptedBuilding, b))
+					;
 				continue;
 			}
 		}
 	}
 
 	private void addFoliage() {
-		for(int i = 0; i < 10; i++){
-			
+		for (int i = 0; i < 10; i++) {
+
 		}
 	}
 
 	private void addHumans() {
-		//humans.add(new Man(500, 1000));
+//		humans.add(new Male(500, 1000));
+//		humans.add(new Female(500, 1000));
 	}
 
 	private void addPrey() {
