@@ -11,9 +11,17 @@ import ludumdare._33.MainGame;
 import ludumdare._33.particles.BloodSplatterParticles;
 import ludumdare._33.world.cat.Cat;
 import ludumdare._33.world.environment.buildings.Building;
+import ludumdare._33.world.environment.buildings.Bungalow1;
+import ludumdare._33.world.environment.buildings.Bungalow2;
 import ludumdare._33.world.environment.buildings.Church;
 import ludumdare._33.world.environment.buildings.Home;
+import ludumdare._33.world.environment.buildings.Marketplace;
 import ludumdare._33.world.environment.hidables.Foliage;
+import ludumdare._33.world.environment.hidables.HedgeGreen;
+import ludumdare._33.world.environment.hidables.SmallBushDarkGreen;
+import ludumdare._33.world.environment.hidables.SmallBushFruitGreen;
+import ludumdare._33.world.environment.hidables.SmallBushGreen;
+import ludumdare._33.world.human.Female;
 import ludumdare._33.world.human.Human;
 import ludumdare._33.world.prey.Bird;
 import ludumdare._33.world.prey.Chicken;
@@ -50,18 +58,55 @@ public class World {
 
 	private void addBuildings() {
 		buildings.add(new Home(10));
-		buildings.add(new Church(new Vector2(700 ,0)));
+		buildings.add(new Church(new Vector2(700, 0)));
+		buildings.add(new Bungalow1(new Vector2(1500, 0)));
+		buildings.add(new Marketplace(new Vector2(2200, 0)));
+		buildings.add(new Bungalow2(new Vector2(2800, 0)));
+		buildings.add(new Church(new Vector2(3200, 0)));
+		buildings.add(new Marketplace(new Vector2(4200, 0)));
+		buildings.add(new Bungalow2(new Vector2(4800, 0)));
+		buildings.add(new Bungalow1(new Vector2(5400, 0)));
+		buildings.add(new Marketplace(new Vector2(5800, 0)));
+		buildings.add(new Church(new Vector2(6400, 0)));
+		buildings.add(new Bungalow1(new Vector2(7200, 0)));
 	}
 
 	private void addFoliage() {
-		for (int i = 0; i < 10; i++) {
-
-		}
+		foliage.add(new HedgeGreen(new Vector2(22, 0)));
+		foliage.add(new SmallBushGreen(new Vector2(500, 0)));
+		foliage.add(new SmallBushFruitGreen(new Vector2(900, 0)));
+		foliage.add(new SmallBushDarkGreen(new Vector2(1400, 0)));
+		foliage.add(new SmallBushFruitGreen(new Vector2(1800, 0)));
+		foliage.add(new HedgeGreen(new Vector2(2400, 0)));
+		foliage.add(new SmallBushFruitGreen(new Vector2(2700, 0)));
+		foliage.add(new SmallBushGreen(new Vector2(3100, 0)));
+		foliage.add(new SmallBushFruitGreen(new Vector2(3500, 0)));
+		foliage.add(new HedgeGreen(new Vector2(3800, 0)));
+		foliage.add(new SmallBushDarkGreen(new Vector2(4100, 0)));
+		foliage.add(new HedgeGreen(new Vector2(4300, 0)));
+		foliage.add(new SmallBushGreen(new Vector2(4700, 0)));
+		foliage.add(new SmallBushFruitGreen(new Vector2(5000, 0)));
+		foliage.add(new SmallBushDarkGreen(new Vector2(5350, 0)));
+		foliage.add(new SmallBushFruitGreen(new Vector2(5800, 0)));
+		foliage.add(new HedgeGreen(new Vector2(6300, 0)));
+		foliage.add(new SmallBushFruitGreen(new Vector2(6500, 0)));
+		foliage.add(new SmallBushGreen(new Vector2(6800, 0)));
+		foliage.add(new SmallBushFruitGreen(new Vector2(7100, 0)));
+		foliage.add(new HedgeGreen(new Vector2(7300, 0)));
+		foliage.add(new SmallBushFruitGreen(new Vector2(7500, 0)));
 	}
 
 	private void addHumans() {
-//		humans.add(new Male(500, 1000));
-//		humans.add(new Female(500, 1000));
+		humans.add(new Male(500, 1000));
+		humans.add(new Female(1200, 1700));
+		humans.add(new Male(2000, 2700));
+		humans.add(new Female(3000, 3500));
+		humans.add(new Male(3800, 4500));
+		humans.add(new Female(4500, 5000));
+		humans.add(new Male(5000, 5700));
+		humans.add(new Male(5800, 6200));
+		humans.add(new Female(6500, 6900));
+		humans.add(new Male(7200, 7800));
 	}
 
 	private void addPrey() {
