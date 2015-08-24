@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
@@ -34,7 +35,7 @@ import ludumdare._33.world.prey.Prey;
 public class World {
 
 	Player player;
-	
+
 	public Cat cat;
 	Home home;
 	ArrayList<Human> humans = new ArrayList<Human>();
@@ -44,6 +45,9 @@ public class World {
 
 	public static Rectangle bounds = new Rectangle(0, 0, 800f * 10f, 480f * 3f);
 	public float losePercent = 0f;
+
+	float preyCaughtX;
+	float preyCaughtY;
 
 	BloodSplatterParticles bloodSplatterParticles;
 
@@ -127,7 +131,7 @@ public class World {
 		preys.add(new Bird(5000, 7000, 400));
 		preys.add(new Bird(6500, 7500, 450));
 		preys.add(new Bird(7000, 8000, 440));
-		
+
 		preys.add(new Chicken(400, 800));
 		preys.add(new Chicken(1200, 2000));
 		preys.add(new Chicken(2100, 2800));
@@ -136,7 +140,7 @@ public class World {
 		preys.add(new Chicken(5200, 6000));
 		preys.add(new Chicken(6100, 6800));
 		preys.add(new Chicken(7100, 7800));
-		
+
 		preys.add(new Mouse(700, 1200));
 		preys.add(new Mouse(1500, 2000));
 		preys.add(new Mouse(2300, 3500));
@@ -148,32 +152,52 @@ public class World {
 	}
 
 	public void update(float delta) {
+
+		int newPreyStartLocationX = (int) preyCaughtX + MathUtils.random(400, 1000);
+		if (newPreyStartLocationX > 7800 ) {
+			newPreyStartLocationX = MathUtils.random(400, 1000);
+		}
+		int newPreyEndLocationX = (int) preyCaughtX + MathUtils.random(1500, 2000);
+		if (newPreyEndLocationX < 7800 ) {
+			newPreyEndLocationX = MathUtils.random(1500, 2000);
+		}
+
 		cat.update(delta);
 		updateHumans(delta);
 		updatePrey(delta);
 		attemptToEatPrey();
-		if(isCatHome()){
-			if(cat.hasFood){
+		if (isCatHome()) {
+			if (cat.hasFood) {
 				cat.hasFood = false;
 				player.score += player.currentCatchValue;
 				GameScreen.soundEffects.playPointsSound();
+
+				// Add prey back in after returning home.
+				if (player.currentCatchValue == 50) {
+					preys.add(new Bird(newPreyStartLocationX, newPreyEndLocationX, (int) preyCaughtY));
+				} else if (player.currentCatchValue == 20) {
+					preys.add(new Chicken(newPreyStartLocationX, newPreyEndLocationX));
+				} else {
+					preys.add(new Mouse(newPreyStartLocationX, newPreyEndLocationX));
+				}
 			}
 		}
 		bloodSplatterParticles.update(delta);
 	}
 
 	float loseTimer = 0f;
+
 	private void updateHumans(float delta) {
 		boolean visible = false;
 		for (Human h : humans) {
 			h.update(delta);
-			if(!catIsBehindBush()){
+			if (!catIsBehindBush()) {
 				if (h.canSeeCat(cat) && cat.hasFood) {
 					visible = true;
-				}	
+				}
 			}
 		}
-		if(visible == true){
+		if (visible == true) {
 			loseTimer += delta;
 			if (loseTimer > 0.4f) {
 				int score = player.score;
@@ -191,34 +215,37 @@ public class World {
 	}
 
 	private void updatePrey(float delta) {
-		for (Prey p : preys){
+		for (Prey p : preys) {
 			p.update(delta);
 		}
 	}
-	
-	void attemptToEatPrey(){
-		if(cat.hasFood){
+
+	void attemptToEatPrey() {
+		if (cat.hasFood) {
 			return;
 		}
-		for(Prey p : preys){
-			if(p.bounds.overlaps(cat.bounds)){
+		for (Prey p : preys) {
+			if (p.bounds.overlaps(cat.bounds)) {
+				// Get location of where prey is killed
+				preyCaughtX = p.bounds.x;
+				preyCaughtY = p.bounds.y;
 				player.currentCatchValue = p.value;
-				player.score += p.value/2;
+				player.score += p.value / 2;
 				preys.remove(p);
 				cat.hasFood = true;
-				return ;
+				return;
 			}
 		}
 		return;
 	}
-	
-	boolean isCatHome(){
+
+	boolean isCatHome() {
 		return home.doorBounds.overlaps(cat.bounds);
 	}
-	
-	boolean catIsBehindBush(){
-		for(Foliage f : foliage){
-			if(f.bounds.overlaps(cat.bounds)){
+
+	boolean catIsBehindBush() {
+		for (Foliage f : foliage) {
+			if (f.bounds.overlaps(cat.bounds)) {
 				return true;
 			}
 		}
@@ -233,7 +260,7 @@ public class World {
 
 		cat.draw(batch);
 		bloodSplatterParticles.drawBloodEffects(batch);
-		
+
 		for (Foliage f : foliage) {
 			f.draw(batch);
 		}
@@ -242,7 +269,7 @@ public class World {
 			h.draw(batch);
 		}
 
-		for (Prey p : preys){
+		for (Prey p : preys) {
 			p.draw(batch);
 		}
 	}
