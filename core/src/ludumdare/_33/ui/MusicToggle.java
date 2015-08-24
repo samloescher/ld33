@@ -15,10 +15,11 @@ public class MusicToggle extends UIOverlayItem {
 	Jukebox jukeBox;
 
 	public MusicToggle(Vector2 position) {
-		super(unmuteTexture, position, size);
+		super(muteTexture, position, size);
 		jukeBox = new Jukebox();
 		jukeBox.play();
-		isMute = false;
+		jukeBox.pause();
+		isMute = true;
 	}
 
 	public void toggle() {

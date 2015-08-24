@@ -53,7 +53,7 @@ public class Cat {
 		currentAnimationTime += delta;
 		updateFloorCheckBounds();
 		onFloorOrPlatform = currentlyOnFloorOrPlatform();
-		manageInput();
+		manageInput(delta);
 		updateVelocityY(delta);
 		updateDisplacement();
 		updateState();
@@ -71,26 +71,26 @@ public class Cat {
 		batch.draw(cat, facingRight?position.x+width:position.x, position.y,facingRight?-width:width,height);
 	}
 
-	public void manageInput() {
+	public void manageInput(float delta) {
 
 		if (Gdx.input.isKeyPressed(Keys.W)) {
 			if(onFloorOrPlatform){
 				velocityY = 700;
 			}else{
-				displacement.y += 4;
+				displacement.y += 100 * delta;
 			}
 		}
 		
 		if (Gdx.input.isKeyPressed(Keys.S)) {
 			if(onFloorOrPlatform){
-				displacement.y -= 4;
+				displacement.y -= 100 * delta;
 			}
 		}
 
 		if (Gdx.input.isKeyPressed(Keys.D)) {
-			displacement.x += 7;
+			displacement.x += 400 * delta;
 		} else if (Gdx.input.isKeyPressed(Keys.A)) {
-			displacement.x -= 7;
+			displacement.x -= 400 * delta;
 		}
 		
 	}
