@@ -37,7 +37,7 @@ public class Chicken {
 		batch.draw(chicken, facingRight?position.x+width:position.x, position.y,facingRight?-width:width,height);
 	}
 	
-	void initialiseAnimations() {
+	private void initialiseAnimations() {
 		walkingAnimation = new Animation(0.4f, AnimationTextures.chickenWalkingArray.toArray(new TextureRegion[AnimationTextures.chickenWalkingArray.size()]));
 		walkingAnimation.setPlayMode(PlayMode.LOOP);
 	}

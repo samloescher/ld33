@@ -12,6 +12,7 @@ public class BloodSplatterParticles {
 		particleEffect.load(Gdx.files.internal("particles/blood/blood.p"), Gdx.files.internal("particles/blood"));
 	}
 	
+	
 	public void addBloodSplatter(){
 		particleEffect.start();
 	}

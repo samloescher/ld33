@@ -2,7 +2,7 @@ package ludumdare._33.world.prey;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public abstract class Prey {
+abstract class Prey {
 	
 	int points;
 	

@@ -38,28 +38,28 @@ public class World {
 		generateWorld();
 	}
 	
-	void generateWorld(){
+	private void generateWorld(){
 		addBuildings();
 		addFoliage();
 		addHumans();
 		addPrey();
 	}
 	
-	void addBuildings(){
+	private void addBuildings(){
 		buildings.add(new Home(10));
 		
 		
 	}
 	
-	void addFoliage(){
+	private void addFoliage(){
 		
 	}
 	
-	void addHumans(){
-		humans.add(new Human(0));
+	private void addHumans(){
+		
 	}
 	
-	void addPrey(){
+	private void addPrey(){
 		bird = new Bird(10);
 		mouse = new Mouse(10);
 		chicken = new Chicken(100);
@@ -74,7 +74,7 @@ public class World {
 	}
 	
 	float loseTimer = 0f;
-	public void updateDetection(float delta) {
+	private void updateDetection(float delta) {
 		for (Human h : humans) {
 			h.update(delta);
 			if (h.canSeeCat(cat) && cat.hasFood) {

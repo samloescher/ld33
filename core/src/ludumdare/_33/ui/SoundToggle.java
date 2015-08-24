@@ -6,7 +6,7 @@ import com.badlogic.gdx.math.Vector2;
 import ludumdare._33.assets.StaticTextures;
 import ludumdare._33.sounds.SoundEffects;
 
-public class SoundToggle extends UIOverlayItem {
+class SoundToggle extends UIOverlayItem {
 	private boolean isMute;
 	private static Vector2 size = new Vector2(17, 17);
 	private static TextureRegion muteTexture = StaticTextures.soundMute;
@@ -14,13 +14,13 @@ public class SoundToggle extends UIOverlayItem {
 
 	SoundEffects soundEffects;
 
-	public SoundToggle(Vector2 position) {
+	SoundToggle(Vector2 position) {
 		super(unmuteTexture, position, size);
 		soundEffects = new SoundEffects();
 		isMute = false;
 	}
 
-	public void toggle() {
+	private void toggle() {
 		if (isMute) {
 			super.changeTexture(unmuteTexture);
 			// TODO: resume sound effects

@@ -16,7 +16,7 @@ import ludumdare._33.world.World;
 import ludumdare._33.world.cat.Cat;
 import ludumdare._33.world.environment.HideableAreas;
 
-public class GameScreen extends AbstractScreen {
+class GameScreen extends AbstractScreen {
 	
 	World world;
 	Background background;
@@ -73,7 +73,7 @@ public class GameScreen extends AbstractScreen {
 		AnimationTextures.dispose();
 	}
 
-	void focusCameraOnCat(Cat cat) {
+	private void focusCameraOnCat(Cat cat) {
 		Vector2 catPosition = cat.getCatPosition();
 		float screenBuffer = 50;
 		
@@ -98,7 +98,7 @@ public class GameScreen extends AbstractScreen {
 		camera.update();
 	}
 
-	void clampCameraToBounds() {
+	private void clampCameraToBounds() {
 		camera.position.x = MathUtils.clamp(camera.position.x, World.bounds.x + camera.viewportWidth / 2,
 				World.bounds.x + World.bounds.width - camera.viewportWidth / 2);
 		camera.position.y = MathUtils.clamp(camera.position.y, World.bounds.y + camera.viewportHeight / 2,

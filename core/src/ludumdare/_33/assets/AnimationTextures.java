@@ -56,7 +56,7 @@ public class AnimationTextures {
 		initialiseAnimationArrays();
 	}
 
-	public static void loadAllTextures() {
+	private static void loadAllTextures() {
 		catSitting = new Texture("images/cat/cat-sitting.png");
 		catRunning = new Texture("images/cat/cat-running.png");
 
@@ -73,7 +73,7 @@ public class AnimationTextures {
 		chickenWalking = new Texture("images/chicken/chicken-walking.png");
 	}
 
-	public static void initialiseAnimationArrays() {
+	private static void initialiseAnimationArrays() {
 		for (int i = 0; i < 2; i++) {
 			catSittingArray.add(new TextureRegion(catSitting, i * catWidth, 0, catWidth, catHeight));
 		}

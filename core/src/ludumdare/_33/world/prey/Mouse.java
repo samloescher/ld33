@@ -37,7 +37,7 @@ public class Mouse {
 		batch.draw(mouse, facingRight?position.x+width:position.x, position.y,facingRight?-width:width,height);
 	}
 	
-	void initialiseAnimations() {
+	private void initialiseAnimations() {
 		walkingAnimation = new Animation(0.2f, AnimationTextures.mouseWalkingArray.toArray(new TextureRegion[AnimationTextures.mouseWalkingArray.size()]));
 		walkingAnimation.setPlayMode(PlayMode.LOOP);
 	}

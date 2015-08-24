@@ -76,7 +76,7 @@ public class Cat {
 		batch.draw(cat, facingRight?position.x+width:position.x, position.y,facingRight?-width:width,height);
 	}
 
-	public void manageInput(float delta) {
+	private void manageInput(float delta) {
 
 		if (Gdx.input.isKeyPressed(Keys.W)) {
 			if(onFloorOrPlatform){
@@ -100,7 +100,7 @@ public class Cat {
 		
 	}
 	
-	void updateVelocityY(float delta) {
+	private void updateVelocityY(float delta) {
 		if(onFloorOrPlatform && velocityY < 0){
 			velocityY = 0;
 		}else{
@@ -111,7 +111,7 @@ public class Cat {
 		}
 	}
 	
-	void updateDisplacement(){
+	private void updateDisplacement(){
 		if(displacement.x > 0){
 			facingRight = true;
 		}else if(displacement.x < 0){
@@ -121,7 +121,7 @@ public class Cat {
 		position.y += displacement.y;
 	}
 
-	public void updateState(){
+	private void updateState(){
 		if(!onFloorOrPlatform){
 			changeState(CatState.Jumping);
 		}else if(displacement.x != 0){
@@ -160,7 +160,7 @@ public class Cat {
 		}
 	}
 	
-	void updateBloodSplatter(){
+	private void updateBloodSplatter(){
 		if(hasFood){
 			if(facingRight){
 				bloodSplatter.setBloodLocation(position.x + width, position.y + height/2);
@@ -171,24 +171,24 @@ public class Cat {
 		}
 	}
 	
-	void clampToWorldBounds(){
+	private void clampToWorldBounds(){
 		position.x = MathUtils.clamp(position.x, World.bounds.x, World.bounds.width - width);
 		position.y = MathUtils.clamp(position.y, World.bounds.y, World.bounds.height - height);
 	}
 	
-	public boolean currentlyOnFloorOrPlatform() {
+	private boolean currentlyOnFloorOrPlatform() {
 		if (position.y == 0 || Platforms.collidingWithPlatform(floorCheck)){
 			return true;
 		}
 		return false;
 	}
 
-	void changeState(CatState state){
+	private void changeState(CatState state){
 		previousState = currentState;
 		currentState = state;
 	}
 
-	void initialiseAnimations() {
+	private void initialiseAnimations() {
 		sittingAnimation = new Animation(0.5f, AnimationTextures.catSittingArray.toArray(new TextureRegion[AnimationTextures.catSittingArray.size()]));
 		sittingAnimation.setPlayMode(PlayMode.LOOP);
 		runningAnimation = new Animation(0.05f, AnimationTextures.catRunningArray.toArray(new TextureRegion[AnimationTextures.catRunningArray.size()]));
@@ -204,7 +204,7 @@ public class Cat {
 		jumpingFoodAnimation.setPlayMode(PlayMode.LOOP);
 	}
 	
-	void updateFloorCheckBounds(){
+	private void updateFloorCheckBounds(){
 		floorCheck.x = position.x + width * 0.35f;
 		floorCheck.y = position.y;
 		floorCheck.width = width * 0.3f;

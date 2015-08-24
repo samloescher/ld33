@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Rectangle;
 
-public class DetectionMeter {
+class DetectionMeter {
 	
 	float detectionLevel;
 	Color color;

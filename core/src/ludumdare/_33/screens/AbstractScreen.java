@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 import ludumdare._33.MainGame;
 
-public abstract class AbstractScreen implements Screen {
+abstract class AbstractScreen implements Screen {
 	
 	public static SpriteBatch batch = MainGame.instance.batch;
 	public static ShapeRenderer shapeRenderer = MainGame.instance.shapeRenderer;

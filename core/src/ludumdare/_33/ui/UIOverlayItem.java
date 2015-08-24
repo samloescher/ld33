@@ -10,17 +10,17 @@ public abstract class UIOverlayItem {
 	TextureRegion textureRegion;
 	public Rectangle bounds;
 	
-	public UIOverlayItem(TextureRegion textureRegion, Vector2 position, Vector2 size) {
+	UIOverlayItem(TextureRegion textureRegion, Vector2 position, Vector2 size) {
 		this.textureRegion = textureRegion;
 		
 		bounds = new Rectangle(position.x, position.y, size.x, size.y);
 	}
 
-	public void draw(SpriteBatch batch) {
+	void draw(SpriteBatch batch) {
 		batch.draw(textureRegion, bounds.x, bounds.y, bounds.width, bounds.height);
 	}
 	
-	public void changeTexture(TextureRegion textureRegion) {
+	void changeTexture(TextureRegion textureRegion) {
 		this.textureRegion = textureRegion;
 	}
 	

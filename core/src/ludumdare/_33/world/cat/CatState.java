@@ -1,6 +1,6 @@
 package ludumdare._33.world.cat;
 
-public enum CatState {
+enum CatState {
 	Sitting,
 	Running,
 	Jumping

@@ -32,7 +32,7 @@ public class StaticTextures {
 		loadAllTextures();
 	}
 
-	public static void loadAllTextures() {
+	private static void loadAllTextures() {
 		/* Buildings */
 		home = new TextureRegion(new Texture("images/buildings/houses/home.png"));
 		church = new TextureRegion(new Texture("images/buildings/houses/church.png"));

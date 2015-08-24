@@ -30,7 +30,7 @@ public class Human {
 	
 	DetectionTriangle detectionArea;
 	
-	public Human(int x) {
+	Human(int x) {
 		position = new Vector2(x, 0);
 		initialiseAnimations();
 		currentAnimation = walkingAnimation;
@@ -62,7 +62,7 @@ public class Human {
 		detectionArea.draw(shapeRenderer);
 	}
 
-	void initialiseAnimations() {
+	private void initialiseAnimations() {
 		standingAnimation = new Animation(0.02f, AnimationTextures.maleStandingArray.toArray(new TextureRegion[AnimationTextures.maleStandingArray.size()]));
 		standingAnimation.setPlayMode(PlayMode.LOOP);
 		walkingAnimation = new Animation(0.4f, AnimationTextures.maleWalkingArray.toArray(new TextureRegion[AnimationTextures.maleWalkingArray.size()]));

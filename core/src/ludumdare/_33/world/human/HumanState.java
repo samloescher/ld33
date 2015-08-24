@@ -1,6 +1,6 @@
 package ludumdare._33.world.human;
 
-public enum HumanState {
+enum HumanState {
 	Walking,
 	Looking
 }

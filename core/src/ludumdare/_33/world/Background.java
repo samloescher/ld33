@@ -32,14 +32,14 @@ public class Background {
 		adjustTexturePositionsToCoverScreen();
 	}
 	
-	void updateCameraViewportBounds(){
+	private void updateCameraViewportBounds(){
 		cameraViewport.x = camera.position.x - camera.viewportWidth/2;
 		cameraViewport.y = camera.position.y - camera.viewportHeight/2;
 		cameraViewport.width = camera.viewportWidth;
 		cameraViewport.height = camera.viewportHeight;
 	}
 	
-	void adjustTexturePositionsToCoverScreen(){
+	private void adjustTexturePositionsToCoverScreen(){
 		int leftTexturePositionIndex;
 		float textureWidth;
 		float parallaxOffset;
@@ -70,7 +70,7 @@ public class Background {
 		hillsRight.draw(batch);
 	}
 	
-	void assignSprites(){
+	private void assignSprites(){
 		cloudsLeft = new Sprite(StaticTextures.clouds);
 		cloudsCenter = new Sprite(StaticTextures.clouds);
 		cloudsRight = new Sprite(StaticTextures.clouds);
