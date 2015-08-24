@@ -38,7 +38,7 @@ public class Chicken {
 	}
 	
 	private void initialiseAnimations() {
-		walkingAnimation = new Animation(0.4f, AnimationTextures.chickenWalkingArray.toArray(new TextureRegion[AnimationTextures.chickenWalkingArray.size()]));
+		walkingAnimation = new Animation(0.4f, AnimationTextures.chickenWalkingArray);
 		walkingAnimation.setPlayMode(PlayMode.LOOP);
 	}
 }

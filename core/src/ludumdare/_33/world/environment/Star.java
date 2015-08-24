@@ -32,7 +32,7 @@ public class Star {
 	}
 	
 	private void initialiseAnimations() {
-		blinkingAnimation = new Animation(0.5f, AnimationTextures.starBlinkingArray.toArray(new TextureRegion[AnimationTextures.starBlinkingArray.size()]));
+		blinkingAnimation = new Animation(0.5f, AnimationTextures.starBlinkingArray);
 		blinkingAnimation.setPlayMode(PlayMode.LOOP);
 	}
 }

@@ -1,7 +1,5 @@
 package ludumdare._33.assets;
 
-import java.util.ArrayList;
-
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
@@ -30,32 +28,32 @@ public class AnimationTextures {
 
 	static Texture catSitting;
 	static Texture catRunning;
-	public static ArrayList<TextureRegion> catSittingArray = new ArrayList<TextureRegion>();
-	public static ArrayList<TextureRegion> catRunningArray = new ArrayList<TextureRegion>();
-	public static ArrayList<TextureRegion> catJumpingArray = new ArrayList<TextureRegion>();
+	public static TextureRegion catSittingArray[];
+	public static TextureRegion catRunningArray[];
+	public static TextureRegion catJumpingArray[];
 
 	static Texture catSittingFood;
 	static Texture catRunningFood;
-	public static ArrayList<TextureRegion> catSittingFoodArray = new ArrayList<TextureRegion>();
-	public static ArrayList<TextureRegion> catRunningFoodArray = new ArrayList<TextureRegion>();
-	public static ArrayList<TextureRegion> catJumpingFoodArray = new ArrayList<TextureRegion>();
+	public static TextureRegion catSittingFoodArray[];
+	public static TextureRegion catRunningFoodArray[];
+	public static TextureRegion catJumpingFoodArray[];
 
 	static Texture maleStanding;
 	static Texture maleWalking;
-	public static ArrayList<TextureRegion> maleStandingArray = new ArrayList<TextureRegion>();
-	public static ArrayList<TextureRegion> maleWalkingArray = new ArrayList<TextureRegion>();
+	public static TextureRegion maleStandingArray[];
+	public static TextureRegion maleWalkingArray[];
 
 	static Texture birdFlying;
-	public static ArrayList<TextureRegion> birdFlyingArray = new ArrayList<TextureRegion>();
+	public static TextureRegion birdFlyingArray[];
 	
 	static Texture mouseWalking;
-	public static ArrayList<TextureRegion> mouseWalkingArray = new ArrayList<TextureRegion>();
+	public static TextureRegion mouseWalkingArray[];
 	
 	static Texture chickenWalking;
-	public static ArrayList<TextureRegion> chickenWalkingArray = new ArrayList<TextureRegion>();
+	public static TextureRegion chickenWalkingArray[];
 	
 	static Texture starBlinking;
-	public static ArrayList<TextureRegion> starBlinkingArray = new ArrayList<TextureRegion>();
+	public static TextureRegion starBlinkingArray[];
 
 	static {
 		loadAllTextures();
@@ -82,53 +80,47 @@ public class AnimationTextures {
 	}
 
 	private static void initialiseAnimationArrays() {
-		for (int i = 0; i < 2; i++) {
-			catSittingArray.add(new TextureRegion(catSitting, i * catWidth, 0, catWidth, catHeight));
-		}
-		for (int i = 0; i < 6; i++) {
-			catRunningArray.add(new TextureRegion(catRunning, i * catWidth, 0, catWidth, catHeight));
-		}
-		for (int i = 0; i < 2; i++) {
-			catJumpingArray.add(new TextureRegion(catRunning, i * catWidth, 0, catWidth, catHeight));
-		}
+		catSittingArray = getAnimationTextureRegionArray(catSitting,2);
+		catRunningArray = getAnimationTextureRegionArray(catRunning,6);
+		catJumpingArray = getAnimationTextureRegionArray(catRunning,2,23);
+		
+		catSittingFoodArray = getAnimationTextureRegionArray(catSittingFood,2);
+		catRunningFoodArray = getAnimationTextureRegionArray(catRunningFood,6);
+		catJumpingFoodArray = getAnimationTextureRegionArray(catRunningFood,2,23);
+		
+		maleStandingArray = getAnimationTextureRegionArray(maleStanding, 4);
+		maleWalkingArray = getAnimationTextureRegionArray(maleWalking, 4);
 
-		for (int i = 0; i < 2; i++) {
-			catSittingFoodArray.add(new TextureRegion(catSittingFood, i * catWidth, 0, catWidth, catHeight));
-		}
-		for (int i = 0; i < 6; i++) {
-			catRunningFoodArray.add(new TextureRegion(catRunningFood, i * catWidth, 0, catWidth, catHeight));
-		}
-		for (int i = 0; i < 2; i++) {
-			catJumpingFoodArray.add(new TextureRegion(catRunningFood, i * catWidth, 0, catWidth, catHeight));
-		}
-
-		for (int i = 0; i < 4; i++) {
-			maleStandingArray.add(new TextureRegion(maleStanding, i * maleWidth, 0, maleWidth, maleHeight));
-		}
-		for (int i = 0; i < 4; i++) {
-			maleWalkingArray.add(new TextureRegion(maleWalking, i * maleWidth, 0, maleWidth, maleHeight));
-		}
-
-		for (int i = 0; i < 5; i++) {
-			birdFlyingArray.add(new TextureRegion(birdFlying, i * birdWidth, 0, birdWidth, birdHeight));
+		birdFlyingArray = getAnimationTextureRegionArray(birdFlying, 5);
+		
+		mouseWalkingArray = getAnimationTextureRegionArray(mouseWalking, 6);
+		
+		chickenWalkingArray = getAnimationTextureRegionArray(chickenWalking, 4);
+		
+		starBlinkingArray = getAnimationTextureRegionArray(starBlinking, 10);
+	}
+	
+	static TextureRegion[] getAnimationTextureRegionArray(Texture tex, int frames){
+		int width = tex.getWidth()/frames;
+		return getAnimationTextureRegionArray(tex, frames,width);
+	}
+	
+	static TextureRegion[] getAnimationTextureRegionArray(Texture tex, int frames, int frameWidth){
+		TextureRegion[] array;
+		int height = tex.getHeight();
+		array = new TextureRegion[frames];
+		for(int i = 0; i < frames; i++){
+				array[i] = new TextureRegion(tex, i * frameWidth, 0, frameWidth, height);
 		}
 		
-		for (int i = 0; i < 6; i++) {
-			mouseWalkingArray.add(new TextureRegion(mouseWalking, i * mouseWidth, 0, mouseWidth, mouseHeight));
-		}
-		
-		for (int i = 0; i < 4; i++) {
-			chickenWalkingArray.add(new TextureRegion(chickenWalking, i * chickenWidth, 0, chickenWidth, chickenHeight));
-		}
-		
-		for (int i = 0; i < 10; i++) {
-			starBlinkingArray.add(new TextureRegion(starBlinking, i * starWidth, 0, starWidth, starHeight));
-		}
+		return array;
 	}
 
 	public static void dispose() {
 		catSitting.dispose();
 		catRunning.dispose();
+		catSittingFood.dispose();
+		catRunningFood.dispose();
 		maleStanding.dispose();
 		maleWalking.dispose();
 		birdFlying.dispose();
