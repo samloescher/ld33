@@ -12,7 +12,7 @@ import ludumdare._33.MainGame;
 import ludumdare._33.particles.BloodSplatterParticles;
 import ludumdare._33.world.cat.Cat;
 import ludumdare._33.world.environment.buildings.Building;
-import ludumdare._33.world.environment.buildings.Bungalow1;
+import ludumdare._33.world.environment.buildings.Church;
 import ludumdare._33.world.environment.buildings.Home;
 import ludumdare._33.world.environment.hidables.Foliage;
 import ludumdare._33.world.human.Human;
@@ -50,14 +50,7 @@ public class World {
 
 	private void addBuildings() {
 		buildings.add(new Home(10));
-		Building attemptedBuilding;
-		for(int i = 0; i < 10; i++){
-			attemptedBuilding = new Bungalow1(new Vector2(MathUtils.random(100, 1000),0));
-			for(Building b : buildings){
-				if(Building.overlaps(attemptedBuilding, b));
-				continue;
-			}
-		}
+		buildings.add(new Church(new Vector2(700 ,0)));
 	}
 
 	private void addFoliage() {
