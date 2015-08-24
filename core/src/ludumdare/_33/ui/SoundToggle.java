@@ -19,6 +19,10 @@ class SoundToggle extends UIOverlayItem {
 		super(unmuteTexture, position, size);
 		soundEffects = GameScreen.soundEffects;
 		isMute = false;
+		if(soundEffects.volume == 0){
+			isMute = true;
+			super.changeTexture(muteTexture);
+		}
 	}
 
 	private void toggle() {

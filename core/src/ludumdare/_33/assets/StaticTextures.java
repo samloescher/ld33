@@ -15,10 +15,6 @@ public class StaticTextures {
 	public static TextureRegion smallBushDarkGreen;
 	public static TextureRegion smallBushGreen;
 	public static TextureRegion smallBushFruitGreen;
-	public static TextureRegion smallTreeGreen;
-	public static TextureRegion treeBrown;
-	public static TextureRegion treeGreen;
-	public static TextureRegion treeFruitGreen;
 	
 	public static TextureRegion clouds;
 	public static TextureRegion hills;
@@ -45,10 +41,6 @@ public class StaticTextures {
 		smallBushDarkGreen = new TextureRegion(new Texture("images/buildings/scenery/small-bush-darkgreen.png"));
 		smallBushGreen = new TextureRegion(new Texture("images/buildings/scenery/small-bush-green.png"));
 		smallBushFruitGreen = new TextureRegion(new Texture("images/buildings/scenery/small-bush-fruit-green.png"));
-		smallTreeGreen = new TextureRegion(new Texture("images/buildings/scenery/small-tree-green.png"));
-		treeBrown = new TextureRegion(new Texture("images/buildings/scenery/tree-brown.png"));
-		treeGreen = new TextureRegion(new Texture("images/buildings/scenery/tree-green.png"));
-		treeFruitGreen = new TextureRegion(new Texture("images/buildings/scenery/tree-fruit-green.png"));
 		
 		clouds = new TextureRegion(new Texture("images/background/clouds.png"));
 		hills = new TextureRegion(new Texture("images/background/hills.png"));

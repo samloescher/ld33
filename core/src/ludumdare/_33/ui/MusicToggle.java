@@ -7,28 +7,31 @@ import ludumdare._33.assets.StaticTextures;
 import ludumdare._33.sounds.Jukebox;
 
 class MusicToggle extends UIOverlayItem {
-	private boolean isMute;
+	private static boolean isMute;
 	private static Vector2 size = new Vector2(17, 17);
 	private static TextureRegion muteTexture = StaticTextures.musicMute;
 	private static TextureRegion unmuteTexture = StaticTextures.musicUnmute;
 
-	Jukebox jukeBox;
 
 	MusicToggle(Vector2 position) {
 		super(unmuteTexture, position, size);
-		jukeBox = Jukebox.getInstance();
-		jukeBox.play();
+		Jukebox.play();
+		if(Jukebox.getVolume() == 0){
+			super.changeTexture(muteTexture);
+		}
 	}
 
 	private void toggle() {
 		if (isMute) {
 			super.changeTexture(unmuteTexture);
-			jukeBox.play();
+			Jukebox.play();
 			isMute = false;
+			Jukebox.setVolume(1);
 		} else {
 			super.changeTexture(muteTexture);
-			jukeBox.pause();
+			Jukebox.pause();
 			isMute = true;
+			Jukebox.setVolume(0);
 		}
 	}
 

@@ -16,7 +16,11 @@ public class MainMenuScreen extends AbstractScreen {
 
 	@Override
 	void update(float delta) {
-
+		if (Gdx.input.isTouched()) {
+			MainGame.instance.setScreen(new GameScreen());
+			catImage.dispose();
+			dispose();
+		}
 	}
 
 	@Override
@@ -29,7 +33,7 @@ public class MainMenuScreen extends AbstractScreen {
 
 		batch.begin();
 		batch.draw(catImage, 520, 20,200,400);
-		font.draw(batch, "KILLER CAT", 300, 440);
+		font.draw(batch, "KILLER CAT", 280, 440);
 		
 		font.draw(batch, "Instructions:", 20, 360);
 		font.draw(batch, "WASD to move", 20, 320);
@@ -39,10 +43,6 @@ public class MainMenuScreen extends AbstractScreen {
 		font.draw(batch, "CLICK anywhere to BEGIN!", 20, 100);
 		batch.end();
 
-		if (Gdx.input.isTouched()) {
-			MainGame.instance.setScreen(new GameScreen());
-			catImage.dispose();
-			dispose();
-		}
+		
 	}
 }
