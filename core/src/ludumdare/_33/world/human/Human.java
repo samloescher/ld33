@@ -47,12 +47,10 @@ public class Human {
 	}
 
 	void lookInCorrectDirection() {
-		if (facingRight) {
-			if (!patrolArea.isInsideBounds(position.x)) {
-				facingRight = false;
-			}
-		} else if (!patrolArea.isInsideBounds(position.x)) {
+		if(patrolArea.isLeftOfBounds(position.x)){
 			facingRight = true;
+		}else if(patrolArea.isRightOfBounds(position.x)){
+			facingRight = false;
 		}
 	}
 

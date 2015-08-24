@@ -9,11 +9,12 @@ public class PatrolArea {
 		max = x2;
 	}
 
-	public boolean isInsideBounds(float x) {
-		if (x < min || x > max) {
-			return false;
-		}
-		return true;
+	public boolean isRightOfBounds(float x){
+		return x > max;
+	}
+	
+	public boolean isLeftOfBounds(float x){
+		return x<min;
 	}
 
 }
