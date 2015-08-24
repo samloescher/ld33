@@ -10,15 +10,18 @@ public class BloodSplatterParticles {
 	public BloodSplatterParticles() {
 		particleEffect = new ParticleEffect();
 		particleEffect.load(Gdx.files.internal("particles/blood/blood.p"), Gdx.files.internal("particles/blood"));
+		
 	}
 	
 	
 	public void addBloodSplatter(){
 		particleEffect.start();
+		particleEffect.allowCompletion();
 	}
 	
 	public void update(float delta){
 		particleEffect.update(delta);
+		
 	}
 	
 	public void setBloodLocation(float x, float y) {

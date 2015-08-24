@@ -2,6 +2,8 @@ package ludumdare._33.world;
 
 import java.util.ArrayList;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
@@ -121,7 +123,7 @@ public class World {
 		cat.update(delta);
 		updateHumans(delta);
 		updatePrey(delta);
-		if(isCatOverlappingPrey()){
+		if(isCatOverlappingPrey()||Gdx.input.isKeyJustPressed(Keys.F)){
 			//Kill Prey
 			cat.hasFood = true;
 		}
