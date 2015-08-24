@@ -36,8 +36,6 @@ public class World {
 	Player player;
 	
 	public Cat cat;
-	public Mouse mouse;
-	public Chicken chicken;
 	Home home;
 	ArrayList<Human> humans = new ArrayList<Human>();
 	ArrayList<Building> buildings = new ArrayList<Building>();
@@ -129,6 +127,24 @@ public class World {
 		preys.add(new Bird(5000, 7000, 400));
 		preys.add(new Bird(6500, 7500, 450));
 		preys.add(new Bird(7000, 8000, 440));
+		
+		preys.add(new Chicken(400, 800));
+		preys.add(new Chicken(1200, 2000));
+		preys.add(new Chicken(2100, 2800));
+		preys.add(new Chicken(3200, 4000));
+		preys.add(new Chicken(4400, 5000));
+		preys.add(new Chicken(5200, 6000));
+		preys.add(new Chicken(6100, 6800));
+		preys.add(new Chicken(7100, 7800));
+		
+		preys.add(new Mouse(700, 1200));
+		preys.add(new Mouse(1500, 2000));
+		preys.add(new Mouse(2300, 3500));
+		preys.add(new Mouse(3000, 4000));
+		preys.add(new Mouse(4500, 5300));
+		preys.add(new Mouse(5600, 6200));
+		preys.add(new Mouse(6800, 7200));
+		preys.add(new Mouse(7300, 7700));
 	}
 
 	public void update(float delta) {
