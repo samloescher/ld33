@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 
+import ludumdare._33.MainGame;
 import ludumdare._33.world.cat.Cat;
 import ludumdare._33.world.environment.buildings.Building;
 import ludumdare._33.world.environment.buildings.Home;
@@ -57,14 +58,21 @@ public class World {
 		mouse = new Mouse(10);
 	}
 
+	float loseTimer = 0f;
 	public void update(float delta) {
 		cat.update(delta);
 		for (Human h : humans) {
 			h.update(delta);
-			if(h.canSeeCat(cat)){
-				cat.hasFood = (true);
+			if(h.canSeeCat(cat) && cat.hasFood){
+				loseTimer += delta;
+				if(loseTimer > 0.4f){
+					MainGame.instance.endGame();
+				}
 			}else{
-				cat.hasFood = (false);
+				loseTimer -= delta;
+				if(loseTimer < 0){
+					loseTimer = 0;
+				}
 			}
 		}
 		bird.update(delta);

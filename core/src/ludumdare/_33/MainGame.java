@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
+import ludumdare._33.screens.EndGameScreen;
 import ludumdare._33.screens.MainMenuScreen;
 
 public class MainGame extends Game {
@@ -23,6 +24,10 @@ public class MainGame extends Game {
 
 		instance = this;
 		setScreen(new MainMenuScreen());
+	}
+	
+	public void endGame(){
+		setScreen(new EndGameScreen(10));
 	}
 
 	public void dispose() {
