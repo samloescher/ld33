@@ -182,6 +182,7 @@ public class World {
 		for(Prey p : preys){
 			if(p.bounds.overlaps(cat.bounds)){
 				player.currentCatchValue = p.value;
+				player.score+=p.value/2;
 				preys.remove(p);
 				cat.hasFood = true;
 				return ;
