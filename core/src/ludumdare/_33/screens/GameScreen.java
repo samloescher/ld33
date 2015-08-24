@@ -38,6 +38,7 @@ public class GameScreen extends AbstractScreen {
 	@Override
 	void update(float delta) {
 		world.update(delta);
+		uiOverlay.setDetectionLevel(world.losePercent);
 		focusCameraOnCat(world.cat);
 		background.update();
 	}
@@ -56,8 +57,10 @@ public class GameScreen extends AbstractScreen {
 		shapeRenderer.setProjectionMatrix(camera.combined);
 		//Platforms.draw(shapeRenderer);
 		HideableAreas.draw(shapeRenderer);
-		world.drawDebug(shapeRenderer);
+		//world.drawDebug(shapeRenderer);
 		
+		shapeRenderer.setProjectionMatrix(uiMatrix);
+		uiOverlay.drawDetectionMeter(shapeRenderer);
 		
 		batch.setProjectionMatrix(uiMatrix);
 		batch.begin();
@@ -72,7 +75,7 @@ public class GameScreen extends AbstractScreen {
 
 	void focusCameraOnCat(Cat cat) {
 		Vector2 catPosition = cat.getCatPosition();
-		float screenBuffer = 125;
+		float screenBuffer = 50;
 		
 		float maxX = camera.position.x + screenBuffer;
 		if (catPosition.x > maxX) {

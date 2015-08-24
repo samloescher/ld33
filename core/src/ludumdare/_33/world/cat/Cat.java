@@ -13,6 +13,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 import ludumdare._33.assets.AnimationTextures;
+import ludumdare._33.particles.BloodSplatterParticles;
 import ludumdare._33.world.World;
 import ludumdare._33.world.environment.Platforms;
 
@@ -43,10 +44,13 @@ public class Cat {
 	Vector2 displacement = new Vector2();
 	float velocityY;
 	
-	public Cat() {
+	BloodSplatterParticles bloodSplatter;
+	
+	public Cat(BloodSplatterParticles particleManager) {
 		position = new Vector2(100, 0);
 		initialiseAnimations();
 		currentAnimation = sittingAnimation;
+		bloodSplatter = particleManager;
 	}
 
 	public void update(float delta) {
@@ -57,6 +61,7 @@ public class Cat {
 		updateVelocityY(delta);
 		updateDisplacement();
 		updateState();
+		updateBloodSplatter();
 		clampToWorldBounds();
 		displacement.x = 0;
 		displacement.y = 0;
@@ -152,6 +157,17 @@ public class Cat {
 				currentAnimation = jumpingAnimation;
 				break;
 			}
+		}
+	}
+	
+	void updateBloodSplatter(){
+		if(hasFood){
+			if(facingRight){
+				bloodSplatter.setBloodLocation(position.x + width, position.y + height/2);
+			}else{
+				bloodSplatter.setBloodLocation(position.x , position.y + height/2);
+			}
+			bloodSplatter.addBloodSplatter();
 		}
 	}
 	

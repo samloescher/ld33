@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 
 import ludumdare._33.MainGame;
-import ludumdare._33.particles.ParticleManager;
+import ludumdare._33.particles.BloodSplatterParticles;
 import ludumdare._33.world.cat.Cat;
 import ludumdare._33.world.environment.buildings.Building;
 import ludumdare._33.world.environment.buildings.Home;
@@ -28,13 +28,13 @@ public class World {
 	ArrayList<Foliage> foliage = new ArrayList<Foliage>();
 
 	public static Rectangle bounds = new Rectangle(0, 0, 800f * 10f, 480f * 3f);
+	public float losePercent = 0f;
 	
-	ParticleManager particleManager;
+	BloodSplatterParticles bloodSplatterParticles;
 
 	public World() {
-		cat = new Cat();
-		particleManager = new ParticleManager();
-		
+		bloodSplatterParticles = new BloodSplatterParticles();
+		cat = new Cat(bloodSplatterParticles);
 		generateWorld();
 	}
 	
@@ -65,22 +65,30 @@ public class World {
 		chicken = new Chicken(100);
 	}
 
-	float loseTimer = 0f;
+	
 	public void update(float delta) {
 		cat.update(delta);
+		updateDetection(delta);
+		bloodSplatterParticles.update(delta);
+		bird.update(delta);
+	}
+	
+	float loseTimer = 0f;
+	public void updateDetection(float delta) {
 		for (Human h : humans) {
 			h.update(delta);
-			if(h.canSeeCat(cat) && cat.hasFood){
+			if (h.canSeeCat(cat) && cat.hasFood) {
 				loseTimer += delta;
-				if(loseTimer > 0.4f){
+				if (loseTimer > 0.6f) {
 					MainGame.instance.endGame();
 				}
-			}else{
-				loseTimer -= delta;
-				if(loseTimer < 0){
+			} else {
+				loseTimer -= 0.25f * delta;
+				if (loseTimer < 0) {
 					loseTimer = 0;
 				}
 			}
+			losePercent = loseTimer/0.6f;
 		}
 		bird.update(delta);
 		mouse.update(delta);
@@ -107,8 +115,7 @@ public class World {
 		mouse.draw(batch);
 		chicken.draw(batch);
 		
-//		particleManager.setBloodLocation(400, 280);
-//		particleManager.drawBloodEffects(batch);
+		bloodSplatterParticles.drawBloodEffects(batch);
 	}
 
 	public void drawDebug(ShapeRenderer shapeRenderer) {
