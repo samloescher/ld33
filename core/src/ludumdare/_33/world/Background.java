@@ -55,7 +55,7 @@ public class Background {
 		float parallaxOffset;
 		
 		textureWidth = cloudsLeft.getWidth();
-		parallaxOffset = (cameraViewport.x * 0.3f) % textureWidth;
+		parallaxOffset = (cameraViewport.x * 0.85f) % textureWidth;
 		
 		leftTexturePositionIndex = (int) ((cameraViewport.x)  / textureWidth);
 		cloudsLeft.setPosition((leftTexturePositionIndex - 1) * textureWidth + parallaxOffset, 40);
@@ -63,7 +63,7 @@ public class Background {
 		cloudsRight.setPosition((leftTexturePositionIndex + 1) * textureWidth + parallaxOffset, 40);
 		
 		textureWidth = hillsLeft.getWidth();
-		parallaxOffset = (cameraViewport.x * 0.25f) % textureWidth;
+		parallaxOffset = (cameraViewport.x * 0.75f) % textureWidth;
 		
 		leftTexturePositionIndex = (int) (cameraViewport.x / textureWidth);
 		hillsLeft.setPosition((leftTexturePositionIndex - 1) * textureWidth + parallaxOffset, 0);
@@ -73,7 +73,7 @@ public class Background {
 	
 	public void draw(SpriteBatch batch){
 		for (Star s : starsArray) {
-			s.draw(batch,cameraViewport.x);
+			s.draw(batch,cameraViewport.x * 0.9f);
 		}
 		cloudsLeft.draw(batch);
 		cloudsCenter.draw(batch);
@@ -99,10 +99,17 @@ public class Background {
 	}
 	
 	private void generateStars() {
-		for (int i = 0; i < 25; i++) {
-			int randomSize = MathUtils.random(7, 14);
-			int randomX = MathUtils.random(0, 800);
-			int randomY = MathUtils.random(50, 480);
+		for (int i = 0; i < 100; i++) {
+			int randomSize = MathUtils.random(7, 10);
+			int randomX = MathUtils.random(0, 800*3);
+			int randomY = MathUtils.random(50, 500);
+			star = new Star(randomSize, randomSize, randomX, randomY);
+			starsArray.add(star);
+		}
+		for (int i = 0; i < 5; i++) {
+			int randomSize = MathUtils.random(7, 10);
+			int randomX = MathUtils.random(0, 800*3);
+			int randomY = MathUtils.random(480, (int)(480 *1.5f));
 			star = new Star(randomSize, randomSize, randomX, randomY);
 			starsArray.add(star);
 		}
