@@ -10,6 +10,7 @@ import ludumdare._33.assets.StaticTextures;
 public class Home extends Building {
 
 	private ArrayList<Rectangle> platforms;
+	public Rectangle doorBounds;
 	private static Vector2 size = new Vector2(400, 300);
 
 	public Home(float x) {
@@ -17,7 +18,7 @@ public class Home extends Building {
 		platforms = new ArrayList<Rectangle>();
 		platforms.add(new Rectangle(size.x / 200f, size.y / 1.6f, size.x / 1.06f, size.y / 2.7f));
 		addPlatforms(platforms);
-
+		doorBounds = new Rectangle(position.x + size.x * 0.66f,0,size.x * 0.14f,size.y * 0.28f);
 	}
 
 }

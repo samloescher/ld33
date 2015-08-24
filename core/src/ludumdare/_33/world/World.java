@@ -58,7 +58,8 @@ public class World {
 	}
 
 	private void addBuildings() {
-		buildings.add(new Home(10));
+		home = new Home(10);
+		buildings.add(home);
 		buildings.add(new Church(new Vector2(700, 0)));
 		buildings.add(new Bungalow1(new Vector2(1500, 0)));
 		buildings.add(new Marketplace(new Vector2(2200, 0)));
@@ -120,8 +121,15 @@ public class World {
 		cat.update(delta);
 		updateHumans(delta);
 		updatePrey(delta);
-		boolean isKilling = isCatOverlappingPrey();
-		boolean isHome = isCatHome();
+		if(isCatOverlappingPrey()){
+			//Kill Prey
+			cat.hasFood = true;
+		}
+		if(isCatHome()){
+			if(cat.hasFood){
+				cat.hasFood = false;
+			}
+		}
 		bloodSplatterParticles.update(delta);
 		bird.update(delta);
 	}
@@ -160,8 +168,7 @@ public class World {
 	}
 	
 	boolean isCatHome(){
-		return false;
-		//return home.getDoorArea.overlaps(cat.bounds));
+		return home.doorBounds.overlaps(cat.bounds);
 	}
 
 	public void draw(SpriteBatch batch) {

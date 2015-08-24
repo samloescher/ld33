@@ -109,7 +109,7 @@ public class Background {
 		for (int i = 0; i < 50; i++) {
 			int randomSize = MathUtils.random(7, 10);
 			int randomX = MathUtils.random(0, 800*3);
-			int randomY = MathUtils.random(480, (int)(480 *1.5f));
+			int randomY = MathUtils.random(480, (int)(480 *2f));
 			star = new Star(randomSize, randomSize, randomX, randomY);
 			starsArray.add(star);
 		}

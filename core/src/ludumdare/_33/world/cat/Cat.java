@@ -19,6 +19,8 @@ import ludumdare._33.world.environment.Platforms;
 
 public class Cat {
 	
+	public Rectangle bounds;
+	
 	public int height = 48;
 	public int width = 69;
 
@@ -48,6 +50,7 @@ public class Cat {
 	
 	public Cat(BloodSplatterParticles particleManager) {
 		position = new Vector2(100, 0);
+		bounds = new Rectangle(position.x,position.y,width,height);
 		initialiseAnimations();
 		currentAnimation = sittingAnimation;
 		bloodSplatter = particleManager;
@@ -65,6 +68,8 @@ public class Cat {
 		clampToWorldBounds();
 		displacement.x = 0;
 		displacement.y = 0;
+		bounds.x = position.x;
+		bounds.y = position.y;
 	}
 	
 	public Vector2 getCatPosition() {
