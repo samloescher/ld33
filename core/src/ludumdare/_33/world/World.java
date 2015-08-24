@@ -4,12 +4,15 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 
 import ludumdare._33.MainGame;
 import ludumdare._33.particles.BloodSplatterParticles;
 import ludumdare._33.world.cat.Cat;
 import ludumdare._33.world.environment.buildings.Building;
+import ludumdare._33.world.environment.buildings.Bungalow1;
 import ludumdare._33.world.environment.buildings.Home;
 import ludumdare._33.world.environment.hidables.Foliage;
 import ludumdare._33.world.human.Human;
@@ -30,7 +33,7 @@ public class World {
 
 	public static Rectangle bounds = new Rectangle(0, 0, 800f * 10f, 480f * 3f);
 	public float losePercent = 0f;
-	
+
 	BloodSplatterParticles bloodSplatterParticles;
 
 	public World() {
@@ -38,44 +41,49 @@ public class World {
 		cat = new Cat(bloodSplatterParticles);
 		generateWorld();
 	}
-	
-	private void generateWorld(){
+
+	private void generateWorld() {
 		addBuildings();
 		addFoliage();
 		addHumans();
 		addPrey();
 	}
-	
-	private void addBuildings(){
+
+	private void addBuildings() {
 		buildings.add(new Home(10));
-		
-		
+		Building attemptedBuilding;
+		for(int i = 0; i < 10; i++){
+			attemptedBuilding = new Bungalow1(new Vector2(MathUtils.random(100, 1000),0));
+		}
 	}
-	
-	private void addFoliage(){
-		
+
+	private void addFoliage() {
+		for(int i = 0; i < 10; i++){
+			
+		}
 	}
-	
-	private void addHumans(){
-		humans.add(new Man(500,1000));
+
+	private void addHumans() {
+		humans.add(new Man(500, 1000));
 	}
-	
-	private void addPrey(){
+
+	private void addPrey() {
 		bird = new Bird(10);
 		mouse = new Mouse(10);
 		chicken = new Chicken(100);
 	}
 
-	
 	public void update(float delta) {
 		cat.update(delta);
-		updateDetection(delta);
+		updateHumans(delta);
+		updatePrey(delta);
 		bloodSplatterParticles.update(delta);
 		bird.update(delta);
 	}
-	
+
 	float loseTimer = 0f;
-	private void updateDetection(float delta) {
+
+	private void updateHumans(float delta) {
 		for (Human h : humans) {
 			h.update(delta);
 			if (h.canSeeCat(cat) && cat.hasFood) {
@@ -89,8 +97,11 @@ public class World {
 					loseTimer = 0;
 				}
 			}
-			losePercent = loseTimer/0.6f;
+			losePercent = loseTimer / 0.6f;
 		}
+	}
+
+	private void updatePrey(float delta) {
 		bird.update(delta);
 		mouse.update(delta);
 		chicken.update(delta);
@@ -107,15 +118,15 @@ public class World {
 		for (Foliage f : foliage) {
 			f.draw(batch);
 		}
-		
+
 		for (Human h : humans) {
 			h.draw(batch);
 		}
-		
+
 		bird.draw(batch);
 		mouse.draw(batch);
 		chicken.draw(batch);
-		
+
 		bloodSplatterParticles.drawBloodEffects(batch);
 	}
 

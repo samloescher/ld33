@@ -73,7 +73,7 @@ public class Background {
 	
 	public void draw(SpriteBatch batch){
 		for (Star s : starsArray) {
-			s.draw(batch);
+			s.draw(batch,cameraViewport.x);
 		}
 		cloudsLeft.draw(batch);
 		cloudsCenter.draw(batch);

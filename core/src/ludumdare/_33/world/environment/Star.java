@@ -10,13 +10,13 @@ import com.badlogic.gdx.math.Vector2;
 import ludumdare._33.assets.AnimationTextures;
 
 public class Star {
-	public int height;
-	public int width;
+	int height;
+	int width;
 
 	Animation blinkingAnimation;
 
 	float currentAnimationTime;
-	Vector2 position;
+	public Vector2 position;
 
 	public Star(int height, int width, int x, int y) {
 		position = new Vector2(x, y);
@@ -30,9 +30,9 @@ public class Star {
 		currentAnimationTime += delta;
 	}
 	
-	public void draw(SpriteBatch batch) {
+	public void draw(SpriteBatch batch, float cameraOffset) {
 		TextureRegion star = blinkingAnimation.getKeyFrame(currentAnimationTime);
-		batch.draw(star, position.x, position.y, width, height);
+		batch.draw(star, position.x + cameraOffset, position.y, width, height);
 	}
 	
 	private void initialiseAnimations() {
