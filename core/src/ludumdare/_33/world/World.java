@@ -157,10 +157,7 @@ public class World {
 		if (newPreyStartLocationX > 7800 ) {
 			newPreyStartLocationX = MathUtils.random(400, 1000);
 		}
-		int newPreyEndLocationX = (int) preyCaughtX + MathUtils.random(1500, 2000);
-		if (newPreyEndLocationX < 7800 ) {
-			newPreyEndLocationX = MathUtils.random(1500, 2000);
-		}
+		int newPreyEndLocationX = newPreyStartLocationX + 1000;
 
 		cat.update(delta);
 		updateHumans(delta);
