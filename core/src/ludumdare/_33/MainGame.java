@@ -26,8 +26,8 @@ public class MainGame extends Game {
 		setScreen(new MainMenuScreen());
 	}
 	
-	public void endGame(){
-		setScreen(new EndGameScreen(10));
+	public void endGame(int score){
+		setScreen(new EndGameScreen(score));
 	}
 
 	public void dispose() {

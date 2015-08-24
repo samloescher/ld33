@@ -8,6 +8,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 
+import ludumdare._33.Player;
 import ludumdare._33.assets.AnimationTextures;
 import ludumdare._33.input.InputManager;
 import ludumdare._33.ui.UIOverlay;
@@ -25,10 +26,13 @@ class GameScreen extends AbstractScreen {
 	UIOverlay uiOverlay;
 	Matrix4 uiMatrix;
 	
+	Player player;
+	
 	InputManager inputManager;
 
 	public GameScreen() {
-		world = new World();
+		player = new Player();
+		world = new World(player);
 		background = new Background(camera);
 		uiOverlay = new UIOverlay();
 		uiMatrix = new Matrix4().setToOrtho2D(0, 0, 800, 480);

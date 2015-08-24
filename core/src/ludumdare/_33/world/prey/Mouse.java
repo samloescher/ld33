@@ -9,7 +9,7 @@ import com.badlogic.gdx.math.Vector2;
 
 import ludumdare._33.assets.AnimationTextures;
 
-public class Mouse {
+public class Mouse extends Prey {
 	public int height = 31;
 	public int width = 36;
 
@@ -17,11 +17,11 @@ public class Mouse {
 
 	float currentAnimationTime;
 	Vector2 position;
-	Rectangle bounds;
 
 	boolean facingRight = false;
 
 	public Mouse(int x) {
+		this.value = 40;
 		position = new Vector2(x, 0);
 		initialiseAnimations();
 		bounds = new Rectangle(position.x, position.y, width, height);
@@ -29,7 +29,8 @@ public class Mouse {
 
 	public void update(float delta) {
 		currentAnimationTime += delta;
-		position.x += 2.0f;
+		position.x += 160.0f * delta;
+		bounds.x = position.x;
 	}
 	
 	public void draw(SpriteBatch batch) {

@@ -9,7 +9,7 @@ import com.badlogic.gdx.math.Vector2;
 
 import ludumdare._33.assets.AnimationTextures;
 
-public class Chicken {
+public class Chicken extends Prey {
 	public int height = 33;
 	public int width = 33;
 
@@ -17,11 +17,11 @@ public class Chicken {
 
 	float currentAnimationTime;
 	Vector2 position;
-	Rectangle bounds;
 
 	boolean facingRight = true;
 
 	public Chicken(int x) {
+		this.value = 20;
 		position = new Vector2(x, 0);
 		initialiseAnimations();
 		bounds = new Rectangle(position.x, position.y, width, height);
@@ -29,7 +29,8 @@ public class Chicken {
 
 	public void update(float delta) {
 		currentAnimationTime += delta;
-		position.x += 1.0f;
+		position.x += 80f * delta;
+		bounds.x = position.x;
 	}
 	
 	public void draw(SpriteBatch batch) {

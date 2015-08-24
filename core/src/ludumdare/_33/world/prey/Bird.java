@@ -18,12 +18,11 @@ public class Bird extends Prey{
 
 	float currentAnimationTime;
 	Vector2 position;
-	Rectangle bounds;
 
 	boolean facingRight = true;
 
 	public Bird(int x1, int x2, int y) {
-		this.points = 50;
+		this.value = 50;
 		position = new Vector2(x1, y);
 		initialiseAnimations();
 		bounds = new Rectangle(position.x, position.y, width, height);
@@ -31,7 +30,8 @@ public class Bird extends Prey{
 
 	public void update(float delta) {
 		currentAnimationTime += delta;
-		position.x += 0.5f;
+		position.x += 120f * delta;
+		bounds.x = position.x;
 	}
 	
 	public void draw(SpriteBatch batch) {

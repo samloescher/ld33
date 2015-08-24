@@ -2,14 +2,13 @@ package ludumdare._33.world;
 
 import java.util.ArrayList;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 import ludumdare._33.MainGame;
+import ludumdare._33.Player;
 import ludumdare._33.particles.BloodSplatterParticles;
 import ludumdare._33.world.cat.Cat;
 import ludumdare._33.world.environment.buildings.Building;
@@ -29,9 +28,12 @@ import ludumdare._33.world.human.Male;
 import ludumdare._33.world.prey.Bird;
 import ludumdare._33.world.prey.Chicken;
 import ludumdare._33.world.prey.Mouse;
+import ludumdare._33.world.prey.Prey;
 
 public class World {
 
+	Player player;
+	
 	public Cat cat;
 	public Mouse mouse;
 	public Chicken chicken;
@@ -39,14 +41,15 @@ public class World {
 	ArrayList<Human> humans = new ArrayList<Human>();
 	ArrayList<Building> buildings = new ArrayList<Building>();
 	ArrayList<Foliage> foliage = new ArrayList<Foliage>();
-	ArrayList<Bird> birds = new ArrayList<Bird>();
+	ArrayList<Prey> preys = new ArrayList<Prey>();
 
 	public static Rectangle bounds = new Rectangle(0, 0, 800f * 10f, 480f * 3f);
 	public float losePercent = 0f;
 
 	BloodSplatterParticles bloodSplatterParticles;
 
-	public World() {
+	public World(Player player) {
+		this.player = player;
 		bloodSplatterParticles = new BloodSplatterParticles();
 		cat = new Cat(bloodSplatterParticles);
 		generateWorld();
@@ -114,40 +117,31 @@ public class World {
 	}
 
 	private void addPrey() {
-		birds.add(new Bird(10, 400, 400));
-		birds.add(new Bird(250, 800, 450));
-		birds.add(new Bird(400, 600, 400));
-		birds.add(new Bird(700, 900, 440));
-		birds.add(new Bird(1000, 1400, 400));
-		birds.add(new Bird(1270, 1900, 400));
-		birds.add(new Bird(2000, 2900, 400));
-		birds.add(new Bird(2600, 4500, 450));
-		birds.add(new Bird(5000, 7000, 400));
-		birds.add(new Bird(6500, 7500, 450));
-		birds.add(new Bird(7000, 8000, 440));
-		
-		mouse = new Mouse(10);
-		chicken = new Chicken(100);
+		preys.add(new Bird(10, 400, 400));
+		preys.add(new Bird(250, 800, 450));
+		preys.add(new Bird(400, 600, 400));
+		preys.add(new Bird(700, 900, 440));
+		preys.add(new Bird(1000, 1400, 400));
+		preys.add(new Bird(1270, 1900, 400));
+		preys.add(new Bird(2000, 2900, 400));
+		preys.add(new Bird(2600, 4500, 450));
+		preys.add(new Bird(5000, 7000, 400));
+		preys.add(new Bird(6500, 7500, 450));
+		preys.add(new Bird(7000, 8000, 440));
 	}
 
 	public void update(float delta) {
 		cat.update(delta);
 		updateHumans(delta);
 		updatePrey(delta);
-		if(isCatOverlappingPrey()||Gdx.input.isKeyJustPressed(Keys.F)){
-			//Kill Prey
-			cat.hasFood = true;
-		}
+		attemptToEatPrey();
 		if(isCatHome()){
 			if(cat.hasFood){
 				cat.hasFood = false;
+				player.score += player.currentCatchValue;
 			}
 		}
 		bloodSplatterParticles.update(delta);
-		
-		for (Bird b : birds){
-			b.update(delta);
-		}
 	}
 
 	float loseTimer = 0f;
@@ -161,8 +155,10 @@ public class World {
 		}
 		if(visible == true){
 			loseTimer += delta;
-			if (loseTimer > 0.6f) {
-				MainGame.instance.endGame();
+			if (loseTimer > 0.4f) {
+				int score = player.score;
+				player.score = 0;
+				MainGame.instance.endGame(score);
 			}
 		} else {
 			loseTimer -= 0.25f * delta;
@@ -170,19 +166,28 @@ public class World {
 				loseTimer = 0;
 			}
 		}
-		losePercent = loseTimer / 0.6f;
+		losePercent = loseTimer / 0.4f;
 	}
 
 	private void updatePrey(float delta) {
-		for (Bird b : birds){
-			b.update(delta);
+		for (Prey p : preys){
+			p.update(delta);
 		}
-		mouse.update(delta);
-		chicken.update(delta);
 	}
 	
-	boolean isCatOverlappingPrey(){
-		return false;
+	void attemptToEatPrey(){
+		if(cat.hasFood){
+			return;
+		}
+		for(Prey p : preys){
+			if(p.bounds.overlaps(cat.bounds)){
+				player.currentCatchValue = p.value;
+				preys.remove(p);
+				cat.hasFood = true;
+				return ;
+			}
+		}
+		return;
 	}
 	
 	boolean isCatHome(){
@@ -205,11 +210,9 @@ public class World {
 			h.draw(batch);
 		}
 
-		for (Bird b : birds){
-			b.draw(batch);
+		for (Prey p : preys){
+			p.draw(batch);
 		}
-		mouse.draw(batch);
-		chicken.draw(batch);
 
 		bloodSplatterParticles.drawBloodEffects(batch);
 	}

@@ -8,7 +8,7 @@ import ludumdare._33.MainGame;
 
 public class EndGameScreen extends AbstractScreen {
 
-	int score = 0;
+	int score;
 	Texture catImage;
 
 	public EndGameScreen(int score) {
@@ -18,6 +18,11 @@ public class EndGameScreen extends AbstractScreen {
 
 	@Override
 	void update(float delta) {
+		if (Gdx.input.isTouched()) {
+			MainGame.instance.setScreen(new GameScreen());
+			catImage.dispose();
+			dispose();
+		}
 	}
 
 	@Override
@@ -26,18 +31,10 @@ public class EndGameScreen extends AbstractScreen {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 		batch.begin();
-		batch.draw(catImage, 200, 0);
-		font.draw(batch, "NICE!", 20, 440);
-		font.draw(batch, "YOUR SCORE IS:", 20, 400);
-		font.draw(batch, "" + score, 400, 400);
-		font.draw(batch, "Tap anywhere\n to restart....", 540, 100);
+		batch.draw(catImage, 100, 0);
+		font.draw(batch, "NICE! YOUR SCORE IS: "+ score, 20, 440);
+		font.draw(batch, "Click anywhere\n to restart....", 540, 100);
 		batch.end();
-
-		if (Gdx.input.isTouched()) {
-			MainGame.instance.setScreen(new GameScreen());
-			catImage.dispose();
-			dispose();
-		}
 	}
 
 }

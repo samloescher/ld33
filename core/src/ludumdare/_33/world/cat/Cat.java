@@ -39,7 +39,7 @@ public class Cat {
 	
 	CatState previousState = CatState.Sitting;
 	CatState currentState = CatState.Sitting;
-	public boolean hasFood = true;
+	public boolean hasFood = false;
 	boolean facingRight = true;
 	boolean onFloorOrPlatform;
 	
