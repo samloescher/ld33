@@ -10,8 +10,8 @@ import com.badlogic.gdx.math.Vector2;
 import ludumdare._33.assets.AnimationTextures;
 
 public class Chicken {
-	public int height = 22;
-	public int width = 22;
+	public int height = 33;
+	public int width = 33;
 
 	Animation walkingAnimation;
 

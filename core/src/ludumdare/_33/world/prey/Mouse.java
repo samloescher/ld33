@@ -10,8 +10,8 @@ import com.badlogic.gdx.math.Vector2;
 import ludumdare._33.assets.AnimationTextures;
 
 public class Mouse {
-	public int height = 41;
-	public int width = 47;
+	public int height = 31;
+	public int width = 36;
 
 	Animation walkingAnimation;
 
@@ -29,7 +29,7 @@ public class Mouse {
 
 	public void update(float delta) {
 		currentAnimationTime += delta;
-		position.x += 1.0f;
+		position.x += 2.0f;
 	}
 	
 	public void draw(SpriteBatch batch) {
@@ -38,7 +38,7 @@ public class Mouse {
 	}
 	
 	void initialiseAnimations() {
-		walkingAnimation = new Animation(0.4f, AnimationTextures.mouseWalkingArray.toArray(new TextureRegion[AnimationTextures.mouseWalkingArray.size()]));
+		walkingAnimation = new Animation(0.2f, AnimationTextures.mouseWalkingArray.toArray(new TextureRegion[AnimationTextures.mouseWalkingArray.size()]));
 		walkingAnimation.setPlayMode(PlayMode.LOOP);
 	}
 }
