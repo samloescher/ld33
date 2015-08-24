@@ -1,5 +1,7 @@
 package ludumdare._33.world;
 
+import java.util.Random;
+
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -25,6 +27,7 @@ public class Background {
 	public Background(OrthographicCamera camera) {
 		this.camera = camera;
 		assignSprites();
+		generateStars();
 	}
 	
 	public void update(float delta){
@@ -86,8 +89,19 @@ public class Background {
 		hillsLeft.setColor(0, 0.4f, 0, 1f);
 		hillsCenter.setColor(0, 0.4f, 0, 1f);
 		hillsRight.setColor(0, 0.4f, 0, 1f);
-		
-		star = new Star(10,400);
+	}
+	
+	private void generateStars() {
+		for (int i = 0; i < 1; i++) {
+			int randomSize = randInt(7,50);
+			star = new Star(randomSize, randomSize, 10, 400);
+		}
+	}
+	
+	private int randInt(int min, int max) {
+		Random rand = new Random();
+		int randomNum = rand.nextInt((max - min) + 1) + min;
+		return randomNum;
 	}
 	
 }

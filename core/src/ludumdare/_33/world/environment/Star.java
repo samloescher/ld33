@@ -9,16 +9,18 @@ import com.badlogic.gdx.math.Vector2;
 import ludumdare._33.assets.AnimationTextures;
 
 public class Star {
-	public int height = 14;
-	public int width = 14;
+	public int height;
+	public int width;
 
 	Animation blinkingAnimation;
 
 	float currentAnimationTime;
 	Vector2 position;
 
-	public Star(int x, int y) {
+	public Star(int height, int width, int x, int y) {
 		position = new Vector2(x, y);
+		this.height = height;
+		this.width = width;
 		initialiseAnimations();
 	}
 
