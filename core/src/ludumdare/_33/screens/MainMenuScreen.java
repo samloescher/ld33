@@ -21,20 +21,22 @@ public class MainMenuScreen extends AbstractScreen {
 
 	@Override
 	void draw() {
-		Gdx.gl.glClearColor(0, 0, 0.2f, 1);
+		Gdx.gl.glClearColor(0.1f, 0.1f, 0.3f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 		camera.update();
 		batch.setProjectionMatrix(camera.combined);
 
 		batch.begin();
-		batch.draw(catImage, 300, 0);
-		font.draw(batch, "WELCOME TO THE CAT MONSTER GAME...", 20, 440);
-		font.draw(batch, "TAP ANYWHERE TO BEGIN!", 20, 400);
-		font.draw(batch, "Instructions:", 20, 340);
-		font.draw(batch, "WASD TO MOVE", 20, 300);
-		font.draw(batch, "EAT FOOD \n  FOR POINTS", 20, 260);
-		font.draw(batch, "DON'T GET \n  CAUGHT BY \n   HUMANS...", 20, 160);
+		batch.draw(catImage, 520, 20,200,400);
+		font.draw(batch, "KILLER CAT", 300, 440);
+		
+		font.draw(batch, "Instructions:", 20, 360);
+		font.draw(batch, "WASD to move", 20, 320);
+		font.draw(batch, "Bring presents HOME \n  for POINTS", 20, 280);
+		font.draw(batch, "and don't get SEEN", 20, 180);
+		
+		font.draw(batch, "CLICK anywhere to BEGIN!", 20, 100);
 		batch.end();
 
 		if (Gdx.input.isTouched()) {

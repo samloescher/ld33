@@ -25,15 +25,12 @@ public class EndGameScreen extends AbstractScreen {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-		camera.update();
-		batch.setProjectionMatrix(camera.combined);
-
 		batch.begin();
 		batch.draw(catImage, 200, 0);
-		font.draw(batch, "YOU HAVE FAILED...", 20, 440);
-		font.draw(batch, "SCORE IS:", 20, 400);
-		font.draw(batch, "" + score, 230, 400);
-		font.draw(batch, "Tap anywhere\n to restart....", 20, 360);
+		font.draw(batch, "NICE!", 20, 440);
+		font.draw(batch, "YOUR SCORE IS:", 20, 400);
+		font.draw(batch, "" + score, 400, 400);
+		font.draw(batch, "Tap anywhere\n to restart....", 540, 100);
 		batch.end();
 
 		if (Gdx.input.isTouched()) {

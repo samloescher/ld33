@@ -23,6 +23,7 @@ public class World {
 	ArrayList<Foliage> foliage = new ArrayList<Foliage>();
 
 	public static Rectangle bounds = new Rectangle(0, 0, 800f * 10f, 480f * 3f);
+	public float losePercent = 0f;
 
 	public World() {
 		cat = new Cat();
@@ -55,24 +56,31 @@ public class World {
 		bird = new Bird(10);
 	}
 
-	float loseTimer = 0f;
+	
 	public void update(float delta) {
 		cat.update(delta);
+		updateDetection(delta);
+		
+		bird.update(delta);
+	}
+	
+	float loseTimer = 0f;
+	public void updateDetection(float delta) {
 		for (Human h : humans) {
 			h.update(delta);
-			if(h.canSeeCat(cat) && cat.hasFood){
+			if (h.canSeeCat(cat) && cat.hasFood) {
 				loseTimer += delta;
-				if(loseTimer > 0.4f){
+				if (loseTimer > 0.6f) {
 					MainGame.instance.endGame();
 				}
-			}else{
-				loseTimer -= delta;
-				if(loseTimer < 0){
+			} else {
+				loseTimer -= 0.25f * delta;
+				if (loseTimer < 0) {
 					loseTimer = 0;
 				}
 			}
+			losePercent = loseTimer/0.6f;
 		}
-		bird.update(delta);
 	}
 
 	public void draw(SpriteBatch batch) {

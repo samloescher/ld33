@@ -9,7 +9,7 @@ import com.badlogic.gdx.math.Vector2;
 
 import ludumdare._33.assets.AnimationTextures;
 
-public class Bird {
+public class Bird extends Prey{
 
 	public int height = 32;
 	public int width = 30;
@@ -23,6 +23,7 @@ public class Bird {
 	boolean facingRight = true;
 
 	public Bird(int x) {
+		this.points = 50;
 		position = new Vector2(x, 400);
 		initialiseAnimations();
 		bounds = new Rectangle(position.x, position.y, width, height);
