@@ -2,14 +2,22 @@ package ludumdare._33.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
 
 import ludumdare._33.MainGame;
+import ludumdare._33.assets.AnimationTextures;
 
 public class MainMenuScreen extends AbstractScreen {
 
+	Texture catImage;
+
+	public MainMenuScreen() {
+		catImage = new Texture(Gdx.files.internal("images/cat/cat-background.png"));
+	}
+
 	@Override
 	void update(float delta) {
-		
+
 	}
 
 	@Override
@@ -21,12 +29,18 @@ public class MainMenuScreen extends AbstractScreen {
 		batch.setProjectionMatrix(camera.combined);
 
 		batch.begin();
-		font.draw(batch, "WELCOME TO THE CAT GAME...", 100, 150);
-		font.draw(batch, "TAP ANYWHERE TO BEGIN!", 100, 100);
+		batch.draw(catImage, 300, 0);
+		font.draw(batch, "WELCOME TO THE CAT MONSTER GAME...", 20, 440);
+		font.draw(batch, "TAP ANYWHERE TO BEGIN!", 20, 400);
+		font.draw(batch, "Instructions:", 20, 340);
+		font.draw(batch, "WASD TO MOVE", 20, 300);
+		font.draw(batch, "EAT FOOD \n  FOR POINTS", 20, 260);
+		font.draw(batch, "DON'T GET \n  CAUGHT BY \n   HUMANS...", 20, 160);
 		batch.end();
 
 		if (Gdx.input.isTouched()) {
 			MainGame.instance.setScreen(new GameScreen());
+			catImage.dispose();
 			dispose();
 		}
 	}
