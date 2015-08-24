@@ -34,7 +34,7 @@ class GameScreen extends AbstractScreen {
 		player = new Player();
 		world = new World(player);
 		background = new Background(camera);
-		uiOverlay = new UIOverlay();
+		uiOverlay = new UIOverlay(player);
 		uiMatrix = new Matrix4().setToOrtho2D(0, 0, 800, 480);
 		inputManager = new InputManager(uiOverlay);
 		Gdx.input.setInputProcessor(inputManager);
@@ -44,6 +44,7 @@ class GameScreen extends AbstractScreen {
 	void update(float delta) {
 		world.update(delta);
 		uiOverlay.setDetectionLevel(world.losePercent);
+		uiOverlay.scoreDisplay.update(player.score);
 		focusCameraOnCat(world.cat);
 		background.update(delta);
 	}
@@ -70,6 +71,7 @@ class GameScreen extends AbstractScreen {
 		batch.setProjectionMatrix(uiMatrix);
 		batch.begin();
 		uiOverlay.draw(batch);
+		uiOverlay.scoreDisplay.draw(batch);
 		batch.end();
 	}
 
