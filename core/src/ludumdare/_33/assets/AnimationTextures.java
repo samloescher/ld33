@@ -104,7 +104,7 @@ public class AnimationTextures {
 
 		birdFlyingArray = getAnimationTextureRegionArray(birdFlying, 5);
 		
-		mouseWalkingArray = getAnimationTextureRegionArray(mouseWalking, 6);
+		mouseWalkingArray = getAnimationTextureRegionArray(mouseWalking, 6,72,true);
 		
 		chickenWalkingArray = getAnimationTextureRegionArray(chickenWalking, 4, chickenWidth);
 		
@@ -122,6 +122,20 @@ public class AnimationTextures {
 		array = new TextureRegion[frames];
 		for(int i = 0; i < frames; i++){
 				array[i] = new TextureRegion(tex, i * frameWidth, 0, frameWidth, height);
+		}
+		
+		return array;
+	}
+	
+	static TextureRegion[] getAnimationTextureRegionArray(Texture tex, int frames, int frameWidth, boolean reverse){
+		TextureRegion tmp;
+		TextureRegion[] array;
+		int height = tex.getHeight();
+		array = new TextureRegion[frames];
+		for(int i = 0; i < frames; i++){
+				tmp = new TextureRegion(tex, i * frameWidth, 0, frameWidth, height);
+				tmp.flip(reverse, false);
+				array[i] = tmp;
 		}
 		
 		return array;

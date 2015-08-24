@@ -16,7 +16,7 @@ class MusicToggle extends UIOverlayItem {
 
 	MusicToggle(Vector2 position) {
 		super(unmuteTexture, position, size);
-		jukeBox = new Jukebox();
+		jukeBox = Jukebox.getInstance();
 		jukeBox.play();
 	}
 
