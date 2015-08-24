@@ -7,26 +7,12 @@ public class SoundEffects {
 	
 	public float volume = 1f;
 	
-	Sound catEatingSound;
-	Sound catGrowlingSound;
 	Sound catMeowingSound;
 	Sound pointsSound;
 
 	public SoundEffects() {
-		catEatingSound = Gdx.audio.newSound(Gdx.files.internal("sounds/cat/cat-eating.ogg"));
-		catGrowlingSound = Gdx.audio.newSound(Gdx.files.internal("sounds/cat/cat-growls.mp3"));
 		catMeowingSound = Gdx.audio.newSound(Gdx.files.internal("sounds/cat/cat-meowing.mp3"));
 		pointsSound = Gdx.audio.newSound(Gdx.files.internal("sounds/points.mp3"));
-	}
-
-	public void playEatingSound() {
-		long soundID = catEatingSound.play();
-		catEatingSound.setVolume(soundID, 0.5f * volume);
-	}
-
-	public void playGrowlingSound() {
-		long soundID = catGrowlingSound.play();
-		catGrowlingSound.setVolume(soundID, 0.5f * volume);
 	}
 
 	public void playMeowSound() {
@@ -40,15 +26,11 @@ public class SoundEffects {
 	}
 	
 	public void stopAllSounds() {
-		catEatingSound.stop();
-		catGrowlingSound.stop();
 		catMeowingSound.stop();
 		pointsSound.stop();
 	}
 
 	public void dispose() {
-		catEatingSound.dispose();
-		catGrowlingSound.dispose();
 		catMeowingSound.dispose();
 		pointsSound.dispose();
 	}

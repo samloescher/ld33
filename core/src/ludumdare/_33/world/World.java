@@ -233,6 +233,7 @@ public class World {
 				player.score += p.value / 2;
 				preys.remove(p);
 				cat.hasFood = true;
+				GameScreen.soundEffects.playPointsSound();
 				return;
 			}
 		}

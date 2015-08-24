@@ -17,7 +17,6 @@ import ludumdare._33.world.Background;
 import ludumdare._33.world.World;
 import ludumdare._33.world.cat.Cat;
 import ludumdare._33.world.environment.HideableAreas;
-import ludumdare._33.world.environment.Platforms;
 
 public class GameScreen extends AbstractScreen {
 	
@@ -64,9 +63,9 @@ public class GameScreen extends AbstractScreen {
 
 		shapeRenderer.setColor(Color.RED);
 		shapeRenderer.setProjectionMatrix(camera.combined);
-		Platforms.draw(shapeRenderer);
+		//Platforms.draw(shapeRenderer);
 		HideableAreas.draw(shapeRenderer);
-		world.drawDebug(shapeRenderer);
+		//world.drawDebug(shapeRenderer);
 		
 		shapeRenderer.setProjectionMatrix(uiMatrix);
 		uiOverlay.drawDetectionMeter(shapeRenderer);
