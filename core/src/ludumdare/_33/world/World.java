@@ -23,6 +23,7 @@ import ludumdare._33.world.environment.hidables.SmallBushFruitGreen;
 import ludumdare._33.world.environment.hidables.SmallBushGreen;
 import ludumdare._33.world.human.Female;
 import ludumdare._33.world.human.Human;
+import ludumdare._33.world.human.Male;
 import ludumdare._33.world.prey.Bird;
 import ludumdare._33.world.prey.Chicken;
 import ludumdare._33.world.prey.Mouse;
