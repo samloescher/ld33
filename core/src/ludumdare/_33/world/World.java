@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 
 import ludumdare._33.MainGame;
-import ludumdare._33.particles.ParticleManager;
+import ludumdare._33.particles.BloodSplatterParticles;
 import ludumdare._33.world.cat.Cat;
 import ludumdare._33.world.environment.buildings.Building;
 import ludumdare._33.world.environment.buildings.Home;
@@ -28,12 +28,11 @@ public class World {
 	public static Rectangle bounds = new Rectangle(0, 0, 800f * 10f, 480f * 3f);
 	public float losePercent = 0f;
 	
-	ParticleManager particleManager;
+	BloodSplatterParticles bloodSplatterParticles;
 
 	public World() {
-		cat = new Cat();
-		particleManager = new ParticleManager();
-		
+		bloodSplatterParticles = new BloodSplatterParticles();
+		cat = new Cat(bloodSplatterParticles);
 		generateWorld();
 	}
 	
@@ -67,7 +66,7 @@ public class World {
 	public void update(float delta) {
 		cat.update(delta);
 		updateDetection(delta);
-		
+		bloodSplatterParticles.update(delta);
 		bird.update(delta);
 	}
 	
@@ -111,8 +110,7 @@ public class World {
 		bird.draw(batch);
 		mouse.draw(batch);
 		
-		particleManager.setBloodLocation(400, 280);
-		particleManager.drawBloodEffects(batch);
+		bloodSplatterParticles.drawBloodEffects(batch);
 	}
 
 	public void drawDebug(ShapeRenderer shapeRenderer) {

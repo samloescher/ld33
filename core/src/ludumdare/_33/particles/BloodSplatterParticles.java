@@ -4,12 +4,20 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class ParticleManager {
+public class BloodSplatterParticles {
 	public ParticleEffect particleEffect;
 
-	public ParticleManager() {
+	public BloodSplatterParticles() {
 		particleEffect = new ParticleEffect();
 		particleEffect.load(Gdx.files.internal("particles/blood/blood.p"), Gdx.files.internal("particles/blood"));
+	}
+	
+	public void addBloodSplatter(){
+		particleEffect.start();
+	}
+	
+	public void update(float delta){
+		particleEffect.update(delta);
 	}
 	
 	public void setBloodLocation(float x, float y) {
@@ -18,6 +26,8 @@ public class ParticleManager {
 
 	public void drawBloodEffects(SpriteBatch batch) {
 		particleEffect.draw(batch, Gdx.graphics.getDeltaTime());
-		particleEffect.start();
 	}
+	
+	
+	
 }
