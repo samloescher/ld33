@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
 
 import ludumdare._33.world.cat.Cat;
 import ludumdare._33.world.environment.buildings.Building;
@@ -15,7 +14,7 @@ import ludumdare._33.world.human.Human;
 
 public class World {
 
-	Cat cat;
+	public Cat cat;
 	ArrayList<Human> humans = new ArrayList<Human>();
 	ArrayList<Building> buildings = new ArrayList<Building>();
 	ArrayList<Foliage> foliage = new ArrayList<Foliage>();
@@ -57,6 +56,11 @@ public class World {
 		cat.update(delta);
 		for (Human h : humans) {
 			h.update(delta);
+			if(h.canSeeCat(cat)){
+				cat.hasFood = (true);
+			}else{
+				cat.hasFood = (false);
+			}
 		}
 	}
 
@@ -82,10 +86,6 @@ public class World {
 		for (Human h : humans) {
 			h.drawDebug(shapeRenderer);
 		}
-	}
-
-	public Vector2 getCatPosition() {
-		return new Vector2(cat.position).add(cat.width / 2, cat.height / 2);
 	}
 
 }

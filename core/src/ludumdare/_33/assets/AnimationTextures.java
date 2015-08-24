@@ -22,6 +22,12 @@ public class AnimationTextures {
 	public static ArrayList<TextureRegion> catRunningArray = new ArrayList<TextureRegion>();
 	public static ArrayList<TextureRegion> catJumpingArray = new ArrayList<TextureRegion>();
 	
+	static Texture catSittingFood;
+	static Texture catRunningFood;
+	public static ArrayList<TextureRegion> catSittingFoodArray = new ArrayList<TextureRegion>();
+	public static ArrayList<TextureRegion> catRunningFoodArray = new ArrayList<TextureRegion>();
+	public static ArrayList<TextureRegion> catJumpingFoodArray = new ArrayList<TextureRegion>();
+	
 	
 	static Texture maleStanding;
 	static Texture maleWalking;
@@ -39,6 +45,9 @@ public class AnimationTextures {
 		catSitting = new Texture("images/cat/cat-sitting.png");
 		catRunning = new Texture("images/cat/cat-running.png");
 		
+		catSittingFood = new Texture("images/cat/cat-with-food-sitting.png");
+		catRunningFood = new Texture("images/cat/cat-with-food-running.png");
+		
 		maleStanding = new Texture("images/human/male-standing.png");
 		maleWalking = new Texture("images/human/male-walking.png");
 	}
@@ -52,6 +61,16 @@ public class AnimationTextures {
 		}
 		for (int i = 0; i < 2; i++) {
 			catJumpingArray.add(new TextureRegion(catRunning, i * catWidth, 0, catWidth, catHeight));
+		}
+		
+		for (int i = 0; i < 2; i++) {
+			catSittingFoodArray.add(new TextureRegion(catSittingFood, i * catWidth, 0, catWidth, catHeight));
+		}
+		for (int i = 0; i < 6; i++) {
+			catRunningFoodArray.add(new TextureRegion(catRunningFood, i * catWidth, 0, catWidth, catHeight));
+		}
+		for (int i = 0; i < 2; i++) {
+			catJumpingFoodArray.add(new TextureRegion(catRunningFood, i * catWidth, 0, catWidth, catHeight));
 		}
 		
 		for (int i = 0; i < 4; i++) {
