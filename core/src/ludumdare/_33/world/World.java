@@ -149,8 +149,10 @@ public class World {
 		boolean visible = false;
 		for (Human h : humans) {
 			h.update(delta);
-			if (h.canSeeCat(cat) && cat.hasFood) {
-				visible = true;
+			if(!catIsBehindBush()){
+				if (h.canSeeCat(cat) && cat.hasFood) {
+					visible = true;
+				}	
 			}
 		}
 		if(visible == true){
@@ -182,6 +184,7 @@ public class World {
 		for(Prey p : preys){
 			if(p.bounds.overlaps(cat.bounds)){
 				player.currentCatchValue = p.value;
+				player.score+=p.value/2;
 				preys.remove(p);
 				cat.hasFood = true;
 				return ;
@@ -193,6 +196,15 @@ public class World {
 	boolean isCatHome(){
 		return home.doorBounds.overlaps(cat.bounds);
 	}
+	
+	boolean catIsBehindBush(){
+		for(Foliage f : foliage){
+			if(f.bounds.overlaps(cat.bounds)){
+				return true;
+			}
+		}
+		return false;
+	}
 
 	public void draw(SpriteBatch batch) {
 
@@ -201,7 +213,8 @@ public class World {
 		}
 
 		cat.draw(batch);
-
+		bloodSplatterParticles.drawBloodEffects(batch);
+		
 		for (Foliage f : foliage) {
 			f.draw(batch);
 		}
@@ -213,8 +226,6 @@ public class World {
 		for (Prey p : preys){
 			p.draw(batch);
 		}
-
-		bloodSplatterParticles.drawBloodEffects(batch);
 	}
 
 	public void drawDebug(ShapeRenderer shapeRenderer) {
