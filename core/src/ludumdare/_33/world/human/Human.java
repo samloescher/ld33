@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 
 import ludumdare._33.assets.AnimationTextures;
+import ludumdare._33.world.cat.Cat;
 
 public class Human {
 	
@@ -35,10 +36,14 @@ public class Human {
 		currentAnimation = walkingAnimation;
 		detectionArea = new DetectionTriangle();
 	}
+	
+	public boolean canSeeCat(Cat cat){
+		return detectionArea.canSeeCat(cat.getCatPosition());
+	}
 
 	public void update(float delta) {
 		currentAnimationTime += delta;
-		position.x += 0.2f;
+		position.x += 0.35f;
 		detectionArea.update(new Vector2(position.x + 15,position.y + 80), facingRight);
 		if(Gdx.input.isKeyPressed(Keys.N)){
 			facingRight = false;
@@ -60,7 +65,7 @@ public class Human {
 	void initialiseAnimations() {
 		standingAnimation = new Animation(0.02f, AnimationTextures.maleStandingArray.toArray(new TextureRegion[AnimationTextures.maleStandingArray.size()]));
 		standingAnimation.setPlayMode(PlayMode.LOOP);
-		walkingAnimation = new Animation(1f, AnimationTextures.maleWalkingArray.toArray(new TextureRegion[AnimationTextures.maleWalkingArray.size()]));
+		walkingAnimation = new Animation(0.4f, AnimationTextures.maleWalkingArray.toArray(new TextureRegion[AnimationTextures.maleWalkingArray.size()]));
 		walkingAnimation.setPlayMode(PlayMode.LOOP);
 	}
 }

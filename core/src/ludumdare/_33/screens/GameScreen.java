@@ -13,6 +13,7 @@ import ludumdare._33.input.InputManager;
 import ludumdare._33.ui.UIOverlay;
 import ludumdare._33.world.Background;
 import ludumdare._33.world.World;
+import ludumdare._33.world.cat.Cat;
 import ludumdare._33.world.environment.HideableAreas;
 
 public class GameScreen extends AbstractScreen {
@@ -23,21 +24,21 @@ public class GameScreen extends AbstractScreen {
 	UIOverlay uiOverlay;
 	Matrix4 uiMatrix;
 	
-	InputManager inputProcessing;
+	InputManager inputManager;
 
 	public GameScreen() {
 		world = new World();
 		background = new Background(camera);
 		uiOverlay = new UIOverlay();
 		uiMatrix = new Matrix4().setToOrtho2D(0, 0, 800, 480);
-		inputProcessing = new InputManager(uiOverlay);
-		Gdx.input.setInputProcessor(inputProcessing);
+		inputManager = new InputManager(uiOverlay);
+		Gdx.input.setInputProcessor(inputManager);
 	}
 
 	@Override
 	void update(float delta) {
 		world.update(delta);
-		focusCameraOnCat();
+		focusCameraOnCat(world.cat);
 		background.update();
 	}
 
@@ -69,8 +70,8 @@ public class GameScreen extends AbstractScreen {
 		AnimationTextures.dispose();
 	}
 
-	void focusCameraOnCat() {
-		Vector2 catPosition = world.getCatPosition();
+	void focusCameraOnCat(Cat cat) {
+		Vector2 catPosition = cat.getCatPosition();
 		float screenBuffer = 125;
 		
 		float maxX = camera.position.x + screenBuffer;

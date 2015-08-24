@@ -25,13 +25,18 @@ public class Cat {
 	Animation runningAnimation;
 	Animation jumpingAnimation;
 	
+	Animation sittingFoodAnimation;
+	Animation runningFoodAnimation;
+	Animation jumpingFoodAnimation;
+	
 	Animation currentAnimation;
 	float currentAnimationTime;
-	public Vector2 position;
+	Vector2 position;
 	Rectangle floorCheck = new Rectangle();
 	
 	CatState previousState = CatState.Sitting;
 	CatState currentState = CatState.Sitting;
+	public boolean hasFood = true;
 	boolean facingRight = true;
 	boolean onFloorOrPlatform;
 	
@@ -55,6 +60,10 @@ public class Cat {
 		clampToWorldBounds();
 		displacement.x = 0;
 		displacement.y = 0;
+	}
+	
+	public Vector2 getCatPosition() {
+		return new Vector2(position).cpy().add(width / 2, height / 2);
 	}
 
 	public void draw(SpriteBatch batch) {
@@ -119,16 +128,30 @@ public class Cat {
 		if(previousState != currentState){
 			currentAnimationTime = 0;
 		}
-		switch(currentState){
-		case Sitting:
-			currentAnimation = sittingAnimation;
-			break;
-		case Running:
-			currentAnimation = runningAnimation;
-			break;
-		case Jumping:
-			currentAnimation = jumpingAnimation;
-			break;
+		if (hasFood) {
+			switch (currentState) {
+			case Sitting:
+				currentAnimation = sittingFoodAnimation;
+				break;
+			case Running:
+				currentAnimation = runningFoodAnimation;
+				break;
+			case Jumping:
+				currentAnimation = jumpingFoodAnimation;
+				break;
+			}
+		} else {
+			switch (currentState) {
+			case Sitting:
+				currentAnimation = sittingAnimation;
+				break;
+			case Running:
+				currentAnimation = runningAnimation;
+				break;
+			case Jumping:
+				currentAnimation = jumpingAnimation;
+				break;
+			}
 		}
 	}
 	
@@ -156,6 +179,13 @@ public class Cat {
 		runningAnimation.setPlayMode(PlayMode.LOOP);
 		jumpingAnimation = new Animation(0.4f, AnimationTextures.catJumpingArray.toArray(new TextureRegion[AnimationTextures.catJumpingArray.size()]));
 		jumpingAnimation.setPlayMode(PlayMode.LOOP);
+		
+		sittingFoodAnimation = new Animation(0.5f, AnimationTextures.catSittingFoodArray.toArray(new TextureRegion[AnimationTextures.catSittingFoodArray.size()]));
+		sittingFoodAnimation.setPlayMode(PlayMode.LOOP);
+		runningFoodAnimation = new Animation(0.05f, AnimationTextures.catRunningFoodArray.toArray(new TextureRegion[AnimationTextures.catRunningFoodArray.size()]));
+		runningFoodAnimation.setPlayMode(PlayMode.LOOP);
+		jumpingFoodAnimation = new Animation(0.4f, AnimationTextures.catJumpingFoodArray.toArray(new TextureRegion[AnimationTextures.catJumpingFoodArray.size()]));
+		jumpingFoodAnimation.setPlayMode(PlayMode.LOOP);
 	}
 	
 	void updateFloorCheckBounds(){

@@ -9,9 +9,11 @@ import ludumdare._33.assets.StaticTextures;
 
 public class Background {
 	Sprite cloudsLeft;
+	Sprite cloudsCenter;
 	Sprite cloudsRight;
 	
 	Sprite hillsLeft;
+	Sprite hillsCenter;
 	Sprite hillsRight;
 	
 	Sprite moon;//TODO
@@ -38,32 +40,48 @@ public class Background {
 	}
 	
 	void adjustTexturePositionsToCoverScreen(){
-		int textureWidths;
+		int leftTexturePositionIndex;
+		float textureWidth;
+		float parallaxOffset;
 		
-		textureWidths = (int) (cameraViewport.x  / cloudsLeft.getWidth());
-		cloudsLeft.setPosition((textureWidths) * cloudsLeft.getWidth(), 40);
-		cloudsRight.setPosition((textureWidths + 1) * cloudsRight.getWidth(), 40);
+		textureWidth = cloudsLeft.getWidth();
+		parallaxOffset = (cameraViewport.x * 0.3f) % textureWidth;
 		
-		textureWidths = (int) (cameraViewport.x / hillsLeft.getWidth());
-		hillsLeft.setPosition((textureWidths) * hillsLeft.getWidth(), 0);
-		hillsRight.setPosition((textureWidths + 1) * hillsRight.getWidth(), 0);
+		leftTexturePositionIndex = (int) ((cameraViewport.x)  / textureWidth);
+		cloudsLeft.setPosition((leftTexturePositionIndex - 1) * textureWidth + parallaxOffset, 40);
+		cloudsCenter.setPosition((leftTexturePositionIndex) * textureWidth + parallaxOffset, 40);
+		cloudsRight.setPosition((leftTexturePositionIndex + 1) * textureWidth + parallaxOffset, 40);
+		
+		textureWidth = hillsLeft.getWidth();
+		parallaxOffset = (cameraViewport.x * 0.25f) % textureWidth;
+		
+		leftTexturePositionIndex = (int) (cameraViewport.x / textureWidth);
+		hillsLeft.setPosition((leftTexturePositionIndex - 1) * textureWidth + parallaxOffset, 0);
+		hillsCenter.setPosition((leftTexturePositionIndex) * textureWidth + parallaxOffset, 0);
+		hillsRight.setPosition((leftTexturePositionIndex + 1) * textureWidth + parallaxOffset, 0);
 	}
 	
 	public void draw(SpriteBatch batch){
 		cloudsLeft.draw(batch);
+		cloudsCenter.draw(batch);
 		cloudsRight.draw(batch);
 		hillsLeft.draw(batch);
+		hillsCenter.draw(batch);
 		hillsRight.draw(batch);
 	}
 	
 	void assignSprites(){
 		cloudsLeft = new Sprite(StaticTextures.clouds);
+		cloudsCenter = new Sprite(StaticTextures.clouds);
 		cloudsRight = new Sprite(StaticTextures.clouds);
 		cloudsLeft.setColor(0.1f, 0.1f, 0.4f, 1f);
+		cloudsCenter.setColor(0.1f, 0.1f, 0.4f, 1f);
 		cloudsRight.setColor(0.1f, 0.1f, 0.4f, 1f);
 		hillsLeft = new Sprite(StaticTextures.hills);
+		hillsCenter = new Sprite(StaticTextures.hills);
 		hillsRight = new Sprite(StaticTextures.hills);
 		hillsLeft.setColor(0, 0.4f, 0, 1f);
+		hillsCenter.setColor(0, 0.4f, 0, 1f);
 		hillsRight.setColor(0, 0.4f, 0, 1f);
 	}
 	
