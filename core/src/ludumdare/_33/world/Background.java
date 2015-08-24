@@ -1,10 +1,11 @@
 package ludumdare._33.world;
 
-import java.util.Random;
+import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 
 import ludumdare._33.assets.StaticTextures;
@@ -24,6 +25,8 @@ public class Background {
 	Rectangle cameraViewport = new Rectangle();
 	OrthographicCamera camera;
 	
+	ArrayList<Star> starsArray = new ArrayList<Star>();
+	
 	public Background(OrthographicCamera camera) {
 		this.camera = camera;
 		assignSprites();
@@ -34,7 +37,9 @@ public class Background {
 		updateCameraViewportBounds();
 		adjustTexturePositionsToCoverScreen();
 		
-		star.update(delta);
+		for (Star s : starsArray) {
+			s.update(delta);
+		}
 	}
 	
 	private void updateCameraViewportBounds(){
@@ -67,13 +72,15 @@ public class Background {
 	}
 	
 	public void draw(SpriteBatch batch){
+		for (Star s : starsArray) {
+			s.draw(batch);
+		}
 		cloudsLeft.draw(batch);
 		cloudsCenter.draw(batch);
 		cloudsRight.draw(batch);
 		hillsLeft.draw(batch);
 		hillsCenter.draw(batch);
 		hillsRight.draw(batch);
-		star.draw(batch);
 	}
 	
 	private void assignSprites(){
@@ -92,16 +99,12 @@ public class Background {
 	}
 	
 	private void generateStars() {
-		for (int i = 0; i < 1; i++) {
-			int randomSize = randInt(7,50);
-			star = new Star(randomSize, randomSize, 10, 400);
+		for (int i = 0; i < 25; i++) {
+			int randomSize = MathUtils.random(7, 14);
+			int randomX = MathUtils.random(0, 800);
+			int randomY = MathUtils.random(50, 480);
+			star = new Star(randomSize, randomSize, randomX, randomY);
+			starsArray.add(star);
 		}
 	}
-	
-	private int randInt(int min, int max) {
-		Random rand = new Random();
-		int randomNum = rand.nextInt((max - min) + 1) + min;
-		return randomNum;
-	}
-	
 }
