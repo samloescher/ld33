@@ -42,6 +42,11 @@ public class AnimationTextures {
 	static Texture maleWalking;
 	public static TextureRegion maleStandingArray[];
 	public static TextureRegion maleWalkingArray[];
+	
+	static Texture femaleStanding;
+	static Texture femaleWalking;
+	public static TextureRegion femaleStandingArray[];
+	public static TextureRegion femaleWalkingArray[];
 
 	static Texture birdFlying;
 	public static TextureRegion birdFlyingArray[];
@@ -69,6 +74,9 @@ public class AnimationTextures {
 
 		maleStanding = new Texture("images/human/male-standing.png");
 		maleWalking = new Texture("images/human/male-walking.png");
+		
+		femaleStanding = new Texture("images/human/female-standing.png");
+		femaleWalking = new Texture("images/human/female-walking.png");
 
 		birdFlying = new Texture("images/bird/bird-flying.png");
 		
@@ -90,6 +98,9 @@ public class AnimationTextures {
 		
 		maleStandingArray = getAnimationTextureRegionArray(maleStanding, 4);
 		maleWalkingArray = getAnimationTextureRegionArray(maleWalking, 4);
+		
+		femaleStandingArray = getAnimationTextureRegionArray(femaleStanding, 4);
+		femaleWalkingArray = getAnimationTextureRegionArray(femaleWalking, 4);
 
 		birdFlyingArray = getAnimationTextureRegionArray(birdFlying, 5);
 		
@@ -123,6 +134,8 @@ public class AnimationTextures {
 		catRunningFood.dispose();
 		maleStanding.dispose();
 		maleWalking.dispose();
+		femaleStanding.dispose();
+		femaleWalking.dispose();
 		birdFlying.dispose();
 		mouseWalking.dispose();
 		chickenWalking.dispose();

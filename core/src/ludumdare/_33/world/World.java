@@ -15,7 +15,9 @@ import ludumdare._33.world.environment.buildings.Building;
 import ludumdare._33.world.environment.buildings.Church;
 import ludumdare._33.world.environment.buildings.Home;
 import ludumdare._33.world.environment.hidables.Foliage;
+import ludumdare._33.world.human.Female;
 import ludumdare._33.world.human.Human;
+import ludumdare._33.world.human.Male;
 import ludumdare._33.world.prey.Bird;
 import ludumdare._33.world.prey.Chicken;
 import ludumdare._33.world.prey.Mouse;
@@ -54,13 +56,14 @@ public class World {
 	}
 
 	private void addFoliage() {
-		for(int i = 0; i < 10; i++){
-			
+		for (int i = 0; i < 10; i++) {
+
 		}
 	}
 
 	private void addHumans() {
-		//humans.add(new Man(500, 1000));
+//		humans.add(new Male(500, 1000));
+//		humans.add(new Female(500, 1000));
 	}
 
 	private void addPrey() {
