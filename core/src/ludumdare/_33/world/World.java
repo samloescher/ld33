@@ -33,13 +33,13 @@ import ludumdare._33.world.prey.Mouse;
 public class World {
 
 	public Cat cat;
-	public Bird bird;
 	public Mouse mouse;
 	public Chicken chicken;
 	Home home;
 	ArrayList<Human> humans = new ArrayList<Human>();
 	ArrayList<Building> buildings = new ArrayList<Building>();
 	ArrayList<Foliage> foliage = new ArrayList<Foliage>();
+	ArrayList<Bird> birds = new ArrayList<Bird>();
 
 	public static Rectangle bounds = new Rectangle(0, 0, 800f * 10f, 480f * 3f);
 	public float losePercent = 0f;
@@ -114,7 +114,18 @@ public class World {
 	}
 
 	private void addPrey() {
-		bird = new Bird(10);
+		birds.add(new Bird(10, 400, 400));
+		birds.add(new Bird(250, 800, 450));
+		birds.add(new Bird(400, 600, 400));
+		birds.add(new Bird(700, 900, 440));
+		birds.add(new Bird(1000, 1400, 400));
+		birds.add(new Bird(1270, 1900, 400));
+		birds.add(new Bird(2000, 2900, 400));
+		birds.add(new Bird(2600, 4500, 450));
+		birds.add(new Bird(5000, 7000, 400));
+		birds.add(new Bird(6500, 7500, 450));
+		birds.add(new Bird(7000, 8000, 440));
+		
 		mouse = new Mouse(10);
 		chicken = new Chicken(100);
 	}
@@ -133,7 +144,10 @@ public class World {
 			}
 		}
 		bloodSplatterParticles.update(delta);
-		bird.update(delta);
+		
+		for (Bird b : birds){
+			b.update(delta);
+		}
 	}
 
 	float loseTimer = 0f;
@@ -160,7 +174,9 @@ public class World {
 	}
 
 	private void updatePrey(float delta) {
-		bird.update(delta);
+		for (Bird b : birds){
+			b.update(delta);
+		}
 		mouse.update(delta);
 		chicken.update(delta);
 	}
@@ -189,7 +205,9 @@ public class World {
 			h.draw(batch);
 		}
 
-		bird.draw(batch);
+		for (Bird b : birds){
+			b.draw(batch);
+		}
 		mouse.draw(batch);
 		chicken.draw(batch);
 

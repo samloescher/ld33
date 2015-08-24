@@ -22,9 +22,9 @@ public class Bird extends Prey{
 
 	boolean facingRight = true;
 
-	public Bird(int x) {
+	public Bird(int x1, int x2, int y) {
 		this.points = 50;
-		position = new Vector2(x, 400);
+		position = new Vector2(x1, y);
 		initialiseAnimations();
 		bounds = new Rectangle(position.x, position.y, width, height);
 	}
