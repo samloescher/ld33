@@ -18,6 +18,9 @@ public class AnimationTextures {
 
 	static int birdWidth = 31;
 	static int birdHeight = 32;
+	
+	static int mouseWidth = 72;
+	static int mouseHeight = 61;
 
 	static Texture catSitting;
 	static Texture catRunning;
@@ -38,6 +41,9 @@ public class AnimationTextures {
 
 	static Texture birdFlying;
 	public static ArrayList<TextureRegion> birdFlyingArray = new ArrayList<TextureRegion>();
+	
+	static Texture mouseWalking;
+	public static ArrayList<TextureRegion> mouseWalkingArray = new ArrayList<TextureRegion>();
 
 	static {
 		loadAllTextures();
@@ -55,6 +61,8 @@ public class AnimationTextures {
 		maleWalking = new Texture("images/human/male-walking.png");
 
 		birdFlying = new Texture("images/bird/bird-flying.png");
+		
+		mouseWalking = new Texture("images/mouse/mouse-walking.png");
 	}
 
 	public static void initialiseAnimationArrays() {
@@ -88,6 +96,10 @@ public class AnimationTextures {
 		for (int i = 0; i < 5; i++) {
 			birdFlyingArray.add(new TextureRegion(birdFlying, i * birdWidth, 0, birdWidth, birdHeight));
 		}
+		
+		for (int i = 0; i < 5; i++) {
+			mouseWalkingArray.add(new TextureRegion(mouseWalking, i * mouseWidth, 0, mouseWidth, mouseHeight));
+		}
 	}
 
 	public static void dispose() {
@@ -96,6 +108,7 @@ public class AnimationTextures {
 		maleStanding.dispose();
 		maleWalking.dispose();
 		birdFlying.dispose();
+		mouseWalking.dispose();
 	}
 
 }

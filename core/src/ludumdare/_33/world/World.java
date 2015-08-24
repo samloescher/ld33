@@ -12,11 +12,13 @@ import ludumdare._33.world.environment.buildings.Home;
 import ludumdare._33.world.environment.hidables.Foliage;
 import ludumdare._33.world.human.Human;
 import ludumdare._33.world.prey.Bird;
+import ludumdare._33.world.prey.Mouse;
 
 public class World {
 
 	public Cat cat;
 	public Bird bird;
+	public Mouse mouse;
 	ArrayList<Human> humans = new ArrayList<Human>();
 	ArrayList<Building> buildings = new ArrayList<Building>();
 	ArrayList<Foliage> foliage = new ArrayList<Foliage>();
@@ -52,6 +54,7 @@ public class World {
 	
 	void addPrey(){
 		bird = new Bird(10);
+		mouse = new Mouse(10);
 	}
 
 	public void update(float delta) {
@@ -65,6 +68,7 @@ public class World {
 			}
 		}
 		bird.update(delta);
+		mouse.update(delta);
 	}
 
 	public void draw(SpriteBatch batch) {
@@ -84,6 +88,7 @@ public class World {
 		}
 		
 		bird.draw(batch);
+		mouse.draw(batch);
 	}
 
 	public void drawDebug(ShapeRenderer shapeRenderer) {
